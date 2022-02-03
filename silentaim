@@ -1,4 +1,5 @@
 -- not mine and i forgot where i found it
+-- i have it here cus i changed the fov and wanted to use it as a loadstring
 
 _G.Prediction =  (  .18  )
 
