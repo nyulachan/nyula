@@ -4,6 +4,7 @@ _G.AimKey =  (  "e"  )
 
 _G.HideKey = (  "]"  )
 
+_G.FOV = ( game:GetService("CoreGui").dpontop.toppabar.aimtabfrm.silentaim2frm.inputtedfov )
 --[[
 	Do not edit anything under this.
 ]]
