@@ -22,7 +22,7 @@ end)
 workspace:WaitForChild("Core")
 
 local torso = workspace.Core
-flying = true
+flying = false
 local speed=10
 local keys={a=false,d=false,w=false,s=false}
 local e1
