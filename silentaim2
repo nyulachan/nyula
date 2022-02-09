@@ -1,12 +1,8 @@
--- not mine and i forgot where i found it
--- i have it here cus i changed the fov and wanted to use it as a loadstring
-
 _G.Prediction =  (  .12  )
-
-_G.FOV =  (  180  )
 
 _G.AimKey =  (  "e"  )
 
+_G.HideKey = (  "]"  )
 
 --[[
 	Do not edit anything under this.
@@ -53,6 +49,16 @@ Mouse.KeyDown:Connect(function(KeyPressed)
 		elseif SilentAim == true then
 			FOV_CIRCLE.Color = Color3.new(1, 0, 0)
 			SilentAim = false
+		end
+	end
+end)
+
+Mouse.KeyDown:Connect(function(KeyPressed)
+	if KeyPressed == (_G.HideKey:lower()) then
+    if FOV_CIRCLE.Transparency == 1 then
+        FOV_CIRCLE.Transparency = 0
+    elseif FOV_CIRCLE.Transparency == 0 then
+        FOV_CIRCLE.Transparency = 1
 		end
 	end
 end)
