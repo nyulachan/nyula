@@ -1,0 +1,48 @@
+
+
+_G.penistoucher = true
+while _G.penistoucher do
+    wait()
+    if game:GetService('Players').LocalPlayer.Character.BodyEffects["K.O"].Value == true then
+        
+local x = game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.CFrame
+
+        
+        
+        
+        
+        
+        for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+     if v:IsA'Tool' then
+          v.Parent = game.Players.LocalPlayer.Backpack;
+     end;
+end;
+        
+        
+        
+        
+        
+        
+game:GetService('Players').LocalPlayer.Character.Head:Destroy()
+game:GetService('Players').LocalPlayer.Character.RightHand:Destroy()
+game:GetService('Players').LocalPlayer.Character.LeftLowerArm:Destroy()
+game:GetService('Players').LocalPlayer.Character.RightLowerArm:Destroy()
+game:GetService('Players').LocalPlayer.Character.LeftUpperArm:Destroy()
+game:GetService('Players').LocalPlayer.Character.RightUpperArm:Destroy()
+game:GetService('Players').LocalPlayer.Character.LowerTorso:Destroy()
+game:GetService('Players').LocalPlayer.Character.LeftFoot:Destroy()
+game:GetService('Players').LocalPlayer.Character.LeftLowerLeg:Destroy()
+game:GetService('Players').LocalPlayer.Character.LeftUpperLeg:Destroy()
+game:GetService('Players').LocalPlayer.Character.RightFoot:Destroy()
+game:GetService('Players').LocalPlayer.Character.RightLowerLeg:Destroy()
+game:GetService('Players').LocalPlayer.Character.UpperTorso:Destroy()
+game:GetService('Players').LocalPlayer.Character.RightUpperLeg:Destroy()
+game:GetService('Players').LocalPlayer.Character.LeftHand:Destroy()
+wait(8)
+
+game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.CFrame = x
+
+
+end
+
+end
