@@ -1,5 +1,5 @@
 local prefix = 'p'
-admin1 = 'hellb9y'
+admin1 = 'basicklys'
 
 
 function GetPlayer(String)
