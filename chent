@@ -1,6 +1,0 @@
-game:GetService("UserInputService").InputBegan:Connect(function(Key,IsChat)
-if IsChat then return end -- Just returning if it was pressed while chatting.
-if Key.KeyCode == Enum.KeyCode.J then
-game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("ur lieing", "All")
-end
-end)
