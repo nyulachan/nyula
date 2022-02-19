@@ -1,5 +1,0 @@
-_G.autostomp = true
-while _G.autostomp do
-wait()
-game:GetService("ReplicatedStorage").MainEvent:FireServer("Stomp")
-end
