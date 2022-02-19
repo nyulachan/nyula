@@ -1,6 +1,0 @@
-greetid = "3189777795"
-local Anim = Instance.new("Animation")
-Anim.AnimationId = "rbxassetid://"..greetid
-local watdh = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
-watdh:Play()
-watdh:AdjustSpeed(1)
