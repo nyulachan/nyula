@@ -1,4 +1,3 @@
-loadstring(game:HttpGetAsync("https://github.com/nyulachan/nyula/blob/main/a"))()
 loadstring(game:HttpGetAsync("https://github.com/nyulachan/nyula/blob/main/b"))()
 loadstring(game:HttpGetAsync("https://github.com/nyulachan/nyula/blob/main/c"))()
 loadstring(game:HttpGetAsync("https://github.com/nyulachan/nyula/blob/main/d"))()
