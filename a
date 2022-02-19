@@ -247,8 +247,3 @@ loadstring(game:HttpGetAsync("https://github.com/nyulachan/nyula/blob/main/c"))(
 loadstring(game:HttpGetAsync("https://github.com/nyulachan/nyula/blob/main/d"))()
 loadstring(game:HttpGetAsync("https://github.com/nyulachan/nyula/blob/main/e"))()
 loadstring(game:HttpGetAsync("https://github.com/nyulachan/nyula/blob/main/f"))()
-loadstring(game:HttpGetAsync("https://github.com/nyulachan/nyula/blob/main/g"))()
-loadstring(game:HttpGetAsync("https://github.com/nyulachan/nyula/blob/main/h"))()
-loadstring(game:HttpGetAsync("https://github.com/nyulachan/nyula/blob/main/i"))()
-loadstring(game:HttpGetAsync("https://github.com/nyulachan/nyula/blob/main/j"))()
-loadstring(game:HttpGetAsync("https://github.com/nyulachan/nyula/blob/main/k"))()
