@@ -1,0 +1,77 @@
+--[[
+function findmurder()
+    for i,v in pairs(game.Players:GetPlayers()) do 
+        if v.Backpack:FindFirstChild("Knife") or v.Character:FindFirstChild("Knife") then
+            return v.Character.HumanoidRootPart.Position
+        end
+    end
+    return nil
+end
+
+
+function findsheriff()
+    for i,v in pairs(game.Players:GetPlayers()) do 
+        if v.Backpack:FindFirstChild("Gun") or v.Character:FindFirstChild("Gun") then
+            return v.Name
+         end
+    end
+     return nil
+end
+
+local murderer = findmurder()
+local sheriff = findsheriff()
+--]]
+
+--print(murderer)
+--print(sheriff)
+
+local enabled = true 
+local placemarker2 = Instance.new("Part", game.Workspace)
+local guimain2 = Instance.new("Folder", game.CoreGui)
+local CC2 = game:GetService'Workspace'.CurrentCamera
+local Plr
+
+function makemarker2(Parent2, Adornee2, Color2, Size22, Size222)
+    local e2 = Instance.new("BillboardGui", Parent2)
+    e2.Name = "PP2"
+    e2.Adornee = Adornee2
+    e2.Size = UDim2.new(Size22, Size222, Size22, Size222)
+    e2.AlwaysOnTop = true
+    local a2 = Instance.new("Frame", e2)
+    a2.Size = UDim2.new(1, 0, 1, 0)
+    a2.BackgroundTransparency = 0.4
+    a2.BackgroundColor3 = Color2
+    local g2 = Instance.new("UICorner", a2)
+    g2.CornerRadius = UDim.new(30, 30)
+    return(e2)
+end
+
+spawn(function()
+    placemarker2.Anchored = true
+    placemarker2.CanCollide = false
+    placemarker2.Size = Vector3.new(0.1, 0.1, 0.1)
+    placemarker2.Transparency = 10
+    makemarker2(placemarker2, placemarker2, Color3.fromRGB(0, 0, 255), 0.55, 0)
+end)
+
+
+
+game:GetService"RunService".Stepped:connect(function()
+
+
+function findsheriff()
+    for i,v in pairs(game.Players:GetPlayers()) do 
+        if v.Backpack:FindFirstChild("Gun") or v.Character:FindFirstChild("Gun") then
+            return v.Character.HumanoidRootPart.Position
+         end
+    end
+     return nil
+end
+
+local sheriff = findsheriff()
+		if enabled then
+			placemarker2.CFrame = CFrame.new(sheriff)
+		else
+			placemarker2.CFrame = CFrame.new(0, 9999, 0)
+		end
+end)
