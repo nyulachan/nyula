@@ -1,5 +1,7 @@
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+if v.Name == "hellb9y" then
 local prefix = 'p'
-admin1 = 'hellb9y'
+admin1 = tostring(v.Name)
 
 
 function GetPlayer(String)
@@ -241,4 +243,7 @@ oldnamecall = hookmetamethod(game, "__namecall", newcclosure(function(self, ...)
     end
     return oldnamecall(self, ...)
 end))
+
+end
+end
 
