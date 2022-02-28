@@ -616,7 +616,7 @@ function Library:create(options)
 		Position = UDim2.new(0, 26, 0.5, 0),
 		BackgroundTransparency = 1,
 		Size = UDim2.new(1, -30, .6, 0),
-		Text = "Da Purgatory Gui On Top",
+		Text = options.Link .. "/home",
 		Theme = {TextColor3 = "WeakText"},
 		TextSize = 14,
 		TextScaled = false,
@@ -741,7 +741,7 @@ function Library:create(options)
 			selectedTab = homeButton
 			homePage.Visible = true
 			homeButton.BackgroundTransparency = 0
-			Library.UrlLabel.Text = Library.Url .. "/home"
+			Library.UrlLabel.Text = "Ur lieing"
 		end)
 	end
 
