@@ -923,7 +923,7 @@ function Library:create(options)
 	creditsTab:credit{Name = "Vanis", Description = "Obfuscator", Discord = "WeirdLetter", V3rmillion = "idk"}
 	creditsTab:credit{Name = "Genji", Description = "Whitelist", Discord = "genji#8686", V3rmillion = "idk"}
     creditsTab:credit{Name = "Hailey", Description = "Genji's GF", Discord = "hailey#1337", V3rmillion = "idk"}
-    creditsTab:credit{Name = "DP", Description = "Owner of Discord.gg/DaPurgatory", Discord = "Abstract#8007", V3rmillion = "idk"}
+    creditsTab:credit{Name = "DP", Description = "Owner of Discord.gg/DaPurgatory", Discord = "dp#0024", V3rmillion = "idk"}
 	creditsTab:credit{Name = "Abstract", Description = "UI Library Developer", Discord = "Abstract#8007", V3rmillion = "AbstractPoo"}
 	creditsTab:credit{Name = "Deity", Description = "UI Library Developer", Discord = "Deity#0228", V3rmillion = "0xDEITY"}
 
