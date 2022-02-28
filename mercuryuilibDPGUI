@@ -274,7 +274,7 @@ function Library:object(class, properties)
 				TextColor3 = {"WeakText"}
 			},
 			TextSize = 16,
-			Text = "first text",
+			Text = text,
 			Position = UDim2.new(0.5, 0, 0, -8),
 			TextXAlignment = Enum.TextXAlignment.Center,
 			TextYAlignment = Enum.TextYAlignment.Center,
@@ -616,7 +616,7 @@ function Library:create(options)
 		Position = UDim2.new(0, 26, 0.5, 0),
 		BackgroundTransparency = 1,
 		Size = UDim2.new(1, -30, .6, 0),
-		Text = options.Link .. "/home",
+		Text = "Da Purgatory Gui On Top",
 		Theme = {TextColor3 = "WeakText"},
 		TextSize = 14,
 		TextScaled = false,
