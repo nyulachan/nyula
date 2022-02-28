@@ -432,7 +432,7 @@ function Library:create(options)
 	end
 
 	options = self:set_defaults({
-		Name = "Mercury",
+		Name = "Da Purgatory GUI",
 		Size = UDim2.fromOffset(600, 400),
 		Theme = self.Themes[settings.Theme],
 		Link = "discord.gg/DaPurgatory"
@@ -918,7 +918,12 @@ function Library:create(options)
 	})
 
 	rawset(mt, "creditsContainer", creditsTab.container)
-
+	
+	creditsTab:credit{Name = "Basic", Description = "Main Developer", Discord = "impede#5664", V3rmillion = "nyula"}
+	creditsTab:credit{Name = "Vanis", Description = "Obfuscator", Discord = "WeirdLetter", V3rmillion = "idk"}
+	creditsTab:credit{Name = "Genji", Description = "Whitelist", Discord = "genji#8686", V3rmillion = "idk"}
+    creditsTab:credit{Name = "Hailey", Description = "Genji's GF", Discord = "hailey#1337", V3rmillion = "idk"}
+    creditsTab:credit{Name = "DP", Description = "Owner of Discord.gg/DaPurgatory", Discord = "Abstract#8007", V3rmillion = "idk"}
 	creditsTab:credit{Name = "Abstract", Description = "UI Library Developer", Discord = "Abstract#8007", V3rmillion = "AbstractPoo"}
 	creditsTab:credit{Name = "Deity", Description = "UI Library Developer", Discord = "Deity#0228", V3rmillion = "0xDEITY"}
 
