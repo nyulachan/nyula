@@ -274,7 +274,7 @@ function Library:object(class, properties)
 				TextColor3 = {"WeakText"}
 			},
 			TextSize = 16,
-			Text = "first text",
+			Text = text,
 			Position = UDim2.new(0.5, 0, 0, -8),
 			TextXAlignment = Enum.TextXAlignment.Center,
 			TextYAlignment = Enum.TextYAlignment.Center,
