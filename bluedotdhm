@@ -1,8 +1,8 @@
 local CC = game:GetService'Workspace'.CurrentCamera
 local Plr
 local enabled = false
-local accomidationfactor = 0.182
-local airshotaccomidation = 0.182
+local accomidationfactor = 0.185
+local airshotaccomidation = 0.185
 local mouse = game.Players.LocalPlayer:GetMouse()
 local placemarker = Instance.new("Part", game.Workspace)
 placemarker.Name = "givemeyourdhm"
