@@ -3,10 +3,8 @@ if IsChat then return end
 if Key.KeyCode == Enum.KeyCode.B then
 if game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored == false then
 game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
-
-
 elseif game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored == true then
-game.Workspace.FakeLagFolder.HumanoidRootPart.Transparency = 1
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
 end
 end
 end)
