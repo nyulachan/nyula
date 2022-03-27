@@ -1195,7 +1195,7 @@ function tab:CreateSector(name,side)
         slider.Gradient.Color = ColorSequence.new({ ColorSequenceKeypoint.new(0.00, Color3.fromRGB(49, 49, 49)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(41, 41, 41)) })
 
         slider.SlideBar = Instance.new("Frame", slider.Main)
-        slider.SlideBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255) --Color3.fromRGB(204, 0, 102)
+        slider.SlideBar.BackgroundColor3 = Color3.fromRGB(100, 31, 191) --Color3.fromRGB(204, 0, 102)
         slider.SlideBar.ZIndex = 5
         slider.SlideBar.BorderSizePixel = 0
         slider.SlideBar.Size = UDim2.fromOffset(0, slider.Main.Size.Y.Offset)
