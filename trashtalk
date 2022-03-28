@@ -1,0 +1,39 @@
+game:GetService("UserInputService").InputBegan:Connect(function(Key,IsChat)
+if IsChat then return end -- stops script if your chatting to prevent the gui opening when typing
+if Key.KeyCode == Enum.KeyCode.H then
+
+local trashtalk1 = "seeded, get out of my game"
+local trashtalk2 = "you're my son"
+local trashtalk3 = "sit down doggy 🐶🐶"
+local trashtalk4 = "get good, get nyula"
+local trashtalk5 = "keep hugging the ground son"
+local trashtalk6 = "wake up lil boy"
+local trashtalk7 = "aye bruh im over here"
+local trashtalk8 = "cope"
+local trashtalk9 = "get known"
+local trashtalk10 = "go back to bloxburg"
+
+de = math.random(0,10)
+if de == 1 then
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(trashtalk1, "All")
+elseif de == 2 then
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(trashtalk2,"All")
+elseif de == 3 then
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(trashtalk3,"All")
+elseif de == 4 then
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(trashtalk4,"All")
+elseif de == 5 then
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(trashtalk5,"All")
+elseif de == 6 then
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(trashtalk6,"All")
+elseif de == 7 then
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(trashtalk7,"All")
+elseif de == 8 then
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(trashtalk8,"All")
+elseif de == 9 then
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(trashtalk9,"All")
+elseif de == 10 then
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(trashtalk10,"All")
+end
+end
+end)
