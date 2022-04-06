@@ -794,7 +794,7 @@ function library:saveconfig()
 		end
 	end
 	--
-	return game:service'HttpService':JSONEncode(JSON)
+	return game:service'HttpService':JSONEncode(cfg)
 end
 --
 function library:loadconfig(cfg)
