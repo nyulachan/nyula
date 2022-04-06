@@ -4567,6 +4567,7 @@ function sections:configloader(props)
 	--
 	load[3].MouseButton1Down:Connect(function()
 		self.library:loadconfig(folder.."/"..selected.name..".cfg")
+		print("load")
 		load[2].BorderColor3 = self.library.theme.accent
 		wait(0.05)
 		load[2].BorderColor3 = Color3.fromRGB(12,12,12)
@@ -4574,6 +4575,7 @@ function sections:configloader(props)
 	--
 	delete[3].MouseButton1Down:Connect(function()
 		delfile(folder.."/"..selected.name..".cfg")
+		print("delfile")
 		delete[2].BorderColor3 = self.library.theme.accent
 		wait(0.05)
 		delete[2].BorderColor3 = Color3.fromRGB(12,12,12)
@@ -4583,6 +4585,7 @@ function sections:configloader(props)
 	--
 	save[3].MouseButton1Down:Connect(function()
 		writefile(folder.."/"..selected.name..".cfg", self.library:saveconfig())
+		print("save")
 		save[2].BorderColor3 = self.library.theme.accent
 		wait(0.05)
 		save[2].BorderColor3 = Color3.fromRGB(12,12,12)
@@ -4592,6 +4595,7 @@ function sections:configloader(props)
 	--
 	create[3].MouseButton1Down:Connect(function()
 		writefile(folder.."/"..currentname..".cfg", self.library:saveconfig())
+		print("create")
 		create[2].BorderColor3 = self.library.theme.accent
 		wait(0.05)
 		create[2].BorderColor3 = Color3.fromRGB(12,12,12)
