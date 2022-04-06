@@ -1643,7 +1643,7 @@ function sections:toggle(props)
 	--
 	if pointer then
 		if self.pointers then
-			self.pointers[tostring(pointer)] = toggle
+			self.pointers[tostring(pointer)] = toggle.pointers
 		end
 	end
 	--
@@ -1972,7 +1972,7 @@ function sections:slider(props)
 	--
 	if pointer then
 		if self.pointers then
-			self.pointers[tostring(pointer)] = slider
+			self.pointers[tostring(pointer)] = slider.pointers
 		end
 	end
 	--
@@ -2322,7 +2322,7 @@ function sections:dropdown(props)
 	--
 	if pointer then
 		if self.pointers then
-			self.pointers[tostring(pointer)] = dropdown
+			self.pointers[tostring(pointer)] = dropdown.pointers
 		end
 	end
 	--
@@ -2567,7 +2567,7 @@ function sections:buttonbox(props)
 	--
 	if pointer then
 		if self.pointers then
-			self.pointers[tostring(pointer)] = buttonbox
+			self.pointers[tostring(pointer)] = buttonbox.pointers
 		end
 	end
 	--
@@ -2904,7 +2904,7 @@ function sections:multibox(props)
 	--
 	if pointer then
 		if self.pointers then
-			self.pointers[tostring(pointer)] = multibox
+			self.pointers[tostring(pointer)] = multibox.pointers
 		end
 	end
 	--
@@ -3109,7 +3109,7 @@ function sections:textbox(props)
 	--
 	if pointer then
 		if self.pointers then
-			self.pointers[tostring(pointer)] = textbox
+			self.pointers[tostring(pointer)] = textbox.pointers
 		end
 	end
 	--
@@ -3349,7 +3349,7 @@ function sections:keybind(props)
 	--
 	if pointer then
 		if self.pointers then
-			self.pointers[tostring(pointer)] = keybind
+			self.pointers[tostring(pointer)] = keybind.pointers
 		end
 	end
 	--
@@ -4034,7 +4034,7 @@ function sections:colorpicker(props)
 	--
 	if pointer then
 		if self.pointers then
-			self.pointers[tostring(pointer)] = colorpicker
+			self.pointers[tostring(pointer)] = colorpicker.pointers
 		end
 	end
 	--
@@ -4582,7 +4582,7 @@ function sections:configloader(props)
 	end)
 	--
 	save[3].MouseButton1Down:Connect(function()
-		writefile(folder.."/"..selected.name..".cfg", tostring(self.library:saveconfig()))
+		writefile(folder.."/"..selected.name..".cfg", self.library:saveconfig())
 		save[2].BorderColor3 = self.library.theme.accent
 		wait(0.05)
 		save[2].BorderColor3 = Color3.fromRGB(12,12,12)
@@ -4591,7 +4591,7 @@ function sections:configloader(props)
 	end)
 	--
 	create[3].MouseButton1Down:Connect(function()
-		writefile(folder.."/"..currentname..".cfg", tostring(self.library:saveconfig()))
+		writefile(folder.."/"..currentname..".cfg", self.library:saveconfig())
 		create[2].BorderColor3 = self.library.theme.accent
 		wait(0.05)
 		create[2].BorderColor3 = Color3.fromRGB(12,12,12)
