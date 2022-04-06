@@ -1639,6 +1639,7 @@ function sections:toggle(props)
 	end)
 	--
 	local pointer = props.pointer or props.Pointer or props.pointername or props.Pointername or props.PointerName or props.pointerName or nil
+	print(tostring(pointer))
 	--
 	if pointer then
 		if self.pointers then
@@ -1967,6 +1968,7 @@ function sections:slider(props)
 	end)
 	--
 	local pointer = props.pointer or props.Pointer or props.pointername or props.Pointername or props.PointerName or props.pointerName or nil
+	print(tostring(pointer))
 	--
 	if pointer then
 		if self.pointers then
@@ -2316,6 +2318,7 @@ function sections:dropdown(props)
 	end)
 	--
 	local pointer = props.pointer or props.Pointer or props.pointername or props.Pointername or props.PointerName or props.pointerName or nil
+	print(tostring(pointer))
 	--
 	if pointer then
 		if self.pointers then
@@ -2560,6 +2563,7 @@ function sections:buttonbox(props)
 	end)
 	--
 	local pointer = props.pointer or props.Pointer or props.pointername or props.Pointername or props.PointerName or props.pointerName or nil
+	print(tostring(pointer))
 	--
 	if pointer then
 		if self.pointers then
@@ -2896,6 +2900,7 @@ function sections:multibox(props)
 	end)
 	--
 	local pointer = props.pointer or props.Pointer or props.pointername or props.Pointername or props.PointerName or props.pointerName or nil
+	print(tostring(pointer))
 	--
 	if pointer then
 		if self.pointers then
@@ -3100,6 +3105,7 @@ function sections:textbox(props)
 	end)
 	--
 	local pointer = props.pointer or props.Pointer or props.pointername or props.Pointername or props.PointerName or props.pointerName or nil
+	print(tostring(pointer))
 	--
 	if pointer then
 		if self.pointers then
@@ -3339,6 +3345,7 @@ function sections:keybind(props)
 	end)
 	--
 	local pointer = props.pointer or props.Pointer or props.pointername or props.Pointername or props.PointerName or props.pointerName or nil
+	print(tostring(pointer))
 	--
 	if pointer then
 		if self.pointers then
@@ -4023,6 +4030,7 @@ function sections:colorpicker(props)
 	end)
 	--
 	local pointer = props.pointer or props.Pointer or props.pointername or props.Pointername or props.PointerName or props.pointerName or nil
+	print(tostring(pointer))
 	--
 	if pointer then
 		if self.pointers then
