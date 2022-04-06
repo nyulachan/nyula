@@ -4222,6 +4222,7 @@ function sections:configloader(props)
 	--
 	local createdbuttons = {}
 	local selected
+	_G.selected
 	--
 	local makebutton = function(name,toggled)
 		local createdbutton = utility.new(
@@ -4283,6 +4284,7 @@ function sections:configloader(props)
 			createdb.title.TextColor3 = self.library.theme.accent
 			table.insert(self.library.themeitems["accent"]["TextColor3"],createdb.title)
 			selected = createdb
+			_G.selected = createdb
 		end
 		--
 		createdbutton.MouseButton1Down:Connect(function()
@@ -4301,6 +4303,7 @@ function sections:configloader(props)
 			createdb.title.TextColor3 = self.library.theme.accent
 			table.insert(self.library.themeitems["accent"]["TextColor3"],createdb.title)
 			selected = createdb
+			_G.selected = createdb
 		end)
 	end
 	--
