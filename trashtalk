@@ -4,4 +4,4 @@ if Key.KeyCode == Enum.KeyCode.H then
 
 local trashtalk = {"seeded, get out of my game", "you're my son", "sit down doggy 🐶🐶", "get good, get nyula", "keep hugging the ground son", "wake up lil boy", "aye bruh im over here", "cope", "get known", "go back to bloxburg"}
 
-game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(tmath.random(1,10), "All")
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(trashtalk[math.random(1,10)], "All")
