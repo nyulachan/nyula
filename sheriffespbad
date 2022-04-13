@@ -27,16 +27,6 @@ spawn(function()
     makemarker2(placemarker2, placemarker2, Color3.fromRGB(0, 0, 255), 0.55, 0)
 end)
 
-function findmurder()
-    for i,v in pairs(game.Players:GetPlayers()) do 
-        if v.Backpack:FindFirstChild("Knife") or v.Character:FindFirstChild("Knife") then
-            return v
-        end
-    end
-    return nil
-end
-
-
 function findsheriff()
     for i,v in pairs(game.Players:GetPlayers()) do 
         if v.Backpack:FindFirstChild("Gun") or v.Character:FindFirstChild("Gun") then
@@ -48,9 +38,9 @@ end
 
 while game:GetService("RunService").Stepped:Wait() do -- why tf remove ()s it doesnt make u cooler
 if enabled then
-	--local murderer = findmurder()
 	local sheriff = findsheriff()
-	placemarker2.CFrame = CFrame.new(sheriff.Character:FindFirstChild("HumanoidRootPart").CFrame
+	if not sheriff then return end
+	placemarker2.CFrame = sheriff.Character:FindFirstChild("HumanoidRootPart").CFrame
 else
 	placemarker2.CFrame = CFrame.new(0, 9999, 0)
 end
