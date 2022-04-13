@@ -10,6 +10,8 @@ _G.Hidekey = (  "["  )
 	Do not edit anything under this.
 ]]
 
+-- prob skidded
+
 local SilentAim = true
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Players = game:GetService("Players")
