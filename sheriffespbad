@@ -1,27 +1,3 @@
---[[
-function findmurder()
-    for i,v in pairs(game.Players:GetPlayers()) do 
-        if v.Backpack:FindFirstChild("Knife") or v.Character:FindFirstChild("Knife") then
-            return v.Character.HumanoidRootPart.Position
-        end
-    end
-    return nil
-end
-
-
-function findsheriff()
-    for i,v in pairs(game.Players:GetPlayers()) do 
-        if v.Backpack:FindFirstChild("Gun") or v.Character:FindFirstChild("Gun") then
-            return v.Name
-         end
-    end
-     return nil
-end
---]]
-
---print(murderer)
---print(sheriff)
-
 local enabled = true 
 local placemarker2 = Instance.new("Part", game.Workspace)
 local guimain2 = Instance.new("Folder", game.CoreGui)
