@@ -193,12 +193,7 @@ end
 function library:GetConfig()
     local config = {}
         for i,v in pairs(library.pointers) do
-            if typeof(v:Get()) == "table" and v:Get().Transparency then
-                local hue, sat, val = v:Get().Color:ToHSV()
-                config[i] = {Color = {hue, sat, val}, Transparency = v:Get().Transparency}
-            else
-                config[i] = v:Get()
-            end
+            config[i] = v:Get()
         end
     return game:GetService("HttpService"):JSONEncode(config)
 end
