@@ -190,7 +190,7 @@ syn.protect_gui(window.Main)
 end
 
 
-function window:GetConfig()
+function library:GetConfig()
     local config = {}
         for i,v in pairs(library.pointers) do
             if typeof(v:Get()) == "table" and v:Get().Transparency then
@@ -203,7 +203,7 @@ function window:GetConfig()
     return game:GetService("HttpService"):JSONEncode(config)
 end
 
-function window:LoadConfig(config)
+function library:LoadConfig(config)
     local config = hs:JSONDecode(config)
     for i,v in pairs(config) do
         if library.pointers[i] then
