@@ -203,7 +203,7 @@ function window:GetConfig()
     return game:GetService("HttpService"):JSONEncode(config)
 end
 
-function LoadConfig(config)
+function window:LoadConfig(config)
     local config = hs:JSONDecode(config)
     for i,v in pairs(config) do
         if library.pointers[i] then
