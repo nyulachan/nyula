@@ -761,7 +761,7 @@ function tab:CreateSector(name,side)
             return toggle.value
         end
         if pointer and tostring(pointer) ~= "" and tostring(pointer) ~= " " and not library.pointers[tostring(pointer)] then --finishhere
-            library.pointers[tostring(pointer)] = toggle.value
+            library.pointers[tostring(pointer)] = toggle -- .value?
         end
         toggle:Set(toggle.default)
 
