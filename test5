@@ -1148,9 +1148,10 @@ function tab:CreateSector(name,side)
         return textbox
     end
     
-    function sector:AddSlider(text, min, default, max, decimals, callback)
+    function sector:AddSlider(text, min, default, max, decimals, pointer, callback)
         local slider = { }
         slider.text = text or ""
+        slider.pointer = library.pointer or library.Pointer or library.flag or library.Flag or nil
         slider.callback = callback or function(value) end
         slider.min = min or 0
         slider.max = max or 100
@@ -1313,6 +1314,10 @@ function tab:CreateSector(name,side)
                 slider:Refresh()
             end
         end)
+        
+        if pointer and tostring(pointer) ~= "" and tostring(pointer) ~= " " and not library.pointers[tostring(pointer)] then
+            library.pointers[tostring(pointer)] = slider
+        end
 
         sector:FixSize()
         return slider
