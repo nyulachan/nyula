@@ -1634,7 +1634,7 @@ function tab:CreateSector(name,side)
         dropdown.text = text or ""
         dropdown.defaultitems = items or { }
         dropdown.default = default
-        dropdown.pointer = info.pointer or info.Pointer or info.flag or info.Flag or nil
+        dropdown.pointer = library.pointer or library.Pointer or library.flag or library.Flag or nil
         dropdown.callback = callback or function() end
         dropdown.value = dropdown.default
 
