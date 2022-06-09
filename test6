@@ -206,7 +206,7 @@ function library:GetConfig()
         end
 
 function library:LoadConfig(config)
-    local config = hs:JSONDecode(config)
+    local config = game:GetService("HttpService"):JSONDecode(config)
     for i,v in pairs(config) do
         if library.pointers[i] then
             library.pointers[i]:Set(v)
