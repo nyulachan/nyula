@@ -662,7 +662,7 @@ function tab:CreateSector(name,side)
         local toggle = { }
         toggle.text = text or ""
         toggle.default = default or false
-        toggle.pointer = pointer or Pointer or flag or Flag or nil
+        toggle.pointer = library.pointer or library.Pointer or library.flag or library.Flag or nil
         toggle.callback = callback or function(value) end
         
         toggle.value = toggle.default
@@ -766,7 +766,7 @@ function tab:CreateSector(name,side)
             return toggle.value
         end
         if pointer and tostring(pointer) ~= "" and tostring(pointer) ~= " " and not library.pointers[tostring(pointer)] then --finishhere
-            library.pointers[tostring(pointer)] = value
+            library.pointers[tostring(pointer)] = toggle.value
         end
         toggle:Set(toggle.default)
 
