@@ -1628,12 +1628,13 @@ function tab:CreateSector(name,side)
         return keybind
     end
 
-    function sector:AddDropdown(text, items, default, callback)
+    function sector:AddDropdown(text, items, default, pointer, callback)
         local dropdown = { }
 
         dropdown.text = text or ""
         dropdown.defaultitems = items or { }
         dropdown.default = default
+        dropdown.pointer = info.pointer or info.Pointer or info.flag or info.Flag or nil
         dropdown.callback = callback or function() end
         dropdown.value = dropdown.default
 
@@ -1911,7 +1912,12 @@ function tab:CreateSector(name,side)
         dropdown.BlackOutline2.MouseLeave:Connect(function()
             dropdown.BlackOutline2.BackgroundColor3 = window.theme.outlinecolor2
         end)
-
+        
+        if pointer and tostring(pointer) ~= "" and tostring(pointer) ~= " " and not library.pointers[tostring(pointer)] then
+            library.pointers[tostring(pointer)] = dropdown
+        end
+        
+        
         sector:FixSize()
         return dropdown
     end
