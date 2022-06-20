@@ -182,25 +182,25 @@ function Library.Init()
     RunService.BindToRenderStep(RunService, "Esp Loop", 1, function()
         for Player, Objects in pairs(Library.Cache) do
             if (Player ~= LocalPlayer and Library.GetTeam(Player) ~= Library.GetTeam(LocalPlayer)) then
-                local Character, Torso = Library.GetCharacter(Player)
+                local Character, HumanoidRootPart = Library.GetCharacter(Player)
 
-                if (Character and Torso) then
-                    local TorsoPosition, OnScreen, Depth = WorldToViewportPoint(Torso.Position)
+                if (Character and HumanoidRootPart) then
+                    local HumanoidRootPartPosition, OnScreen, Depth = WorldToViewportPoint(HumanoidRootPart.Position)
 
-                    if (Library.Options.VisibleOnly and Library.VisibleCheck(CurrentCamera.CFrame.p, Torso.Position)) then
+                    if (Library.Options.VisibleOnly and Library.VisibleCheck(CurrentCamera.CFrame.p, HumanoidRootPart.Position)) then
                         OnScreen = false
                     end
 
                     if (OnScreen and Library.Options.Enabled) then
                         local ScaleFactor = 1 / (Tan(Rad(CurrentCamera.FieldOfView / 2)) * 2 * Depth) * 1000
                         local Width, Height = Round(Library.Options.WidthInStuds * ScaleFactor), Round(Library.Options.HeightInStuds * ScaleFactor)
-                        local X, Y = Round(TorsoPosition.X), Round(TorsoPosition.Y)
+                        local X, Y = Round(HumanoidRootPartPosition.X), Round(HumanoidRootPartPosition.Y)
                         local BoxPosition = RoundVec(Vector2New(X - Width / 2, Y - Height / 2))
                         local BoxSize = Vector2New(Width, Height)
                         local Health, MaxHealth = Library.GetHealth(Character)
                         local HealthbarPosition = RoundVec(Vector2New(BoxPosition.X - (3 + Library.Options.HealthbarSize), BoxPosition.Y + BoxSize.Y))
                         local HealthbarSize = RoundVec(Vector2New(Library.Options.HealthbarSize, -BoxSize.Y))
-                        local Magnitude = Round((CurrentCamera.CFrame.Position - Torso.Position).Magnitude)
+                        local Magnitude = Round((CurrentCamera.CFrame.Position - HumanoidRootPart.Position).Magnitude)
 
                         Objects.Name.Visible = Library.Options.Names
                         Objects.Name.Color = Library.Colors.Names
