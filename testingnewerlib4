@@ -1081,7 +1081,7 @@ function tab:CreateSector(name,side)
         textbox.Gradient.Rotation = 90
         textbox.Gradient.Color = ColorSequence.new({ ColorSequenceKeypoint.new(0.00, Color3.fromRGB(49, 49, 49)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(39, 39, 39)) })
         
-        --[[
+        
         textbox.Main = Instance.new("TextBox", textbox.Holder)
         textbox.Main.PlaceholderText = textbox.text
         textbox.Main.PlaceholderColor3 = Color3.fromRGB(190, 190, 190)
@@ -1098,7 +1098,7 @@ function tab:CreateSector(name,side)
         textbox.Main.TextColor3 = Color3.fromRGB(255, 255, 255)
         textbox.Main.BorderSizePixel = 0
         textbox.Main.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-        --]]
+        
         function textbox:Set(text)
             textbox.value = text
             --textbox.Main.Text = text
