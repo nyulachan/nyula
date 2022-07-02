@@ -1101,8 +1101,6 @@ function tab:CreateSector(name,side)
             textbox.value = text
             textbox.Main.Text = text
             pcall(textbox.callback, text)
-            wait(1)
-            print(textbox.Main:IsFocused())
         end
 
         function textbox:Get()
@@ -1141,9 +1139,11 @@ function tab:CreateSector(name,side)
 
         textbox.BlackOutline2.MouseEnter:Connect(function()
             textbox.BlackOutline2.BackgroundColor3 = window.theme.accentcolor
+            textbox.Main.Active = true
         end)
         textbox.BlackOutline2.MouseLeave:Connect(function()
             textbox.BlackOutline2.BackgroundColor3 = window.theme.outlinecolor2
+            textbox.Main.Active = false
         end)
 
         sector:FixSize()
