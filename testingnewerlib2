@@ -1110,10 +1110,11 @@ function tab:CreateSector(name,side)
         end
 
         
-
+        --[[
         textbox.Main.FocusLost:Connect(function()
-            --textbox:Set(textbox.Main.Text)
+            textbox:Set(textbox.Main.Text)
         end)
+        --]]
         
         --[[
         textbox.BlackOutline2 = Instance.new("Frame", textbox.Main)
