@@ -1084,6 +1084,7 @@ function tab:CreateSector(name,side)
         textbox.Main = Instance.new("TextBox", textbox.Holder)
         textbox.Main.PlaceholderText = textbox.text
         textbox.Main.PlaceholderColor3 = Color3.fromRGB(190, 190, 190)
+        textbox.Main.ShowNativeInput = true
         textbox.Main.Text = ""
         textbox.Main.BackgroundTransparency = 1
         textbox.Main.Font = window.theme.font
@@ -1144,6 +1145,8 @@ function tab:CreateSector(name,side)
         textbox.BlackOutline2.MouseLeave:Connect(function()
             textbox.BlackOutline2.BackgroundColor3 = window.theme.outlinecolor2
             textbox.Main.Active = false
+            textbox.Main:ResetKeyboardMode()
+            textbox.Main:ReleaseFocus()
         end)
 
         sector:FixSize()
