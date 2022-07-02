@@ -1101,6 +1101,8 @@ function tab:CreateSector(name,side)
             textbox.value = text
             textbox.Main.Text = text
             pcall(textbox.callback, text)
+            wait(2)
+            print(textbox.Main.Active)
         end
 
         function textbox:Get()
@@ -1108,11 +1110,10 @@ function tab:CreateSector(name,side)
         end
 
         
-        --[[
         textbox.Main.FocusLost:Connect(function()
             textbox:Set(textbox.Main.Text)
         end)
-        --]]
+        
         
         textbox.BlackOutline2 = Instance.new("Frame", textbox.Main)
         textbox.BlackOutline2.Name = "blackline"
