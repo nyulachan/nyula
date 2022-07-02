@@ -1101,8 +1101,6 @@ function tab:CreateSector(name,side)
             textbox.value = text
             textbox.Main.Text = text
             pcall(textbox.callback, text)
-            wait(2)
-            print(textbox.Main.Active)
         end
 
         function textbox:Get()
@@ -1112,6 +1110,7 @@ function tab:CreateSector(name,side)
         
         textbox.Main.FocusLost:Connect(function()
             textbox:Set(textbox.Main.Text)
+            textbox.Main:ReleaseFocus()
         end)
         
         
