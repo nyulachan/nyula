@@ -1,7 +1,0 @@
-if game.PlaceId == 5602055394 then
-    string = "nyuladhm"
-else
-    string = "nyulauh"
-end
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/"..string, true))()
