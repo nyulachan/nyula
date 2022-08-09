@@ -2,4 +2,4 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/
 
 local PhysicsService = game:GetService("PhysicsService")
 PhysicsService:CreateCollisionGroup("RealPlayer")
-PhysicsService:CollisionGroupSetCollidable("Default", "Default", true)
+PhysicsService:CollisionGroupSetCollidable("Default", "RealPlayer", true)
