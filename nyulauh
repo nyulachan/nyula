@@ -1,0 +1,5 @@
+if syn or fluxus then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/nyulauhv4", true))()
+else
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/nyulauhv3", true))()
+end
