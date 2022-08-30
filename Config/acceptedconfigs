@@ -1,7 +1,7 @@
 local configlist = {
-    "nyula purple",
-    "nyula red",
-    "nyula blue",
-    "nyula green"
+    "nyulapurple",
+    "nyulared",
+    "nyulablue",
+    "nyulagreen"
 }
 return configlist
