@@ -1,0 +1,5 @@
+if Krnl then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/nyulauhv3"))()
+else
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/nyulauhv3"))()
+end
