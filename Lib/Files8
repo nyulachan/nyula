@@ -49,7 +49,7 @@ end
 function tbltorgb(tbl)
 	return COL3(tbl.R, tbl.G, tbl.B)
 end
-local function library:deepCopy(original)
+function library:deepCopy(original)
 	local copy = {}
 	for k, v in pairs(original) do
 		if type(v) == "table" then
