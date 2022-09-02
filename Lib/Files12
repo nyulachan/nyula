@@ -4,8 +4,8 @@ _G.menukey = "v"
 local library = {}
 function library:New(name)
 library.Signal = loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Lib/Signal"))()
-library.ConfigSave = library.Signal.new("ConfigSave")
-library.ConfigLoad = library.Signal.new("ConfigLoad")
+--library.ConfigSave = library.Signal.new("ConfigSave")
+--library.ConfigLoad = library.Signal.new("ConfigLoad")
 
 local txt = game:GetService("TextService")
 local TweenService = game:GetService("TweenService")
@@ -2059,13 +2059,14 @@ end
 							library:Tween(TextLabel, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 						end)
 					end
+					--[[
 					library.ConfigLoad:Connect(function(cfg)
 						local fix = library:ConfigFix(cfg)
 						if fix[tabname][sectorname][tabtext][text] ~= nil then
 							Element:SetValue(fix[tabname][sectorname][tabtext][text])
 						end
 					end)
-
+					--]]
 					return Element
 				end
 
@@ -4198,6 +4199,7 @@ end
 						library:Tween(TextLabel, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 					end)
 				end
+				--[[
 				libary.ConfigLoad:Connect(function(cfg)
 					pcall(function()
 						local fix = library:ConfigFix(cfg)
@@ -4206,6 +4208,7 @@ end
 						end
 					end)
 				end)
+				--]]
 
 				return Element
 			end
