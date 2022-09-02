@@ -1,3 +1,4 @@
+local library = {}
 local Vec2 = Vector2.new
 local Vec3 = Vector3.new
 local CF = CFrame.new
