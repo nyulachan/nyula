@@ -2059,14 +2059,14 @@ end
 							library:Tween(TextLabel, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 						end)
 					end
-					--[[
-					library.ConfigLoad:Connect(function(cfg)
+					
+					ConfigLoad:Connect(function(cfg)
 						local fix = library:ConfigFix(cfg)
 						if fix[tabname][sectorname][tabtext][text] ~= nil then
 							Element:SetValue(fix[tabname][sectorname][tabtext][text])
 						end
 					end)
-					--]]
+					
 					return Element
 				end
 
@@ -4199,8 +4199,8 @@ end
 						library:Tween(TextLabel, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 					end)
 				end
-				--[[
-				libary.ConfigLoad:Connect(function(cfg)
+				
+				ConfigLoad:Connect(function(cfg)
 					pcall(function()
 						local fix = library:ConfigFix(cfg)
 						if fix[tabname][sectorname][text] ~= nil then
@@ -4208,7 +4208,7 @@ end
 						end
 					end)
 				end)
-				--]]
+				
 
 				return Element
 			end
