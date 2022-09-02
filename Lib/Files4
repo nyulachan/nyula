@@ -1,4 +1,14 @@
 local library = {}
+local Signal = loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Lib/Signal"))()
+local ConfigSave = Signal.new("ConfigSave")
+local ConfigLoad = Signal.new("ConfigLoad")
+
+local txt = game:GetService("TextService")
+local TweenService = game:GetService("TweenService")
+function library:Tween(...) TweenService:Create(...):Play() end
+local cfglocation = "nyula/untitledhood/"
+
+
 local Vec2 = Vector2.new
 local Vec3 = Vector3.new
 local CF = CFrame.new
