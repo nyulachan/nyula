@@ -74,7 +74,7 @@ function library:ConfigFix(cfg)
 	return copy
 end
 function library:SaveConfig(cfg)
-	local copy = deepCopy(values)
+	local copy = library:deepCopy(values)
 	for i,Tabs in pairs(copy) do
 		for i,Sectors in pairs(Tabs) do
 			for i,Elements in pairs(Sectors) do
@@ -91,14 +91,14 @@ function library:OnlineDeepCopy(original)
 	local copy = {}
 	for k, v in pairs(original) do
 		if type(v) == "table" then
-			v = OnlineDeepCopy(v)
+			v = library:OnlineDeepCopy(v)
 		end
 		copy[k] = v
 	end
 	return copy
 end
 function library:SaveOnlineConfig(cfg,name)
-    local copy = OnlineDeepCopy(cfg)
+    local copy = library:OnlineDeepCopy(cfg)
     for i,Tabs in pairs(copy) do
 		for i,Sectors in pairs(Tabs) do
 			for i,Elements in pairs(Sectors) do
