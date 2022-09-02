@@ -3,11 +3,9 @@ print("start")
 _G.menukey = "v"
 local library = {}
 function library:New(name)
-library.Signal = loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Lib/Signal"))()
-library.ConfigSave = library.Signal.new("ConfigSave")
-library.ConfigLoad = library.Signal.new("ConfigLoad")
-
-local Signal = library.Signal
+local Signal = loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Lib/Signal"))()
+library.ConfigSave = Signal.new("ConfigSave")
+library.ConfigLoad = Signal.new("ConfigLoad")
 local ConfigSave = library.ConfigSave
 local ConfigLoad = library.ConfigLoad
 
