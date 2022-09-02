@@ -17,13 +17,11 @@ local MIN = math.min
 local POW = math.pow
 local UDIM2 = UDim2.new
 local CFAngles = CFrame.Angles
-
 local FIND = string.find
 local LEN = string.len
 local SUB = string.sub
 local GSUB = string.gsub
 local RAY = Ray.new
-
 local INSERT = table.insert
 local TBLFIND = table.find
 local TBLREMOVE = table.remove
@@ -46,7 +44,7 @@ local function deepCopy(original)
 	end
 	return copy
 end
-function library:ConfigFix(cfg)
+function ConfigFix(cfg)
 	local copy = game:GetService("HttpService"):JSONDecode(readfile(cfglocation..cfg..".txt"))
 	for i,Tabs in pairs(copy) do
 		for i,Sectors in pairs(Tabs) do
@@ -60,7 +58,7 @@ function library:ConfigFix(cfg)
 	end
 	return copy
 end
-function library:SaveConfig(cfg)
+function SaveConfig(cfg)
 	local copy = deepCopy(values)
 	for i,Tabs in pairs(copy) do
 		for i,Sectors in pairs(Tabs) do
@@ -84,7 +82,7 @@ local function OnlineDeepCopy(original)
 	end
 	return copy
 end
-function library:SaveOnlineConfig(cfg,name)
+function SaveOnlineConfig(cfg,name)
     local copy = OnlineDeepCopy(cfg)
     for i,Tabs in pairs(copy) do
 		for i,Sectors in pairs(Tabs) do
