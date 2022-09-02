@@ -1,7 +1,7 @@
 if syn then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/nyulauhv4"))()
 elseif _G.WANNAKRNL then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/nyulauhv41"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/nyulauh41"))()
 else
     loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/nyulauhv3"))()
 end
