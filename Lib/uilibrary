@@ -1,5 +1,4 @@
-print("start")
-
+-- modified ova.rocks
 _G.menukey = "v"
 local library = {}
 function library:New(name)
@@ -4224,5 +4223,4 @@ end
 
 	return menu
 end
-print("end")
 return library
