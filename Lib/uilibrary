@@ -964,7 +964,8 @@ end
 							Keybind.MouseLeave:Connect(function()
 								InFrame2 = false
 							end)
-							game:GetService("UserInputService").InputBegan:Connect(function(input)
+							game:GetService("UserInputService").InputBegan:Connect(function(input,typing)
+							    if typing then return end
 								if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.MouseButton2 and not binding then
 									if Frame.Visible == true and not InFrame and not InFrame2 then
 										Frame.Visible = false
