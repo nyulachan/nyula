@@ -54,7 +54,7 @@ function library:deepCopy(original)
 	local copy = {}
 	for k, v in pairs(original) do
 		if type(v) == "table" then
-			v = deepCopy(v)
+			v = library:deepCopy(v)
 		end
 		copy[k] = v
 	end
@@ -4032,7 +4032,7 @@ end
 							first = false
 						end
 					end
-					
+
 					function Element:SetValue(val)
 						Element.value = val
 						abcd.Text = val.Dropdown
