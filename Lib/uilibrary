@@ -3118,7 +3118,8 @@ end
 							end
 							values[tabname][sectorname][text] = Element.value
 						end)
-						game:GetService("UserInputService").InputEnded:Connect(function(input)
+						game:GetService("UserInputService").InputEnded:Connect(function(input,typing)
+						    if typing then return end
 							if Element.value.Key ~= nil then
 								if FIND(Element.value.Key, "Mouse") then
 									if input.UserInputType == Enum.UserInputType[Element.value.Key] then
