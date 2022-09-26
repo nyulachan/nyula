@@ -346,6 +346,7 @@ end
 		Left.ScrollBarThickness = 4
 		Left.AutomaticCanvasSize = "Y"
 		Left.ScrollBarImageColor3 = Color3.fromRGB(119, 0, 255)
+		Left.CanvasSize = UDIM2(0, 0, 0, 0)
 		
 
 		UIListLayout.Parent = Left
@@ -363,6 +364,7 @@ end
 		Right.ScrollBarThickness = 4
 		Right.AutomaticCanvasSize = "Y"
 		Right.ScrollBarImageColor3 = Color3.fromRGB(119, 0, 255)
+		Right.CanvasSize = UDIM2(0, 0, 0, 0)
 
 
 		UIListLayout_2.Parent = Right
