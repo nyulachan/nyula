@@ -3914,7 +3914,9 @@ end
 					Drop.AutomaticCanvasSize = "Y"
 					Drop.ZIndex = 5
 					Drop.ScrollBarImageColor3 = COL3RGB(119, 0, 255)
-
+					local mkan = Drop
+					
+					
 					UIListLayout.Parent = Drop
 					UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 					UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
@@ -3982,32 +3984,33 @@ end
 					    delfile(cfglocation..buttontext..".txt")
 					    abcd.Text = ""
 					    
-					    for i,v in pairs(Drop:GetChildren()) do
+					    for i,v in pairs(mkan:GetChildren()) do
 					        if v.Name == buttontext then
 					            v:Destroy()
 					        end
 					    end
 					    local num = #data.options
 					    if num > 5 then
-					        Drop.Size = UDIM2(1, 0, 0, 85)
+					        mkan.Size = UDIM2(1, 0, 0, 85)
 					    else
-					        Drop.Size = UDIM2(1, 0, 0, 17*num)
+					        mkan.Size = UDIM2(1, 0, 0, 17*num)
 					    end
 					end
 					
 					function Element:Update(droptext)
 					    do
-					        for i,v in pairs(Drop:GetChildren()) do
+					        for i,v in pairs(mkan:GetChildren()) do
 					            if v.Name == "create a config" then
 					                v:Destroy()
 					            end
 					        end
 					        local num = #data.options
 					        if num > 5 then
-					            Drop.Size = UDIM2(1, 0, 0, 85)
+					            mkan.Size = UDIM2(1, 0, 0, 85)
 					        else
-					            Drop.Size = UDIM2(1, 0, 0, 17*num)
+					            mkan.Size = UDIM2(1, 0, 0, 17*num)
 					        end
+					        abcd.Text = droptext
 							local Button = INST("TextButton")
 							local TextLabel = INST("TextLabel")
 
