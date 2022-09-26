@@ -3979,6 +3979,7 @@ end
 					end
 					
 					function Element:GetRid(buttontext)
+					    delfile(cfglocation..buttontext..".txt")
 					    for i,v in pairs(Drop:GetChildren()) do
 					        if v.Name == buttontext then
 					            v:Destroy()
