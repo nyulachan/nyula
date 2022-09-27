@@ -1,4 +1,4 @@
--- modified ova.rocks (couple extra funcs and color changes) 
+-- modified ova.rocks (couple extra funcs and color changes), its not much but it makes it look better
 _G.menukey = "v"
 local library = {}
 function library:New(name)
