@@ -1,4 +1,4 @@
--- modified ova.rocks
+-- modified ova.rocks (couple extra funcs and color changes), its not much but it makes it look better
 _G.menukey = "v"
 local library = {}
 function library:New(name)
@@ -350,6 +350,8 @@ end
 		Left.BorderSizePixel = 0
 		Left.ScrollBarThickness = 4
 		Left.AutomaticCanvasSize = "Y"
+		Left.ScrollBarImageColor3 = Color3.fromRGB(119, 0, 255)
+		Left.CanvasSize = UDIM2(0, 0, 0, 0)
 		
 
 		UIListLayout.Parent = Left
@@ -366,6 +368,8 @@ end
 		Right.BorderSizePixel = 0
 		Right.ScrollBarThickness = 4
 		Right.AutomaticCanvasSize = "Y"
+		Right.ScrollBarImageColor3 = Color3.fromRGB(119, 0, 255)
+		Right.CanvasSize = UDIM2(0, 0, 0, 0)
 
 
 		UIListLayout_2.Parent = Right
@@ -3917,6 +3921,7 @@ end
 					Drop.AutomaticCanvasSize = "Y"
 					Drop.ZIndex = 5
 					Drop.ScrollBarImageColor3 = COL3RGB(119, 0, 255)
+					local mkan = Drop
 
 					UIListLayout.Parent = Drop
 					UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -3981,8 +3986,37 @@ end
 						end
 					end
 					
+					function Element:GetRid(buttontext)
+					    delfile(cfglocation..buttontext..".txt")
+					    abcd.Text = ""
+					    
+					    for i,v in pairs(mkan:GetChildren()) do
+					        if v.Name == buttontext then
+					            v:Destroy()
+					        end
+					    end
+					    local num = #data.options
+					    if num > 5 then
+					        mkan.Size = UDIM2(1, 0, 0, 85)
+					    else
+					        mkan.Size = UDIM2(1, 0, 0, 17*num)
+					    end
+					end
+					
 					function Element:Update(droptext)
 					    do
+					        for i,v in pairs(mkan:GetChildren()) do
+					            if v.Name == "create a config" then
+					                v:Destroy()
+					            end
+					        end
+					        local num = #data.options
+					        if num > 5 then
+					            mkan.Size = UDIM2(1, 0, 0, 85)
+					        else
+					            mkan.Size = UDIM2(1, 0, 0, 17*num)
+					        end
+					        abcd.Text = droptext
 							local Button = INST("TextButton")
 							local TextLabel = INST("TextLabel")
 
