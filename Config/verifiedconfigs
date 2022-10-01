@@ -2,6 +2,7 @@ local configlist = {
     "gopurple",
     "gored",
     "goblue",
-    "gogreen"
+    "gogreen",
+    "purptt"
 }
 return configlist
