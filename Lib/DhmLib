@@ -4016,7 +4016,6 @@ end
 					        else
 					            mkan.Size = UDIM2(1, 0, 0, 17*num)
 					        end
-					        abcd.Text = droptext
 							local Button = INST("TextButton")
 							local TextLabel = INST("TextLabel")
 
