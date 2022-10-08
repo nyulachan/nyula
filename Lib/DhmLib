@@ -763,7 +763,7 @@ end
 
 					elseif type == "ToggleKeybind" then
 						tabsize = tabsize + UDIM2(0,0,0,16)
-						Element.value = {Toggle = data.default and data.default.Toggle or false, Key, Type = "Always", Active = true}
+						Element.value = {Toggle = data.default and data.default.Toggle or false, Key, Type = "Toggle", Active = false}
 
 						local Toggle = INST("Frame")
 						local Button = INST("TextButton")
@@ -871,7 +871,7 @@ end
 							Always.AutoButtonColor = false
 							Always.Font = Enum.Font.SourceSansBold
 							Always.Text = "Always"
-							Always.TextColor3 = COL3RGB(173, 24, 74)
+							Always.TextColor3 = COL3RGB(200,200,200)
 							Always.TextSize = 14.000
 							Always.ZIndex = 3
 
@@ -903,7 +903,7 @@ end
 							Toggle.AutoButtonColor = false
 							Toggle.Font = Enum.Font.SourceSansSemibold
 							Toggle.Text = "Toggle"
-							Toggle.TextColor3 = COL3RGB(200, 200, 200)
+							Toggle.TextColor3 = COL3RGB(119,0,255)
 							Toggle.TextSize = 14.000
 							Toggle.ZIndex = 3
 
@@ -2845,7 +2845,7 @@ end
 					end)
 				elseif type == "ToggleKeybind" then
 					Section.Size = Section.Size + UDIM2(0,0,0,16)
-					Element.value = {Toggle = data.default and data.default.Toggle or false, Key, Type = "Always", Active = true}
+					Element.value = {Toggle = data.default and data.default.Toggle or false, Key, Type = "Toggle", Active = false}
 
 					local Toggle = INST("Frame")
 					local Button = INST("TextButton")
@@ -2954,7 +2954,7 @@ end
 						Always.AutoButtonColor = false
 						Always.Font = Enum.Font.SourceSansBold
 						Always.Text = "Always"
-						Always.TextColor3 = COL3RGB(173, 24, 72)
+						Always.TextColor3 = COL3RGB(200,200,200)
 						Always.TextSize = 14.000
 						Always.ZIndex = 3
 
@@ -2986,7 +2986,7 @@ end
 						Toggle.AutoButtonColor = false
 						Toggle.Font = Enum.Font.SourceSansSemibold
 						Toggle.Text = "Toggle"
-						Toggle.TextColor3 = COL3RGB(200, 200, 200)
+						Toggle.TextColor3 = COL3RGB(119,0,255)
 						Toggle.TextSize = 14.000
 						Toggle.ZIndex = 3
 
