@@ -3004,7 +3004,7 @@ end
 										end
 									end
 									button.Font = Enum.Font.SourceSansBold
-									button.TextColor3 = COL3RGB(173, 24, 74)
+									button.TextColor3 = COL3RGB(119,0,255)
 									values[tabname][sectorname][text] = Element.value
 								end)
 								button.MouseEnter:Connect(function()
