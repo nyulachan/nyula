@@ -1060,7 +1060,7 @@ end
 							update()
 						end
 					elseif type == "Toggle" then
-						tabsize = tabsize + UDIM2(0,0,0,24)
+						tabsize = tabsize + UDIM2(0,0,0,16)
 						Element.value = {Toggle = data.default and data.default.Toggle or false}
 
 						local Toggle = INST("Frame")
@@ -2658,7 +2658,7 @@ end
 						Drop.CanvasSize = Drop.CanvasSize + UDIM2(0, 0, 0, 17)
 					end
 					Drop.ZIndex = 5
-					Drop.ScrollBarImageColor3 = COL3RGB(255, 37, 110)
+					Drop.ScrollBarImageColor3 = COL3RGB(119,0,255)
 
 					UIListLayout.Parent = Drop
 					UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -2752,7 +2752,7 @@ end
 									library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 								else
 									INSERT(Element.value.Jumbobox, v)
-									library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(175, 42, 86)})
+									library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(119,0,255)})
 								end
 								updatetext()
 
@@ -2778,7 +2778,7 @@ end
 						for i,v in pairs(Drop:GetChildren()) do
 							if v.Name ~= "UIListLayout" then
 								if TBLFIND(val.Jumbobox, v.Name) then
-									v.TextLabel.TextColor3 = COL3RGB(175, 42, 86)
+									v.TextLabel.TextColor3 = COL3RGB(119,0,255)
 								else
 									v.TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 								end
