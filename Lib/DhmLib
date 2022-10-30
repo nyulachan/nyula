@@ -12,6 +12,15 @@ local txt = game:GetService("TextService")
 local TweenService = game:GetService("TweenService")
 function library:Tween(...) TweenService:Create(...):Play() end
 local cfglocation = "nyula/hoodmodded/"
+if not isfolder("nyula") then
+    makefolder("nyula")
+end
+if not isfolder("nyula/hoodmodded") then
+    makefolder("nyula/hoodmodded")
+end
+if not isfolder("nyula/luas") then
+    makefolder("nyula/luas")
+end
 
 
 local Vec2 = Vector2.new
