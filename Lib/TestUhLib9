@@ -2929,9 +2929,9 @@ end
 						Keybind.BackgroundColor3 = COL3RGB(24,24,24)
 						Keybind.BorderColor3 = COL3RGB(24,24,24)
 						Keybind.Position = UDIM2(0, 270, 0.5, -6)
-						Keybind.Text = "NONE"
+						Keybind.Text = data.default and data.default.Key or "NONE"
 						Keybind.Size = UDIM2(0, 43, 0, 12)
-						Keybind.Size = UDIM2(0,txt:GetTextSize("NONE", 14, Enum.Font.SourceSansSemibold, Vec2(700, 12)).X + 5,0, 12)
+						Keybind.Size = UDIM2(0,txt:GetTextSize(Keybind.Text, 14, Enum.Font.SourceSansSemibold, Vec2(700, 12)).X + 5,0, 12)
 						Keybind.AutoButtonColor = false
 						Keybind.Font = Enum.Font.SourceSansSemibold
 						Keybind.TextColor3 = COL3RGB(200, 200, 200)
