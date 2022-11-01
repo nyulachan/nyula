@@ -426,7 +426,8 @@ end
 			SectionText.Parent = Section
 			SectionText.BackgroundColor3 = COL3RGB(255, 255, 255)
 			SectionText.BackgroundTransparency = 1.000
-			SectionText.Position = UDIM2(0, 7, 0, -12)
+			--SectionText.Position = UDIM2(0, 7, 0, -12)
+			SectionText.Position = UDIM2(0, 7, 0, -6)
 			SectionText.Size = UDIM2(0, 270, 0, 19)
 			SectionText.ZIndex = 2
 			SectionText.Font = Enum.Font.SourceSansSemibold
