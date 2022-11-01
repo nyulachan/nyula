@@ -1139,7 +1139,7 @@ end
 							update()
 							callback(Element.value)
 						end
-						callback(data.default and data.default.Toggle or false)
+						--callback(data.default and data.default.Toggle or false)
 					elseif type == "ToggleColor" then
 						tabsize = tabsize + UDIM2(0,0,0,16)
 						Element.value = {Toggle = data.default and data.default.Toggle or false, Color = data.default and data.default.Color or COL3RGB(255,255,255)}
