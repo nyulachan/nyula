@@ -474,7 +474,7 @@ end
 
 				tab1.Name = text
 				tab1.Parent = Inner
-				tab1.BackgroundColor3 = COL3RGB(30, 30, 39)
+				tab1.BackgroundColor3 = COL3RGB(24,24,24)
 				tab1.BorderColor3 = COL3RGB(24,24,24)
 				tab1.BorderSizePixel = 0
 				tab1.Position = UDIM2(0, 0, 0, 30)
@@ -572,7 +572,7 @@ end
 						Drop.Name = "Drop"
 						Drop.Parent = Button
 						Drop.Active = true
-						Drop.BackgroundColor3 = COL3RGB(119,0,255)
+						Drop.BackgroundColor3 = COL3RGB(24,24,24)
 						Drop.BorderColor3 = COL3RGB(24,24,24)
 						Drop.Position = UDIM2(0, 0, 1, 1)
 						Drop.Size = UDIM2(1, 0, 0, 20)
