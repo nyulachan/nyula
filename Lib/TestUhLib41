@@ -335,7 +335,7 @@ end
 
 		TabGui.Name = "TabGui"
 		TabGui.Parent = Tabs
-		TabGui.BackgroundColor3 = COL3RGB(16, 16, 16)
+		TabGui.BackgroundColor3 = COL3RGB(10, 10, 10)
 		TabGui.BackgroundTransparency = 1.000
 		TabGui.Size = UDIM2(1, 0, 1, 0)
 		TabGui.Visible = false
