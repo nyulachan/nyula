@@ -167,7 +167,7 @@ end
 	Menu.BackgroundColor3 = COL3RGB(20, 20, 20)
 	Menu.Position = UDIM2(0.5, -300, 0.5, -300)
 	Menu.Size = UDIM2(0, 600, 0, 610)
-	Menu.Image = "http://www.roblox.com/asset/?id=6724360483"
+	Menu.Image = "http://www.roblox.com/asset/?id=7265208537"
 	Menu.BorderSizePixel = 0
 
 	library.uiopen = true
@@ -335,11 +335,11 @@ end
 
 		TabGui.Name = "TabGui"
 		TabGui.Parent = Tabs
-		TabGui.BackgroundColor3 = COL3RGB(255, 255, 255)
+		TabGui.BackgroundColor3 = COL3RGB(20, 20, 20)
 		TabGui.BackgroundTransparency = 1.000
 		TabGui.Size = UDIM2(1, 0, 1, 0)
 		TabGui.Visible = false
-		TabGui.Image = "rbxassetid://5553946656"
+		TabGui.Image = "rbxassetid://0"
 		TabGui.ImageColor3 = Color3.fromRGB(0, 0, 0)
 		TabGui.ScaleType = Enum.ScaleType.Tile
 		TabGui.TileSize = UDim2.new(0, 80, 0, 80)
