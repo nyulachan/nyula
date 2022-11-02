@@ -3204,7 +3204,7 @@ end
 						update()
 					end
 				elseif type == "Toggle" then
-					Section.Size = Section.Size + UDIM2(0,0,0,30)
+					Section.Size = Section.Size + UDIM2(0,0,0,16)
 					Element.value = {Toggle = data.default and data.default.Toggle or false}
 
 					local Toggle = INST("Frame")
