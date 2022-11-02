@@ -2099,7 +2099,7 @@ end
 						end
 
 						Button_2.MouseButton1Down:Connect(function()
-							TextLabel.TextColor3 = COL3RGB(175, 42, 86)
+							TextLabel.TextColor3 = COL3RGB(119,0,255)
 							library:Tween(TextLabel, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 							callback()
 						end)
