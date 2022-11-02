@@ -1781,7 +1781,7 @@ end
 						Drop.TopImage = "http://www.roblox.com/asset/?id=6724808282"
 						Drop.AutomaticCanvasSize = "Y"
 						Drop.ZIndex = 5
-						Drop.ScrollBarImageColor3 = COL3RGB(255, 37, 110)
+						Drop.ScrollBarImageColor3 = COL3RGB(119,0,255)
 
 						UIListLayout.Parent = Drop
 						UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -1948,7 +1948,7 @@ end
 						Frame.BorderSizePixel = 0
 						Frame.Size = UDIM2(0.5, 0, 1, 0)
 
-						UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, COL3RGB(153, 22, 65)), ColorSequenceKeypoint.new(1, COL3RGB(109, 16, 46))}
+						UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, COL3RGB(119,0,255)), ColorSequenceKeypoint.new(1, COL3RGB(119,0,255))}
 						UIGradient.Rotation = 90
 						UIGradient.Parent = Frame
 
