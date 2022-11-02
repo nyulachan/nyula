@@ -764,14 +764,15 @@ end
 							end
 						end)
 					elseif type == "TextBox" then
-					    Section.Size = Section.Size + UDIM2(0,0,0,30)
+
+					Section.Size = Section.Size + UDIM2(0,0,0,30)
 					Element.value = {Text = data.default and data.default.text or ""}
 
 					local Box = INST("Frame")
 					local TextBox = INST("TextBox")
 
 					Box.Name = "Box"
-					Box.Parent = Inner
+					Box.Parent = tab1
 					Box.BackgroundColor3 = COL3RGB(255, 255, 255)
 					Box.BackgroundTransparency = 1.000
 					Box.Position = UDIM2(0, 0, 0.542059898, 0)
@@ -789,23 +790,23 @@ end
 					TextBox.TextSize = 14.000
 					TextBox.ClearTextOnFocus = false
 
-					values[tabname][sectorname][text] = Element.value
+					values[tabname][sectorname][tabtext][text] = Element.value
 
 					TextBox:GetPropertyChangedSignal("Text"):Connect(function()
 						if LEN(TextBox.Text) > 10 then
 							TextBox.Text = SUB(TextBox.Text, 1, 10)
 						end
 						Element.value.Text = TextBox.Text
-						values[tabname][sectorname][text] = Element.value
+						values[tabname][sectorname][tabtext][text] = Element.value
 						callback(Element.value)
 					end)
 
 					function Element:SetValue(value)
 						Element.value = value
-						values[tabname][sectorname][text] = Element.value
+						values[tabname][sectorname][tabtext][text] = Element.value
 						TextBox.Text = Element.value.Text
 					end
-					
+
 					elseif type == "ToggleKeybind" then
 						tabsize = tabsize + UDIM2(0,0,0,16)
 						Element.value = {Toggle = data.default and data.default.Toggle or false, Key, Type = "Toggle", Active = false}
