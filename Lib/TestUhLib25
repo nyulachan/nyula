@@ -1933,7 +1933,7 @@ end
 
 						Button.Name = "Button"
 						Button.Parent = Slider
-						Button.BackgroundColor3 = COL3RGB(35, 37, 47)
+						Button.BackgroundColor3 = COL3RGB(24,24,24)
 						Button.BorderColor3 = COL3RGB(24,24,24)
 						Button.Position = UDIM2(0, 30, 0, 15)
 						Button.Size = UDIM2(0, 175, 0, 5)
