@@ -125,7 +125,7 @@ end
 	local menu = {}
 
 	local Ova = INST("ScreenGui")
-	local Menu = INST("ImageLabel")
+	local Menu = INST("Frame")
 	local TextLabel = INST("TextLabel")
 	local TabButtons = INST("Frame")
 	local UIListLayout = INST("UIListLayout")
@@ -167,7 +167,7 @@ end
 	Menu.BackgroundColor3 = COL3RGB(20, 20, 20)
 	Menu.Position = UDIM2(0.5, -300, 0.5, -300)
 	Menu.Size = UDIM2(0, 600, 0, 610)
-	Menu.Image = "http://www.roblox.com/asset/?id=7265208537"
+	--Menu.Image = "http://www.roblox.com/asset/?id=0" --"http://www.roblox.com/asset/?id=7265208537"
 	Menu.BorderSizePixel = 0
 
 	library.uiopen = true
