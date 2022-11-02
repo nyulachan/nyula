@@ -417,7 +417,7 @@ end
 
 			Section.Name = "Section"
 			Section.Parent = TabGui[side]
-			Section.BackgroundColor3 = COL3RGB(24,24,24)
+			Section.BackgroundColor3 = COL3RGB(20,20,20)
 			Section.BorderColor3 = COL3RGB(24,24,24)
 			Section.BorderSizePixel = 0
 			Section.Size = UDIM2(1, 0, 0, 33)
