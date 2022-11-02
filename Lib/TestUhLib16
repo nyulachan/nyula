@@ -584,7 +584,7 @@ end
 						Drop.MidImage = "http://www.roblox.com/asset/?id=6724808282"
 						Drop.AutomaticCanvasSize = "Y"
 						Drop.ZIndex = 5
-						Drop.ScrollBarImageColor3 = COL3RGB(255, 37, 110)
+						Drop.ScrollBarImageColor3 = COL3RGB(119,0,255)
 
 						UIListLayout.Parent = Drop
 						UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -2235,7 +2235,7 @@ end
 					Drop.MidImage = "http://www.roblox.com/asset/?id=6724808282"
 					Drop.AutomaticCanvasSize = "Y"
 					Drop.ZIndex = 5
-					Drop.ScrollBarImageColor3 = COL3RGB(255, 37, 110)
+					Drop.ScrollBarImageColor3 = COL3RGB(119,0,255)
 
 					UIListLayout.Parent = Drop
 					UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -2338,7 +2338,7 @@ end
 							Frame.ScrollBarThickness = 4
 							Frame.TopImage = "http://www.roblox.com/asset/?id=6724808282"
 							Frame.AutomaticCanvasSize = "Y"
-							Frame.ScrollBarImageColor3 = COL3RGB(255, 37, 110)
+							Frame.ScrollBarImageColor3 = COL3RGB(119,0,255)
 
 							UIListLayout.Parent = Frame
 							UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -2375,7 +2375,7 @@ end
 							
 								if joll then
 									joll = false
-									TextLabel.TextColor3 = COL3RGB(255, 37, 110)
+									TextLabel.TextColor3 = COL3RGB(119,0,255)
 								end
 
 								Button.MouseButton1Down:Connect(function()
@@ -2471,7 +2471,7 @@ end
 									if bad:IsA("TextButton") then
 										bad.TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 										if bad.Name == Element.value.Scroll[v.Name] then
-											bad.TextLabel.TextColor3 = COL3RGB(255, 37, 110)
+											bad.TextLabel.TextColor3 = COL3RGB(119,0,255)
 										end
 									end
 								end
@@ -2520,7 +2520,7 @@ end
 					Frame.ScrollBarThickness = 4
 					Frame.TopImage = "http://www.roblox.com/asset/?id=6724808282"
 					Frame.AutomaticCanvasSize = "Y"
-					Frame.ScrollBarImageColor3 = COL3RGB(255, 37, 110)
+					Frame.ScrollBarImageColor3 = COL3RGB(119,0,255)
 
 					UIListLayout.Parent = Frame
 					UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -2556,7 +2556,7 @@ end
 						TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 					
 						if first then first = false
-							TextLabel.TextColor3 = COL3RGB(255, 37, 110)
+							TextLabel.TextColor3 = COL3RGB(119,0,255)
 						end
 
 						Button.MouseButton1Down:Connect(function()
