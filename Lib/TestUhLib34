@@ -167,7 +167,7 @@ end
 	Menu.BackgroundColor3 = COL3RGB(255, 255, 255)
 	Menu.Position = UDIM2(0.5, -300, 0.5, -300)
 	Menu.Size = UDIM2(0, 600, 0, 610)
-	Menu.Image = "http://www.roblox.com/asset/?id=7265208537"
+	Menu.Image = "" --"http://www.roblox.com/asset/?id=7265208537"
 	Menu.BorderSizePixel = 0
 
 	library.uiopen = true
