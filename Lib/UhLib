@@ -1,4 +1,4 @@
--- modified ova.rocks
+-- modified stormy.solutions
 _G.menukey = "v"
 local library = {}
 function library:New(name)
@@ -164,7 +164,7 @@ end
 
 	Menu.Name = "Menu"
 	Menu.Parent = Ova
-	Menu.BackgroundColor3 = COL3RGB(255, 255, 255)
+	Menu.BackgroundColor3 = COL3RGB(20, 20, 20)
 	Menu.Position = UDIM2(0.5, -300, 0.5, -300)
 	Menu.Size = UDIM2(0, 600, 0, 610)
 	Menu.Image = "http://www.roblox.com/asset/?id=7265208537"
@@ -335,11 +335,11 @@ end
 
 		TabGui.Name = "TabGui"
 		TabGui.Parent = Tabs
-		TabGui.BackgroundColor3 = COL3RGB(255, 255, 255)
+		TabGui.BackgroundColor3 = COL3RGB(0, 0, 0)
 		TabGui.BackgroundTransparency = 1.000
 		TabGui.Size = UDIM2(1, 0, 1, 0)
 		TabGui.Visible = false
-		TabGui.Image = "rbxassetid://5553946656"
+		TabGui.Image = "rbxassetid://0"
 		TabGui.ImageColor3 = Color3.fromRGB(0, 0, 0)
 		TabGui.ScaleType = Enum.ScaleType.Tile
 		TabGui.TileSize = UDim2.new(0, 80, 0, 80)
@@ -417,7 +417,7 @@ end
 
 			Section.Name = "Section"
 			Section.Parent = TabGui[side]
-			Section.BackgroundColor3 = COL3RGB(24,24,24)
+			Section.BackgroundColor3 = COL3RGB(20,20,20)
 			Section.BorderColor3 = COL3RGB(24,24,24)
 			Section.BorderSizePixel = 0
 			Section.Size = UDIM2(1, 0, 0, 33)
@@ -426,7 +426,8 @@ end
 			SectionText.Parent = Section
 			SectionText.BackgroundColor3 = COL3RGB(255, 255, 255)
 			SectionText.BackgroundTransparency = 1.000
-			SectionText.Position = UDIM2(0, 7, 0, -12)
+			--SectionText.Position = UDIM2(0, 7, 0, -12)
+			SectionText.Position = UDIM2(0, 7, 0, -6)
 			SectionText.Size = UDIM2(0, 270, 0, 19)
 			SectionText.ZIndex = 2
 			SectionText.Font = Enum.Font.SourceSansSemibold
@@ -438,7 +439,7 @@ end
 
 			Inner.Name = "Inner"
 			Inner.Parent = Section
-			Inner.BackgroundColor3 = COL3RGB(30, 30, 39)
+			Inner.BackgroundColor3 = COL3RGB(20,20,20)
 			Inner.BorderColor3 = COL3RGB(0, 0, 0)
 			Inner.BorderSizePixel = 0
 			Inner.Position = UDIM2(0, 1, 0, 1)
@@ -473,7 +474,7 @@ end
 
 				tab1.Name = text
 				tab1.Parent = Inner
-				tab1.BackgroundColor3 = COL3RGB(30, 30, 39)
+				tab1.BackgroundColor3 = COL3RGB(20,20,20)
 				tab1.BorderColor3 = COL3RGB(24,24,24)
 				tab1.BorderSizePixel = 0
 				tab1.Position = UDIM2(0, 0, 0, 30)
@@ -583,7 +584,7 @@ end
 						Drop.MidImage = "http://www.roblox.com/asset/?id=6724808282"
 						Drop.AutomaticCanvasSize = "Y"
 						Drop.ZIndex = 5
-						Drop.ScrollBarImageColor3 = COL3RGB(255, 37, 110)
+						Drop.ScrollBarImageColor3 = COL3RGB(119,0,255)
 
 						UIListLayout.Parent = Drop
 						UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -640,7 +641,7 @@ end
 
 								Button.Name = v
 								Button.Parent = Drop
-								Button.BackgroundColor3 = COL3RGB(35, 35, 47)
+								Button.BackgroundColor3 = COL3RGB(24,24,24)
 								Button.BorderColor3 = COL3RGB(24,24,24)
 								Button.Position = UDIM2(0, 30, 0, 16)
 								Button.Size = UDIM2(0, 175, 0, 17)
@@ -676,7 +677,7 @@ end
 										library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 									else
 										INSERT(Element.value.Jumbobox, v)
-										library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(175, 42, 86)})
+										library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(119,0,255)})
 									end
 									updatetext()
 
@@ -763,6 +764,48 @@ end
 							end
 						end)
 					elseif type == "TextBox" then
+
+					Section.Size = Section.Size + UDIM2(0,0,0,30)
+					Element.value = {Text = data.default and data.default.text or ""}
+
+					local Box = INST("Frame")
+					local TextBox = INST("TextBox")
+
+					Box.Name = "Box"
+					Box.Parent = tab1
+					Box.BackgroundColor3 = COL3RGB(255, 255, 255)
+					Box.BackgroundTransparency = 1.000
+					Box.Position = UDIM2(0, 0, 0.542059898, 0)
+					Box.Size = UDIM2(1, 0, 0, 30)
+
+					TextBox.Parent = Box
+					TextBox.BackgroundColor3 = COL3RGB(24,24,24)
+					TextBox.BorderColor3 = COL3RGB(24,24,24)
+					TextBox.Position = UDIM2(0.108303241, 0, 0.224465579, 0)
+					TextBox.Size = UDIM2(0, 175, 0, 20)
+					TextBox.Font = Enum.Font.SourceSans
+					TextBox.PlaceholderText = data.placeholder
+					TextBox.Text = Element.value.Text
+					TextBox.TextColor3 = COL3RGB(255, 255, 255)
+					TextBox.TextSize = 14.000
+					TextBox.ClearTextOnFocus = false
+
+					values[tabname][sectorname][tabtext][text] = Element.value
+
+					TextBox:GetPropertyChangedSignal("Text"):Connect(function()
+						if LEN(TextBox.Text) > 10 then
+							TextBox.Text = SUB(TextBox.Text, 1, 10)
+						end
+						Element.value.Text = TextBox.Text
+						values[tabname][sectorname][tabtext][text] = Element.value
+						callback(Element.value)
+					end)
+
+					function Element:SetValue(value)
+						Element.value = value
+						values[tabname][sectorname][tabtext][text] = Element.value
+						TextBox.Text = Element.value.Text
+					end
 
 					elseif type == "ToggleKeybind" then
 						tabsize = tabsize + UDIM2(0,0,0,16)
@@ -1068,7 +1111,7 @@ end
 							update()
 						end
 					elseif type == "Toggle" then
-						tabsize = tabsize + UDIM2(0,0,0,16)
+						tabsize = tabsize + UDIM2(0,0,0,20)
 						Element.value = {Toggle = data.default and data.default.Toggle or false}
 
 						local Toggle = INST("Frame")
@@ -1139,7 +1182,7 @@ end
 							update()
 							callback(Element.value)
 						end
-						callback(data.default and data.default.Toggle or false)
+						--callback(data.default and data.default.Toggle or false)
 					elseif type == "ToggleColor" then
 						tabsize = tabsize + UDIM2(0,0,0,16)
 						Element.value = {Toggle = data.default and data.default.Toggle or false, Color = data.default and data.default.Color or COL3RGB(255,255,255)}
@@ -1780,7 +1823,7 @@ end
 						Drop.TopImage = "http://www.roblox.com/asset/?id=6724808282"
 						Drop.AutomaticCanvasSize = "Y"
 						Drop.ZIndex = 5
-						Drop.ScrollBarImageColor3 = COL3RGB(255, 37, 110)
+						Drop.ScrollBarImageColor3 = COL3RGB(119,0,255)
 
 						UIListLayout.Parent = Drop
 						UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -1932,7 +1975,7 @@ end
 
 						Button.Name = "Button"
 						Button.Parent = Slider
-						Button.BackgroundColor3 = COL3RGB(35, 37, 47)
+						Button.BackgroundColor3 = COL3RGB(24,24,24)
 						Button.BorderColor3 = COL3RGB(24,24,24)
 						Button.Position = UDIM2(0, 30, 0, 15)
 						Button.Size = UDIM2(0, 175, 0, 5)
@@ -1947,7 +1990,7 @@ end
 						Frame.BorderSizePixel = 0
 						Frame.Size = UDIM2(0.5, 0, 1, 0)
 
-						UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, COL3RGB(153, 22, 65)), ColorSequenceKeypoint.new(1, COL3RGB(109, 16, 46))}
+						UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, COL3RGB(119,0,255)), ColorSequenceKeypoint.new(1, COL3RGB(119,0,255))}
 						UIGradient.Rotation = 90
 						UIGradient.Parent = Frame
 
@@ -2056,7 +2099,7 @@ end
 						end
 
 						Button_2.MouseButton1Down:Connect(function()
-							TextLabel.TextColor3 = COL3RGB(175, 42, 86)
+							TextLabel.TextColor3 = COL3RGB(119,0,255)
 							library:Tween(TextLabel, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 							callback()
 						end)
@@ -2234,7 +2277,7 @@ end
 					Drop.MidImage = "http://www.roblox.com/asset/?id=6724808282"
 					Drop.AutomaticCanvasSize = "Y"
 					Drop.ZIndex = 5
-					Drop.ScrollBarImageColor3 = COL3RGB(255, 37, 110)
+					Drop.ScrollBarImageColor3 = COL3RGB(119,0,255)
 
 					UIListLayout.Parent = Drop
 					UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -2337,7 +2380,7 @@ end
 							Frame.ScrollBarThickness = 4
 							Frame.TopImage = "http://www.roblox.com/asset/?id=6724808282"
 							Frame.AutomaticCanvasSize = "Y"
-							Frame.ScrollBarImageColor3 = COL3RGB(255, 37, 110)
+							Frame.ScrollBarImageColor3 = COL3RGB(119,0,255)
 
 							UIListLayout.Parent = Frame
 							UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -2374,7 +2417,7 @@ end
 							
 								if joll then
 									joll = false
-									TextLabel.TextColor3 = COL3RGB(255, 37, 110)
+									TextLabel.TextColor3 = COL3RGB(119,0,255)
 								end
 
 								Button.MouseButton1Down:Connect(function()
@@ -2470,7 +2513,7 @@ end
 									if bad:IsA("TextButton") then
 										bad.TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 										if bad.Name == Element.value.Scroll[v.Name] then
-											bad.TextLabel.TextColor3 = COL3RGB(255, 37, 110)
+											bad.TextLabel.TextColor3 = COL3RGB(119,0,255)
 										end
 									end
 								end
@@ -2519,7 +2562,7 @@ end
 					Frame.ScrollBarThickness = 4
 					Frame.TopImage = "http://www.roblox.com/asset/?id=6724808282"
 					Frame.AutomaticCanvasSize = "Y"
-					Frame.ScrollBarImageColor3 = COL3RGB(255, 37, 110)
+					Frame.ScrollBarImageColor3 = COL3RGB(119,0,255)
 
 					UIListLayout.Parent = Frame
 					UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -2555,7 +2598,7 @@ end
 						TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 					
 						if first then first = false
-							TextLabel.TextColor3 = COL3RGB(255, 37, 110)
+							TextLabel.TextColor3 = COL3RGB(119,0,255)
 						end
 
 						Button.MouseButton1Down:Connect(function()
@@ -2848,7 +2891,7 @@ end
 					end)
 				elseif type == "ToggleKeybind" then
 					Section.Size = Section.Size + UDIM2(0,0,0,16)
-					Element.value = {Toggle = data.default and data.default.Toggle or false, Key, Type = "Toggle", Active = false}
+					Element.value = {Toggle = data.default and data.default.Toggle or false, Key = data.default and data.default.Key or Key, Type = data.default and data.default.Type or "Toggle", Active = data.default and data.default.Active or false}
 
 					local Toggle = INST("Frame")
 					local Button = INST("TextButton")
@@ -2929,9 +2972,9 @@ end
 						Keybind.BackgroundColor3 = COL3RGB(24,24,24)
 						Keybind.BorderColor3 = COL3RGB(24,24,24)
 						Keybind.Position = UDIM2(0, 270, 0.5, -6)
-						Keybind.Text = "NONE"
+						Keybind.Text = data.default and data.default.Key or "NONE"
 						Keybind.Size = UDIM2(0, 43, 0, 12)
-						Keybind.Size = UDIM2(0,txt:GetTextSize("NONE", 14, Enum.Font.SourceSansSemibold, Vec2(700, 12)).X + 5,0, 12)
+						Keybind.Size = UDIM2(0,txt:GetTextSize(Keybind.Text, 14, Enum.Font.SourceSansSemibold, Vec2(700, 12)).X + 5,0, 12)
 						Keybind.AutoButtonColor = false
 						Keybind.Font = Enum.Font.SourceSansSemibold
 						Keybind.TextColor3 = COL3RGB(200, 200, 200)
@@ -3842,6 +3885,7 @@ end
 					TextBox.Text = Element.value.Text
 					TextBox.TextColor3 = COL3RGB(255, 255, 255)
 					TextBox.TextSize = 14.000
+					TextBox.ClearTextOnFocus = false
 
 					values[tabname][sectorname][text] = Element.value
 
