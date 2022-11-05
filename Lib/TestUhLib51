@@ -2174,6 +2174,7 @@ end
 			Section.Name = "Section"
 			Section.Parent = TabGui[side]
 			Section.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
+			Section.BackgroundTransparency = 1
 			Section.BorderColor3 = theme[_G.menutheme]["Secondary"]
 			Section.BorderSizePixel = 0
 			Section.Position = UDIM2(0.00358422939, 0, 0, 0)
@@ -3273,7 +3274,7 @@ end
 
 					local function update()
 						if Element.value.Toggle then
-							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(119, 0, 255)})
+							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = theme[_G.menutheme]["Activated"]})
 							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
 						else
 							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = theme[_G.menutheme]["Secondary"]})
