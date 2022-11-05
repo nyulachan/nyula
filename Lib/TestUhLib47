@@ -3,8 +3,10 @@ _G.menukey = "v"
 local theme = {
     ["Dark"] = {
         ["Main"] = Color3.fromRGB(20,20,20),
+        ["Text"] = Color3.fromRGB(255,255,255),
+        ["Text2"] = Color3.fromRGB(200,200,200),
         ["Secondary"] = Color3.fromRGB(24,24,24),
-        ["Fourth"] = Color3.fromRGB(119,0,255),
+        ["Activated"] = Color3.fromRGB(119,0,255),
     },
     ["Light"] = {
         ["Main"] = Color3.fromRGB(225,225,225),
@@ -146,7 +148,7 @@ end
 	local menu = {}
 
 	local Ova = INST("ScreenGui")
-	local Menu = INST("ImageLabel")
+	local Menu = INST("Frame")
 	local TextLabel = INST("TextLabel")
 	local TabButtons = INST("Frame")
 	local UIListLayout = INST("UIListLayout")
@@ -188,7 +190,6 @@ end
 	Menu.BackgroundColor3 = theme[_G.menutheme]["Main"]
 	Menu.Position = UDIM2(0.5, -300, 0.5, -300)
 	Menu.Size = UDIM2(0, 600, 0, 610)
-	Menu.Image = "http://www.roblox.com/asset/?id=7265208537"
 	Menu.BorderSizePixel = 0
 
 	library.uiopen = true
