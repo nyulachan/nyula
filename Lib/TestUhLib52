@@ -11,7 +11,7 @@ local theme = {
     },
     ["Light"] = {
         ["Main"] = Color3.fromRGB(200,200,200),
-        ["Text"] = Color3.fromRGB(119,0,255),
+        ["Text"] = Color3.fromRGB(20,20,20),
         ["Text2"] = Color3.fromRGB(24,24,24),
         ["Secondary"] = Color3.fromRGB(150,150,150),
         ["Activated"] = Color3.fromRGB(119,0,255),
