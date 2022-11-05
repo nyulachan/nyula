@@ -1,12 +1,16 @@
 -- modified stormy.solutions
 _G.menukey = "v"
-_G.menutheme = "Dark"
 local theme = {
     ["Dark"] = {
         ["Main"] = Color3.fromRGB(20,20,20),
         ["Secondary"] = Color3.fromRGB(24,24,24),
         ["Fourth"] = Color3.fromRGB(119,0,255),
-    }
+    },
+    ["Light"] = {
+        ["Main"] = Color3.fromRGB(225,225,225),
+        ["Secondary"] = Color3.fromRGB(200,200,200),
+        ["Fourth"] = Color3.fromRGB(119,0,255),
+    },
 }
 function updatetheme()
     for i,v in pairs(Ova:GetDescendants()) do
