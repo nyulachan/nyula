@@ -22,6 +22,7 @@ if not isfolder("nyula/luas") then
     makefolder("nyula/luas")
 end
 
+
 local Vec2 = Vector2.new
 local Vec3 = Vector3.new
 local CF = CFrame.new
@@ -131,7 +132,7 @@ end
 	local UIListLayout = INST("UIListLayout")
 	local Tabs = INST("Frame")
 
-	Ova.Name = "nyula"
+	Ova.Name = "electric boogalo"
 	Ova.ResetOnSpawn = false
 	Ova.ZIndexBehavior = "Global"
 	Ova.DisplayOrder = 420133769
@@ -162,9 +163,14 @@ end
 	local LocalPlayer = Players.LocalPlayer
 	local Mouse = LocalPlayer:GetMouse()
 
+	game:GetService("RunService").RenderStepped:connect(function()
+		cursor.Visible = Ova.Enabled
+		cursor.Position = UDIM2(0,Mouse.X-3,0,Mouse.Y+1)
+	end)
+
 	Menu.Name = "Menu"
 	Menu.Parent = Ova
-	Menu.BackgroundColor3 = COL3RGB(20, 20, 20)
+	Menu.BackgroundColor3 = COL3RGB(255, 255, 255)
 	Menu.Position = UDIM2(0.5, -300, 0.5, -300)
 	Menu.Size = UDIM2(0, 600, 0, 610)
 	Menu.Image = "http://www.roblox.com/asset/?id=7265208537"
@@ -335,11 +341,11 @@ end
 
 		TabGui.Name = "TabGui"
 		TabGui.Parent = Tabs
-		TabGui.BackgroundColor3 = COL3RGB(0, 0, 0)
+		TabGui.BackgroundColor3 = COL3RGB(255, 255, 255)
 		TabGui.BackgroundTransparency = 1.000
 		TabGui.Size = UDIM2(1, 0, 1, 0)
 		TabGui.Visible = false
-		TabGui.Image = "rbxassetid://0"
+		TabGui.Image = "rbxassetid://5553946656"
 		TabGui.ImageColor3 = Color3.fromRGB(0, 0, 0)
 		TabGui.ScaleType = Enum.ScaleType.Tile
 		TabGui.TileSize = UDim2.new(0, 80, 0, 80)
@@ -763,49 +769,6 @@ end
 							end
 						end)
 					elseif type == "TextBox" then
-					
-					Section.Size = Section.Size + UDIM2(0,0,0,30)
-					Element.value = {Text = data.default and data.default.text or ""}
-
-					local Box = INST("Frame")
-					local TextBox = INST("TextBox")
-
-					Box.Name = "Box"
-					Box.Parent = tab1
-					Box.BackgroundColor3 = COL3RGB(255, 255, 255)
-					Box.BackgroundTransparency = 1.000
-					Box.Position = UDIM2(0, 0, 0.542059898, 0)
-					Box.Size = UDIM2(1, 0, 0, 30)
-
-					TextBox.Parent = Box
-					TextBox.BackgroundColor3 = COL3RGB(24,24,24)
-					TextBox.BorderColor3 = COL3RGB(24,24,24)
-					TextBox.Position = UDIM2(0.108303241, 0, 0.224465579, 0)
-					TextBox.Size = UDIM2(0, 175, 0, 20)
-					TextBox.Font = Enum.Font.SourceSans
-					TextBox.PlaceholderText = data.placeholder
-					TextBox.Text = Element.value.Text
-					TextBox.TextColor3 = COL3RGB(255, 255, 255)
-					TextBox.TextSize = 14.000
-					TextBox.ClearTextOnFocus = false
-
-					values[tabname][sectorname][tabtext][text] = Element.value
-
-					TextBox:GetPropertyChangedSignal("Text"):Connect(function()
-						if LEN(TextBox.Text) > 10 then
-							TextBox.Text = SUB(TextBox.Text, 1, 10)
-						end
-						Element.value.Text = TextBox.Text
-						values[tabname][sectorname][tabtext][text] = Element.value
-						callback(Element.value)
-					end)
-
-					function Element:SetValue(value)
-						Element.value = value
-						values[tabname][sectorname][tabtext][text] = Element.value
-						TextBox.Text = Element.value.Text
-					end
-
 
 					elseif type == "ToggleKeybind" then
 						tabsize = tabsize + UDIM2(0,0,0,16)
@@ -1111,7 +1074,7 @@ end
 							update()
 						end
 					elseif type == "Toggle" then
-						tabsize = tabsize + UDIM2(0,0,0,20)
+						tabsize = tabsize + UDIM2(0,0,0,16)
 						Element.value = {Toggle = data.default and data.default.Toggle or false}
 
 						local Toggle = INST("Frame")
