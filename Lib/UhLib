@@ -1,5 +1,6 @@
 -- modified stormy.solutions
-local GameCheck = loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Lib/Checkers"))()
+local GameCheck = loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Lib/Checkers2"))()
+if GameCheck ~= true then return end
 _G.menukey = "v"
 local library = {}
 function library:New(name)
