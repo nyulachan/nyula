@@ -4231,7 +4231,7 @@ end
 					Value.TextSize = 14.000
 					Value.TextXAlignment = Enum.TextXAlignment.Right
 					local min, max, default, division = data.min or 0, data.max or 100, data.default or 0, data.division or 1
-					Element.value = {Slider = default/division}
+					Element.value = {Slider = default}
 
 					function Element:SetValue(value)
 						Element.value = value
