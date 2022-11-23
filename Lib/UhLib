@@ -2007,8 +2007,8 @@ end
 						Value.TextColor3 = COL3RGB(200, 200, 200)
 						Value.TextSize = 14.000
 						Value.TextXAlignment = Enum.TextXAlignment.Right
-						local min, max, default = data.min or 0, data.max or 100, data.default or 0
-						Element.value = {Slider = default}
+						local min, max, default, division = data.min or 0, data.max or 100, data.default or 0, data.division or 1
+						Element.value = {Slider = default/division}
 
 						function Element:SetValue(value)
 							Element.value = value
@@ -2038,15 +2038,15 @@ end
 						Button.MouseButton1Down:Connect(function()
 							Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
 							val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X) + tonumber(min)) or 0
-							Value.Text = val
-							Element.value.Slider = val
+							Value.Text = val/division
+							Element.value.Slider = val/division
 							values[tabname][sectorname][tabtext][text] = Element.value
 							callback(Element.value)
 							moveconnection = mouse.Move:Connect(function()
 								Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
 								val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X) + tonumber(min))
-								Value.Text = val
-								Element.value.Slider = val
+								Value.Text = val/division
+								Element.value.Slider = val/division
 								values[tabname][sectorname][tabtext][text] = Element.value
 								callback(Element.value)
 							end)
@@ -4232,8 +4232,8 @@ end
 					Value.TextColor3 = COL3RGB(200, 200, 200)
 					Value.TextSize = 14.000
 					Value.TextXAlignment = Enum.TextXAlignment.Right
-					local min, max, default = data.min or 0, data.max or 100, data.default or 0
-					Element.value = {Slider = default}
+					local min, max, default, division = data.min or 0, data.max or 100, data.default or 0, data.division or 1
+					Element.value = {Slider = default/division}
 
 					function Element:SetValue(value)
 						Element.value = value
@@ -4263,15 +4263,15 @@ end
 					Button.MouseButton1Down:Connect(function()
 						Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
 						val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X) + tonumber(min)) or 0
-						Value.Text = val
-						Element.value.Slider = val
+						Value.Text = val/division
+						Element.value.Slider = val/division
 						values[tabname][sectorname][text] = Element.value
 						callback(Element.value)
 						moveconnection = mouse.Move:Connect(function()
 							Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
 							val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X) + tonumber(min))
-							Value.Text = val
-							Element.value.Slider = val
+							Value.Text = val/division
+							Element.value.Slider = val/division
 							values[tabname][sectorname][text] = Element.value
 							callback(Element.value)
 						end)
