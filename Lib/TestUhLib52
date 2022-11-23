@@ -1,31 +1,7 @@
 -- modified stormy.solutions
+local GameCheck = loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Lib/Checkers2"))()
+if GameCheck ~= true then return end
 _G.menukey = "v"
-_G.menutheme = _G.menutheme or "Dark"
-local theme = {
-    ["Dark"] = {
-        ["Main"] = Color3.fromRGB(20,20,20),
-        ["Text"] = Color3.fromRGB(255,255,255),
-        ["Text2"] = Color3.fromRGB(200,200,200),
-        ["Secondary"] = Color3.fromRGB(24,24,24),
-        ["Activated"] = Color3.fromRGB(119,0,255),
-    },
-    ["Light"] = {
-        ["Main"] = Color3.fromRGB(200,200,200),
-        ["Text"] = Color3.fromRGB(20,20,20),
-        ["Text2"] = Color3.fromRGB(24,24,24),
-        ["Secondary"] = Color3.fromRGB(150,150,150),
-        ["Activated"] = Color3.fromRGB(119,0,255),
-    },
-}
-function updatetheme()
-    for i,v in pairs(Ova:GetDescendants()) do
-        if v:IsA("dickinyoass") then
-        end
-    end
-end
-
-
-
 local library = {}
 function library:New(name)
 local Signal = loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Lib/Signal"))()
@@ -151,7 +127,7 @@ end
 	local menu = {}
 
 	local Ova = INST("ScreenGui")
-	local Menu = INST("Frame")
+	local Menu = INST("ImageLabel")
 	local TextLabel = INST("TextLabel")
 	local TabButtons = INST("Frame")
 	local UIListLayout = INST("UIListLayout")
@@ -182,7 +158,7 @@ end
 	cursor.Size = UDIM2(0,17,0,17)
 	cursor.Image = "rbxassetid://518398610"
 	cursor.ZIndex = 1000
-	cursor.ImageColor3 = theme[_G.menutheme]["Text"]
+	cursor.ImageColor3 = COL3RGB(255,255,255)
 
 	local Players = game:GetService("Players")
 	local LocalPlayer = Players.LocalPlayer
@@ -190,9 +166,10 @@ end
 
 	Menu.Name = "Menu"
 	Menu.Parent = Ova
-	Menu.BackgroundColor3 = theme[_G.menutheme]["Main"]
+	Menu.BackgroundColor3 = COL3RGB(20, 20, 20)
 	Menu.Position = UDIM2(0.5, -300, 0.5, -300)
 	Menu.Size = UDIM2(0, 600, 0, 610)
+	Menu.Image = "http://www.roblox.com/asset/?id=7265208537"
 	Menu.BorderSizePixel = 0
 
 	library.uiopen = true
@@ -227,7 +204,7 @@ end
 		TextLabel.TextSize = 14.000
 
 		Frame.Parent = TextLabel
-		Frame.BackgroundColor3 = theme[_G.menutheme]["Text"]
+		Frame.BackgroundColor3 = COL3RGB(255, 255, 255)
 		Frame.BackgroundTransparency = 1.000
 		Frame.Position = UDIM2(0, 0, 1, 1)
 		Frame.Size = UDIM2(1, 0, 1, 0)
@@ -249,7 +226,7 @@ end
 			TextLabel.ZIndex = 2
 			TextLabel.Font = Enum.Font.SourceSansSemibold
 			TextLabel.Text = text
-			TextLabel.TextColor3 = theme[_G.menutheme]["Text"]
+			TextLabel.TextColor3 = COL3RGB(255, 255, 255)
 			TextLabel.TextSize = 14.000
 			TextLabel.Name = text
 			TextLabel.Parent = KeybindList.TextLabel.Frame
@@ -303,20 +280,20 @@ end
 	end
 
 	TextLabel.Parent = Menu
-	TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+	TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 	TextLabel.BackgroundTransparency = 1
 	TextLabel.Position = UDIM2(0, 7, 0, 0)
 	TextLabel.Size = UDIM2(0, 0, 0, 29)
 	TextLabel.Size = UDIM2(0, txt:GetTextSize(name, 15, Enum.Font.SourceSansSemibold, Vec2(700, TextLabel.AbsoluteSize.Y)).X, 0, 29)
 	TextLabel.Font = Enum.Font.SourceSansSemibold
 	TextLabel.Text = name
-	TextLabel.TextColor3 = theme[_G.menutheme]["Text"]
+	TextLabel.TextColor3 = COL3RGB(255, 255, 255)
 	TextLabel.TextSize = 15.000
 	TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
 	TabButtons.Name = "TabButtons"
 	TabButtons.Parent = Menu
-	TabButtons.BackgroundColor3 = theme[_G.menutheme]["Text"]
+	TabButtons.BackgroundColor3 = COL3RGB(255, 255, 255)
 	TabButtons.BackgroundTransparency = 1
 	TabButtons.Position = UDIM2(TextLabel.Size.X.Scale, TextLabel.Size.X.Offset+10, 0, 0)
 	TabButtons.Size = UDIM2(TextLabel.Size.X.Scale, 590-TextLabel.Size.X.Offset, 0, 29)
@@ -328,7 +305,7 @@ end
 
 	Tabs.Name = "Tabs"
 	Tabs.Parent = Menu
-	Tabs.BackgroundColor3 = theme[_G.menutheme]["Text"]
+	Tabs.BackgroundColor3 = COL3RGB(255, 255, 255)
 	Tabs.BackgroundTransparency = 1.000
 	Tabs.Position = UDIM2(0, 0, 0, 32)
 	Tabs.Size = UDIM2(0, 600, 0, 568)
@@ -343,12 +320,12 @@ end
 		values[tabname] = {}
 
 		local TextButton = INST("TextButton")
-		TextButton.BackgroundColor3 = theme[_G.menutheme]["Text"]
+		TextButton.BackgroundColor3 = COL3RGB(255, 255, 255)
 		TextButton.BackgroundTransparency = 1
 		TextButton.Size = UDIM2(0, txt:GetTextSize(text, 15, Enum.Font.SourceSansSemibold, Vec2(700,700)).X+12, 1, 0)
 		TextButton.Font = Enum.Font.SourceSansSemibold
 		TextButton.Text = text
-		TextButton.TextColor3 = theme[_G.menutheme]["Text2"]
+		TextButton.TextColor3 = COL3RGB(200, 200, 200)
 		TextButton.TextSize = 15.000
 		TextButton.Parent = TabButtons
 
@@ -371,7 +348,7 @@ end
 
 		Left.Name = "Left"
 		Left.Parent = TabGui
-		Left.BackgroundColor3 = theme[_G.menutheme]["Text"]
+		Left.BackgroundColor3 = COL3RGB(255, 255, 255)
 		Left.BackgroundTransparency = 1.000
 		Left.Position = UDIM2(0, 15, 0, 11)
 		Left.Size = UDIM2(0, 279, 0, 543)
@@ -389,7 +366,7 @@ end
 
 		Right.Name = "Right"
 		Right.Parent = TabGui
-		Right.BackgroundColor3 = theme[_G.menutheme]["Text"]
+		Right.BackgroundColor3 = COL3RGB(255, 255, 255)
 		Right.BackgroundTransparency = 1.000
 		Right.Position = UDIM2(0, 303, 0, 11)
 		Right.Size = UDIM2(0, 279, 0, 543)
@@ -406,7 +383,7 @@ end
 		UIListLayout_2.Padding = UDim.new(0, 10)
 
 		if first then
-			TextButton.TextColor3 = theme[_G.menutheme]["Text"]
+			TextButton.TextColor3 = COL3RGB(255, 255, 255)
 			currenttab = text
 			TabGui.Visible = true
 			first = false
@@ -416,13 +393,13 @@ end
 			if currenttab ~= text then
 				for i,v in pairs(TabButtons:GetChildren()) do
 					if v:IsA("TextButton") then
-						library:Tween(v, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+						library:Tween(v, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 					end
 				end
 				for i,v in pairs(Tabs:GetChildren()) do
 					v.Visible = false
 				end
-				library:Tween(TextButton, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+				library:Tween(TextButton, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 				currenttab = text
 				TabGui.Visible = true
 			end
@@ -442,14 +419,14 @@ end
 
 			Section.Name = "Section"
 			Section.Parent = TabGui[side]
-			Section.BackgroundColor3 = theme[_G.menutheme]["Main"]
-			Section.BorderColor3 = theme[_G.menutheme]["Secondary"]
+			Section.BackgroundColor3 = COL3RGB(20,20,20)
+			Section.BorderColor3 = COL3RGB(24,24,24)
 			Section.BorderSizePixel = 0
 			Section.Size = UDIM2(1, 0, 0, 33)
 
 			SectionText.Name = "SectionText"
 			SectionText.Parent = Section
-			SectionText.BackgroundColor3 = theme[_G.menutheme]["Text"]
+			SectionText.BackgroundColor3 = COL3RGB(255, 255, 255)
 			SectionText.BackgroundTransparency = 1.000
 			--SectionText.Position = UDIM2(0, 7, 0, -12)
 			SectionText.Position = UDIM2(0, 7, 0, -6)
@@ -457,14 +434,14 @@ end
 			SectionText.ZIndex = 2
 			SectionText.Font = Enum.Font.SourceSansSemibold
 			SectionText.Text = text
-			SectionText.TextColor3 = theme[_G.menutheme]["Text"]
+			SectionText.TextColor3 = COL3RGB(255, 255, 255)
 			SectionText.TextSize = 15.000
 			SectionText.TextXAlignment = Enum.TextXAlignment.Left
 			
 
 			Inner.Name = "Inner"
 			Inner.Parent = Section
-			Inner.BackgroundColor3 = theme[_G.menutheme]["Main"]
+			Inner.BackgroundColor3 = COL3RGB(20,20,20)
 			Inner.BorderColor3 = COL3RGB(0, 0, 0)
 			Inner.BorderSizePixel = 0
 			Inner.Position = UDIM2(0, 1, 0, 1)
@@ -472,7 +449,7 @@ end
 
 			sectiontabs.Name = "sectiontabs"
 			sectiontabs.Parent = Section
-			sectiontabs.BackgroundColor3 = theme[_G.menutheme]["Text"]
+			sectiontabs.BackgroundColor3 = COL3RGB(255, 255, 255)
 			sectiontabs.BackgroundTransparency = 1.000
 			sectiontabs.Position = UDIM2(0, 0, 0, 6)
 			sectiontabs.Size = UDIM2(1, 0, 0, 22)
@@ -499,8 +476,8 @@ end
 
 				tab1.Name = text
 				tab1.Parent = Inner
-				tab1.BackgroundColor3 = theme[_G.menutheme]["Main"]
-				tab1.BorderColor3 = theme[_G.menutheme]["Secondary"]
+				tab1.BackgroundColor3 = COL3RGB(20,20,20)
+				tab1.BorderColor3 = COL3RGB(24,24,24)
 				tab1.BorderSizePixel = 0
 				tab1.Position = UDIM2(0, 0, 0, 30)
 				tab1.Size = UDIM2(1, 0, 1, -21)
@@ -516,12 +493,12 @@ end
 				UIListLayout.Padding = UDim.new(0, 1)
 
 				TextButton.Parent = sectiontabs
-				TextButton.BackgroundColor3 = theme[_G.menutheme]["Text"]
+				TextButton.BackgroundColor3 = COL3RGB(255, 255, 255)
 				TextButton.BackgroundTransparency = 1.000
 				TextButton.Size = UDIM2(0, txt:GetTextSize(text, 14, Enum.Font.SourceSansSemibold, Vec2(700,700)).X + 2, 1, 0)
 				TextButton.Font = Enum.Font.SourceSansSemibold
 				TextButton.Text = text
-				TextButton.TextColor3 = theme[_G.menutheme]["Text2"]
+				TextButton.TextColor3 = COL3RGB(200, 200, 200)
 				TextButton.TextSize = 14.000
 				TextButton.Name = text
 
@@ -531,12 +508,12 @@ end
 					end
 					for i,v in pairs(sectiontabs:GetChildren()) do
 						if v:IsA("TextButton") then
-							library:Tween(v, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+							library:Tween(v, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200,200,200)})
 						end
 					end
 					Section.Size = tabsize
 					tab1.Visible = true
-					library:Tween(TextButton, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+					library:Tween(TextButton, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 				end)
 
 				function tab:Element(type, text, data, callback)
@@ -562,15 +539,15 @@ end
 
 						Dropdown.Name = "Dropdown"
 						Dropdown.Parent = tab1
-						Dropdown.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						Dropdown.BackgroundColor3 = COL3RGB(255, 255, 255)
 						Dropdown.BackgroundTransparency = 1.000
 						Dropdown.Position = UDIM2(0, 0, 0.255102038, 0)
 						Dropdown.Size = UDIM2(1, 0, 0, 39)
 
 						Button.Name = "Button"
 						Button.Parent = Dropdown
-						Button.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-						Button.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Button.BackgroundColor3 = COL3RGB(24,24,24)
+						Button.BorderColor3 = COL3RGB(24,24,24)
 						Button.Position = UDIM2(0, 30, 0, 16)
 						Button.Size = UDIM2(0, 175, 0, 17)
 						Button.AutoButtonColor = false
@@ -580,14 +557,14 @@ end
 						Button.TextSize = 14.000
 
 						TextLabel.Parent = Button
-						TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 						TextLabel.BackgroundTransparency = 1.000
-						TextLabel.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						TextLabel.BorderColor3 = COL3RGB(24,24,24)
 						TextLabel.Position = UDIM2(0, 5, 0, 0)
 						TextLabel.Size = UDIM2(-0.21714285, 208, 1, 0)
 						TextLabel.Font = Enum.Font.SourceSansSemibold
 						TextLabel.Text = "..."
-						TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+						TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 						TextLabel.TextSize = 14.000
 						TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 					
@@ -597,8 +574,8 @@ end
 						Drop.Name = "Drop"
 						Drop.Parent = Button
 						Drop.Active = true
-						Drop.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-						Drop.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Drop.BackgroundColor3 = COL3RGB(24,24,24)
+						Drop.BorderColor3 = COL3RGB(24,24,24)
 						Drop.Position = UDIM2(0, 0, 1, 1)
 						Drop.Size = UDIM2(1, 0, 0, 20)
 						Drop.Visible = false
@@ -609,7 +586,7 @@ end
 						Drop.MidImage = "http://www.roblox.com/asset/?id=6724808282"
 						Drop.AutomaticCanvasSize = "Y"
 						Drop.ZIndex = 5
-						Drop.ScrollBarImageColor3 = theme[_G.menutheme]["Activated"]--COL3RGB(119,0,255)
+						Drop.ScrollBarImageColor3 = COL3RGB(119,0,255)
 
 						UIListLayout.Parent = Drop
 						UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -666,8 +643,8 @@ end
 
 								Button.Name = v
 								Button.Parent = Drop
-								Button.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-								Button.BorderColor3 = theme[_G.menutheme]["Secondary"]
+								Button.BackgroundColor3 = COL3RGB(24,24,24)
+								Button.BorderColor3 = COL3RGB(24,24,24)
 								Button.Position = UDIM2(0, 30, 0, 16)
 								Button.Size = UDIM2(0, 175, 0, 17)
 								Button.AutoButtonColor = false
@@ -679,14 +656,14 @@ end
 								Button.ZIndex = 6
 
 								TextLabel.Parent = Button
-								TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+								TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 								TextLabel.BackgroundTransparency = 1.000
-								TextLabel.BorderColor3 = theme[_G.menutheme]["Secondary"]
+								TextLabel.BorderColor3 = COL3RGB(24,24,24)
 								TextLabel.Position = UDIM2(0, 5, 0, -1)
 								TextLabel.Size = UDIM2(-0.21714285, 208, 1, 0)
 								TextLabel.Font = Enum.Font.SourceSansSemibold
 								TextLabel.Text = v
-								TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+								TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 								TextLabel.TextSize = 14.000
 								TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 							
@@ -699,10 +676,10 @@ end
 												TBLREMOVE(Element.value.Jumbobox, i)
 											end
 										end
-										library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+										library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 									else
 										INSERT(Element.value.Jumbobox, v)
-										library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Activated"]})
+										library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(119,0,255)})
 									end
 									updatetext()
 
@@ -711,12 +688,12 @@ end
 								end)
 								Button.MouseEnter:Connect(function()
 									if not TBLFIND(Element.value.Jumbobox, v) then
-										library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+										library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 									end
 								end)
 								Button.MouseLeave:Connect(function()
 									if not TBLFIND(Element.value.Jumbobox, v) then
-										library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+										library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 									end
 								end)
 
@@ -730,7 +707,7 @@ end
 									if TBLFIND(val.Jumbobox, v.Name) then
 										v.TextLabel.TextColor3 = COL3RGB(175, 175, 175)
 									else
-										v.TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+										v.TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 									end
 								end
 							end
@@ -743,20 +720,20 @@ end
 						end
 
 						ImageLabel.Parent = Button
-						ImageLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						ImageLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 						ImageLabel.BackgroundTransparency = 1.000
 						ImageLabel.Position = UDIM2(0, 165, 0, 6)
 						ImageLabel.Size = UDIM2(0, 6, 0, 4)
 						ImageLabel.Image = "http://www.roblox.com/asset/?id=6724771531"
 
 						TextLabel_3.Parent = Dropdown
-						TextLabel_3.BackgroundColor3 = theme[_G.menutheme]["Text2"]
+						TextLabel_3.BackgroundColor3 = COL3RGB(200, 200, 200)
 						TextLabel_3.BackgroundTransparency = 1.000
 						TextLabel_3.Position = UDIM2(0, 32, 0, -1)
 						TextLabel_3.Size = UDIM2(0.111913361, 208, 0.382215232, 0)
 						TextLabel_3.Font = Enum.Font.SourceSansSemibold
 						TextLabel_3.Text = text
-						TextLabel_3.TextColor3 = theme[_G.menutheme]["Text2"]
+						TextLabel_3.TextColor3 = COL3RGB(200, 200, 200)
 						TextLabel_3.TextSize = 14.000
 						TextLabel_3.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -798,20 +775,20 @@ end
 
 					Box.Name = "Box"
 					Box.Parent = tab1
-					Box.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					Box.BackgroundColor3 = COL3RGB(255, 255, 255)
 					Box.BackgroundTransparency = 1.000
 					Box.Position = UDIM2(0, 0, 0.542059898, 0)
 					Box.Size = UDIM2(1, 0, 0, 30)
 
 					TextBox.Parent = Box
-					TextBox.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-					TextBox.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					TextBox.BackgroundColor3 = COL3RGB(24,24,24)
+					TextBox.BorderColor3 = COL3RGB(24,24,24)
 					TextBox.Position = UDIM2(0.108303241, 0, 0.224465579, 0)
 					TextBox.Size = UDIM2(0, 175, 0, 20)
 					TextBox.Font = Enum.Font.SourceSans
 					TextBox.PlaceholderText = data.placeholder
 					TextBox.Text = Element.value.Text
-					TextBox.TextColor3 = theme[_G.menutheme]["Text"]
+					TextBox.TextColor3 = COL3RGB(255, 255, 255)
 					TextBox.TextSize = 14.000
 					TextBox.ClearTextOnFocus = false
 
@@ -843,13 +820,13 @@ end
 
 						Toggle.Name = "Toggle"
 						Toggle.Parent = tab1
-						Toggle.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						Toggle.BackgroundColor3 = COL3RGB(255, 255, 255)
 						Toggle.BackgroundTransparency = 1.000
 						Toggle.Size = UDIM2(1, 0, 0, 15)
 
 						Button.Name = "Button"
 						Button.Parent = Toggle
-						Button.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						Button.BackgroundColor3 = COL3RGB(255, 255, 255)
 						Button.BackgroundTransparency = 1.000
 						Button.Size = UDIM2(1, 0, 1, 0)
 						Button.Font = Enum.Font.SourceSans
@@ -859,19 +836,19 @@ end
 
 						Color.Name = "Color"
 						Color.Parent = Button
-						Color.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
+						Color.BackgroundColor3 = COL3RGB(24,24,24)
 						Color.BorderColor3 = COL3RGB(27, 3275, 35)
 						Color.Position = UDIM2(0, 15, 0.5, -5)
 						Color.Size = UDIM2(0, 8, 0, 8)
 						local binding = false
 						TextLabel.Parent = Button
-						TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 						TextLabel.BackgroundTransparency = 1.000
 						TextLabel.Position = UDIM2(0, 32, 0, -1)
 						TextLabel.Size = UDIM2(0.111913361, 208, 1, 0)
 						TextLabel.Font = Enum.Font.SourceSansSemibold
 						TextLabel.Text = text
-						TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+						TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 						TextLabel.TextSize = 14.000
 						TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 					
@@ -879,11 +856,11 @@ end
 						local function update()
 							if Element.value.Toggle then
 								tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(119, 0, 255)})
-								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 							else
 								keybindremove(text)
-								tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = theme[_G.menutheme]["Secondary"]})
-								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+								tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(24,24,24)})
+								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 							end
 							values[tabname][sectorname][tabtext][text] = Element.value
 							callback(Element.value)
@@ -911,22 +888,22 @@ end
 
 							Keybind.Name = "Keybind"
 							Keybind.Parent = Button
-							Keybind.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-							Keybind.BorderColor3 = theme[_G.menutheme]["Secondary"]
+							Keybind.BackgroundColor3 = COL3RGB(24,24,24)
+							Keybind.BorderColor3 = COL3RGB(24,24,24)
 							Keybind.Position = UDIM2(0, 270, 0.5, -6)
 							Keybind.Text = "NONE"
 							Keybind.Size = UDIM2(0, 43, 0, 12)
 							Keybind.Size = UDIM2(0,txt:GetTextSize("NONE", 14, Enum.Font.SourceSansSemibold, Vec2(700, 12)).X + 5,0, 12)
 							Keybind.AutoButtonColor = false
 							Keybind.Font = Enum.Font.SourceSansSemibold
-							Keybind.TextColor3 = theme[_G.menutheme]["Text2"]
+							Keybind.TextColor3 = COL3RGB(200, 200, 200)
 							Keybind.TextSize = 14.000
 							Keybind.AnchorPoint = Vec2(1,0)
 							Keybind.ZIndex = 3
 
 							Frame.Parent = Keybind
-							Frame.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-							Frame.BorderColor3 = theme[_G.menutheme]["Secondary"]
+							Frame.BackgroundColor3 = COL3RGB(24,24,24)
+							Frame.BorderColor3 = COL3RGB(24,24,24)
 							Frame.Position = UDIM2(1, -49, 0, 1)
 							Frame.Size = UDIM2(0, 49, 0, 49)
 							Frame.Visible = false
@@ -934,15 +911,15 @@ end
 
 							Always.Name = "Always"
 							Always.Parent = Frame
-							Always.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
+							Always.BackgroundColor3 = COL3RGB(24,24,24)
 							Always.BackgroundTransparency = 1.000
-							Always.BorderColor3 = theme[_G.menutheme]["Secondary"]
+							Always.BorderColor3 = COL3RGB(24,24,24)
 							Always.Position = UDIM2(-3.03289485, 231, 0.115384616, -6)
 							Always.Size = UDIM2(1, 0, 0, 16)
 							Always.AutoButtonColor = false
 							Always.Font = Enum.Font.SourceSansBold
 							Always.Text = "Always"
-							Always.TextColor3 = theme[_G.menutheme]["Text2"]
+							Always.TextColor3 = COL3RGB(200, 200, 200)
 							Always.TextSize = 14.000
 							Always.ZIndex = 3
 
@@ -952,23 +929,23 @@ end
 
 							Hold.Name = "Hold"
 							Hold.Parent = Frame
-							Hold.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
+							Hold.BackgroundColor3 = COL3RGB(24,24,24)
 							Hold.BackgroundTransparency = 1.000
-							Hold.BorderColor3 = theme[_G.menutheme]["Secondary"]
+							Hold.BorderColor3 = COL3RGB(24,24,24)
 							Hold.Position = UDIM2(-3.03289485, 231, 0.115384616, -6)
 							Hold.Size = UDIM2(1, 0, 0, 16)
 							Hold.AutoButtonColor = false
 							Hold.Font = Enum.Font.SourceSansSemibold
 							Hold.Text = "Hold"
-							Hold.TextColor3 = theme[_G.menutheme]["Text2"]
+							Hold.TextColor3 = COL3RGB(200, 200, 200)
 							Hold.TextSize = 14.000
 							Hold.ZIndex = 3
 
 							Toggle.Name = "Toggle"
 							Toggle.Parent = Frame
-							Toggle.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
+							Toggle.BackgroundColor3 = COL3RGB(24,24,24)
 							Toggle.BackgroundTransparency = 1.000
-							Toggle.BorderColor3 = theme[_G.menutheme]["Secondary"]
+							Toggle.BorderColor3 = COL3RGB(24,24,24)
 							Toggle.Position = UDIM2(-3.03289485, 231, 0.115384616, -6)
 							Toggle.Size = UDIM2(1, 0, 0, 16)
 							Toggle.AutoButtonColor = false
@@ -990,7 +967,7 @@ end
 										for _,button in pairs(Frame:GetChildren()) do
 											if button:IsA("TextButton") and button.Text ~= Element.value.Type then
 												button.Font = Enum.Font.SourceSansSemibold
-												library:Tween(button, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+												library:Tween(button, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200,200,200)})
 											end
 										end
 										button.Font = Enum.Font.SourceSansBold
@@ -1000,12 +977,12 @@ end
 									end)
 									button.MouseEnter:Connect(function()
 										if Element.value.Type ~= button.Text then
-											library:Tween(button, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+											library:Tween(button, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255,255,255)})
 										end
 									end)
 									button.MouseLeave:Connect(function()
 										if Element.value.Type ~= button.Text then
-											library:Tween(button, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+											library:Tween(button, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200,200,200)})
 										end
 									end)
 								end
@@ -1146,13 +1123,13 @@ end
 
 						Toggle.Name = "Toggle"
 						Toggle.Parent = tab1
-						Toggle.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						Toggle.BackgroundColor3 = COL3RGB(255, 255, 255)
 						Toggle.BackgroundTransparency = 1.000
 						Toggle.Size = UDIM2(1, 0, 0, 15)
 
 						Button.Name = "Button"
 						Button.Parent = Toggle
-						Button.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						Button.BackgroundColor3 = COL3RGB(255, 255, 255)
 						Button.BackgroundTransparency = 1.000
 						Button.Size = UDIM2(1, 0, 1, 0)
 						Button.Font = Enum.Font.SourceSans
@@ -1162,19 +1139,19 @@ end
 
 						Color.Name = "Color"
 						Color.Parent = Button
-						Color.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-						Color.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Color.BackgroundColor3 = COL3RGB(24,24,24)
+						Color.BorderColor3 = COL3RGB(24,24,24)
 						Color.Position = UDIM2(0, 15, 0.5, -5)
 						Color.Size = UDIM2(0, 8, 0, 8)
 
 						TextLabel.Parent = Button
-						TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 						TextLabel.BackgroundTransparency = 1.000
 						TextLabel.Position = UDIM2(0, 32, 0, -1)
 						TextLabel.Size = UDIM2(0.111913361, 208, 1, 0)
 						TextLabel.Font = Enum.Font.SourceSansSemibold
 						TextLabel.Text = text
-						TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+						TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 						TextLabel.TextSize = 14.000
 						TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 					
@@ -1182,11 +1159,11 @@ end
 						local function update()
 							if Element.value.Toggle then
 								tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(119, 0, 255)})
-								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 							else
 								keybindremove(text)
-								tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = theme[_G.menutheme]["Secondary"]})
-								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+								tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(24,24,24)})
+								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 							end
 							values[tabname][sectorname][tabtext][text] = Element.value
 						end
@@ -1210,7 +1187,7 @@ end
 						--callback(data.default and data.default.Toggle or false)
 					elseif type == "ToggleColor" then
 						tabsize = tabsize + UDIM2(0,0,0,16)
-						Element.value = {Toggle = data.default and data.default.Toggle or false, Color = data.default and data.default.Color or theme[_G.menutheme]["Text"]}
+						Element.value = {Toggle = data.default and data.default.Toggle or false, Color = data.default and data.default.Color or COL3RGB(255,255,255)}
 
 						local Toggle = INST("Frame")
 						local Button = INST("TextButton")
@@ -1219,13 +1196,13 @@ end
 
 						Toggle.Name = "Toggle"
 						Toggle.Parent = tab1
-						Toggle.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						Toggle.BackgroundColor3 = COL3RGB(255, 255, 255)
 						Toggle.BackgroundTransparency = 1.000
 						Toggle.Size = UDIM2(1, 0, 0, 15)
 
 						Button.Name = "Button"
 						Button.Parent = Toggle
-						Button.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						Button.BackgroundColor3 = COL3RGB(255, 255, 255)
 						Button.BackgroundTransparency = 1.000
 						Button.Size = UDIM2(1, 0, 1, 0)
 						Button.Font = Enum.Font.SourceSans
@@ -1235,19 +1212,19 @@ end
 
 						Color.Name = "Color"
 						Color.Parent = Button
-						Color.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-						Color.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Color.BackgroundColor3 = COL3RGB(24,24,24)
+						Color.BorderColor3 = COL3RGB(24,24,24)
 						Color.Position = UDIM2(0, 15, 0.5, -5)
 						Color.Size = UDIM2(0, 8, 0, 8)
 
 						TextLabel.Parent = Button
-						TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 						TextLabel.BackgroundTransparency = 1.000
 						TextLabel.Position = UDIM2(0, 32, 0, -1)
 						TextLabel.Size = UDIM2(0.111913361, 208, 1, 0)
 						TextLabel.Font = Enum.Font.SourceSansSemibold
 						TextLabel.Text = text
-						TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+						TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 						TextLabel.TextSize = 14.000
 						TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 					
@@ -1255,10 +1232,10 @@ end
 						local function update()
 							if Element.value.Toggle then
 								tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(119, 0, 255)})
-								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 							else
-								tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = theme[_G.menutheme]["Secondary"]})
-								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+								tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(24,24,24)})
+								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 							end
 							values[tabname][sectorname][tabtext][text] = Element.value
 							callback(Element.value)
@@ -1277,18 +1254,18 @@ end
 						ColorP.Parent = Button
 						ColorP.AnchorPoint = Vec2(1, 0)
 						ColorP.BackgroundColor3 = COL3RGB(255, 0, 0)
-						ColorP.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						ColorP.BorderColor3 = COL3RGB(24,24,24)
 						ColorP.Position = UDIM2(0, 270, 0.5, -4)
 						ColorP.Size = UDIM2(0, 18, 0, 8)
 						ColorP.AutoButtonColor = false
 						ColorP.Font = Enum.Font.SourceSansSemibold
 						ColorP.Text = ""
-						ColorP.TextColor3 = theme[_G.menutheme]["Text2"]
+						ColorP.TextColor3 = COL3RGB(200, 200, 200)
 						ColorP.TextSize = 14.000
 
 						Frame.Parent = ColorP
-						Frame.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-						Frame.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Frame.BackgroundColor3 = COL3RGB(24,24,24)
+						Frame.BorderColor3 = COL3RGB(24,24,24)
 						Frame.Position = UDIM2(-0.666666687, -170, 1.375, 0)
 						Frame.Size = UDIM2(0, 200, 0, 170)
 						Frame.Visible = false
@@ -1296,8 +1273,8 @@ end
 
 						Colorpick.Name = "Colorpick"
 						Colorpick.Parent = Frame
-						Colorpick.BackgroundColor3 = theme[_G.menutheme]["Text"]
-						Colorpick.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Colorpick.BackgroundColor3 = COL3RGB(255, 255, 255)
+						Colorpick.BorderColor3 = COL3RGB(24,24,24)
 						Colorpick.ClipsDescendants = false
 						Colorpick.Position = UDIM2(0, 40, 0, 10)
 						Colorpick.Size = UDIM2(0, 150, 0, 150)
@@ -1309,15 +1286,15 @@ end
 						ColorDrag.Name = "ColorDrag"
 						ColorDrag.Parent = Colorpick
 						ColorDrag.AnchorPoint = Vec2(0.5, 0.5)
-						ColorDrag.BackgroundColor3 = theme[_G.menutheme]["Text"]
-						ColorDrag.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						ColorDrag.BackgroundColor3 = COL3RGB(255, 255, 255)
+						ColorDrag.BorderColor3 = COL3RGB(24,24,24)
 						ColorDrag.Size = UDIM2(0, 4, 0, 4)
 						ColorDrag.ZIndex = 3
 
 						Huepick.Name = "Huepick"
 						Huepick.Parent = Frame
-						Huepick.BackgroundColor3 = theme[_G.menutheme]["Text"]
-						Huepick.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Huepick.BackgroundColor3 = COL3RGB(255, 255, 255)
+						Huepick.BorderColor3 = COL3RGB(24,24,24)
 						Huepick.ClipsDescendants = false
 						Huepick.Position = UDIM2(0, 10, 0, 10)
 						Huepick.Size = UDIM2(0, 20, 0, 150)
@@ -1344,8 +1321,8 @@ end
 
 						Huedrag.Name = "Huedrag"
 						Huedrag.Parent = Huepick
-						Huedrag.BackgroundColor3 = theme[_G.menutheme]["Text"]
-						Huedrag.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Huedrag.BackgroundColor3 = COL3RGB(255, 255, 255)
+						Huedrag.BorderColor3 = COL3RGB(24,24,24)
 						Huedrag.Size = UDIM2(1, 0, 0, 2)
 						Huedrag.ZIndex = 3
 
@@ -1469,7 +1446,7 @@ end
 						end
 					elseif type == "ToggleTrans" then
 						tabsize = tabsize + UDIM2(0,0,0,16)
-						Element.value = {Toggle = data.default and data.default.Toggle or false, Color = data.default and data.default.Color or theme[_G.menutheme]["Text"], Transparency = data.default and data.default.Transparency or 0}
+						Element.value = {Toggle = data.default and data.default.Toggle or false, Color = data.default and data.default.Color or COL3RGB(255,255,255), Transparency = data.default and data.default.Transparency or 0}
 
 						local Toggle = INST("Frame")
 						local Button = INST("TextButton")
@@ -1478,13 +1455,13 @@ end
 
 						Toggle.Name = "Toggle"
 						Toggle.Parent = tab1
-						Toggle.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						Toggle.BackgroundColor3 = COL3RGB(255, 255, 255)
 						Toggle.BackgroundTransparency = 1.000
 						Toggle.Size = UDIM2(1, 0, 0, 15)
 
 						Button.Name = "Button"
 						Button.Parent = Toggle
-						Button.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						Button.BackgroundColor3 = COL3RGB(255, 255, 255)
 						Button.BackgroundTransparency = 1.000
 						Button.Size = UDIM2(1, 0, 1, 0)
 						Button.Font = Enum.Font.SourceSans
@@ -1494,19 +1471,19 @@ end
 
 						Color.Name = "Color"
 						Color.Parent = Button
-						Color.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-						Color.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Color.BackgroundColor3 = COL3RGB(24,24,24)
+						Color.BorderColor3 = COL3RGB(24,24,24)
 						Color.Position = UDIM2(0, 15, 0.5, -5)
 						Color.Size = UDIM2(0, 8, 0, 8)
 
 						TextLabel.Parent = Button
-						TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 						TextLabel.BackgroundTransparency = 1.000
 						TextLabel.Position = UDIM2(0, 32, 0, -1)
 						TextLabel.Size = UDIM2(0.111913361, 208, 1, 0)
 						TextLabel.Font = Enum.Font.SourceSansSemibold
 						TextLabel.Text = text
-						TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+						TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 						TextLabel.TextSize = 14.000
 						TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 					
@@ -1514,10 +1491,10 @@ end
 						local function update()
 							if Element.value.Toggle then
 								tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(119, 0, 255)})
-								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 							else
-								tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = theme[_G.menutheme]["Secondary"]})
-								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+								tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(24,24,24)})
+								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 							end
 							values[tabname][sectorname][tabtext][text] = Element.value
 							callback(Element.value)
@@ -1536,18 +1513,18 @@ end
 						ColorP.Parent = Button
 						ColorP.AnchorPoint = Vec2(1, 0)
 						ColorP.BackgroundColor3 = COL3RGB(255, 0, 0)
-						ColorP.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						ColorP.BorderColor3 = COL3RGB(24,24,24)
 						ColorP.Position = UDIM2(0, 270, 0.5, -4)
 						ColorP.Size = UDIM2(0, 18, 0, 8)
 						ColorP.AutoButtonColor = false
 						ColorP.Font = Enum.Font.SourceSansSemibold
 						ColorP.Text = ""
-						ColorP.TextColor3 = theme[_G.menutheme]["Text2"]
+						ColorP.TextColor3 = COL3RGB(200, 200, 200)
 						ColorP.TextSize = 14.000
 
 						Frame.Parent = ColorP
-						Frame.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-						Frame.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Frame.BackgroundColor3 = COL3RGB(24,24,24)
+						Frame.BorderColor3 = COL3RGB(24,24,24)
 						Frame.Position = UDIM2(-0.666666687, -170, 1.375, 0)
 						Frame.Size = UDIM2(0, 200, 0, 190)
 						Frame.Visible = false
@@ -1555,8 +1532,8 @@ end
 
 						Colorpick.Name = "Colorpick"
 						Colorpick.Parent = Frame
-						Colorpick.BackgroundColor3 = theme[_G.menutheme]["Text"]
-						Colorpick.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Colorpick.BackgroundColor3 = COL3RGB(255, 255, 255)
+						Colorpick.BorderColor3 = COL3RGB(24,24,24)
 						Colorpick.ClipsDescendants = false
 						Colorpick.Position = UDIM2(0, 40, 0, 10)
 						Colorpick.Size = UDIM2(0, 150, 0, 150)
@@ -1568,15 +1545,15 @@ end
 						ColorDrag.Name = "ColorDrag"
 						ColorDrag.Parent = Colorpick
 						ColorDrag.AnchorPoint = Vec2(0.5, 0.5)
-						ColorDrag.BackgroundColor3 = theme[_G.menutheme]["Text"]
-						ColorDrag.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						ColorDrag.BackgroundColor3 = COL3RGB(255, 255, 255)
+						ColorDrag.BorderColor3 = COL3RGB(24,24,24)
 						ColorDrag.Size = UDIM2(0, 4, 0, 4)
 						ColorDrag.ZIndex = 3
 
 						Huepick.Name = "Huepick"
 						Huepick.Parent = Frame
-						Huepick.BackgroundColor3 = theme[_G.menutheme]["Text"]
-						Huepick.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Huepick.BackgroundColor3 = COL3RGB(255, 255, 255)
+						Huepick.BorderColor3 = COL3RGB(24,24,24)
 						Huepick.ClipsDescendants = true
 						Huepick.Position = UDIM2(0, 10, 0, 10)
 						Huepick.Size = UDIM2(0, 20, 0, 150)
@@ -1603,8 +1580,8 @@ end
 
 						Huedrag.Name = "Huedrag"
 						Huedrag.Parent = Huepick
-						Huedrag.BackgroundColor3 = theme[_G.menutheme]["Text"]
-						Huedrag.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Huedrag.BackgroundColor3 = COL3RGB(255, 255, 255)
+						Huedrag.BorderColor3 = COL3RGB(24,24,24)
 						Huedrag.Size = UDIM2(1, 0, 0, 2)
 						Huedrag.ZIndex = 3
 
@@ -1614,8 +1591,8 @@ end
 
 						Transpick.Name = "Transpick"
 						Transpick.Parent = Frame
-						Transpick.BackgroundColor3 = theme[_G.menutheme]["Text"]
-						Transpick.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Transpick.BackgroundColor3 = COL3RGB(255, 255, 255)
+						Transpick.BorderColor3 = COL3RGB(24,24,24)
 						Transpick.Position = UDIM2(0, 10, 0, 167)
 						Transpick.Size = UDIM2(0, 180, 0, 15)
 						Transpick.AutoButtonColor = false
@@ -1626,7 +1603,7 @@ end
 
 						Transcolor.Name = "Transcolor"
 						Transcolor.Parent = Transpick
-						Transcolor.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						Transcolor.BackgroundColor3 = COL3RGB(255, 255, 255)
 						Transcolor.BackgroundTransparency = 1.000
 						Transcolor.Size = UDIM2(1, 0, 1, 0)
 						Transcolor.Image = "rbxassetid://3887017050"
@@ -1635,8 +1612,8 @@ end
 
 						Transdrag.Name = "Transdrag"
 						Transdrag.Parent = Transcolor
-						Transdrag.BackgroundColor3 = theme[_G.menutheme]["Text"]
-						Transdrag.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Transdrag.BackgroundColor3 = COL3RGB(255, 255, 255)
+						Transdrag.BorderColor3 = COL3RGB(24,24,24)
 						Transdrag.Position = UDIM2(0, -1, 0, 0)
 						Transdrag.Size = UDIM2(0, 2, 1, 0)
 						Transdrag.ZIndex = 3
@@ -1801,15 +1778,15 @@ end
 
 						Dropdown.Name = "Dropdown"
 						Dropdown.Parent = tab1
-						Dropdown.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						Dropdown.BackgroundColor3 = COL3RGB(255, 255, 255)
 						Dropdown.BackgroundTransparency = 1.000
 						Dropdown.Position = UDIM2(0, 0, 0.255102038, 0)
 						Dropdown.Size = UDIM2(1, 0, 0, 39)
 
 						Button.Name = "Button"
 						Button.Parent = Dropdown
-						Button.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-						Button.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Button.BackgroundColor3 = COL3RGB(24,24,24)
+						Button.BorderColor3 = COL3RGB(24,24,24)
 						Button.Position = UDIM2(0, 30, 0, 16)
 						Button.Size = UDIM2(0, 175, 0, 17)
 						Button.AutoButtonColor = false
@@ -1819,14 +1796,14 @@ end
 						Button.TextSize = 14.000
 
 						TextLabel.Parent = Button
-						TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 						TextLabel.BackgroundTransparency = 1.000
-						TextLabel.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						TextLabel.BorderColor3 = COL3RGB(24,24,24)
 						TextLabel.Position = UDIM2(0, 5, 0, 0)
 						TextLabel.Size = UDIM2(-0.21714285, 208, 1, 0)
 						TextLabel.Font = Enum.Font.SourceSansSemibold
 						TextLabel.Text = Element.value.Dropdown
-						TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+						TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 						TextLabel.TextSize = 14.000
 						TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 					
@@ -1836,8 +1813,8 @@ end
 						Drop.Name = "Drop"
 						Drop.Parent = Button
 						Drop.Active = true
-						Drop.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-						Drop.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Drop.BackgroundColor3 = COL3RGB(24,24,24)
+						Drop.BorderColor3 = COL3RGB(24,24,24)
 						Drop.Position = UDIM2(0, 0, 1, 1)
 						Drop.Size = UDIM2(1, 0, 0, 20)
 						Drop.Visible = false
@@ -1848,7 +1825,7 @@ end
 						Drop.TopImage = "http://www.roblox.com/asset/?id=6724808282"
 						Drop.AutomaticCanvasSize = "Y"
 						Drop.ZIndex = 5
-						Drop.ScrollBarImageColor3 = theme[_G.menutheme]["Activated"]
+						Drop.ScrollBarImageColor3 = COL3RGB(119,0,255)
 
 						UIListLayout.Parent = Drop
 						UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -1869,8 +1846,8 @@ end
 
 								Button.Name = v
 								Button.Parent = Drop
-								Button.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-								Button.BorderColor3 = theme[_G.menutheme]["Secondary"]
+								Button.BackgroundColor3 = COL3RGB(24,24,24)
+								Button.BorderColor3 = COL3RGB(24,24,24)
 								Button.Position = UDIM2(0, 30, 0, 16)
 								Button.Size = UDIM2(0, 175, 0, 17)
 								Button.AutoButtonColor = false
@@ -1882,14 +1859,14 @@ end
 								Button.ZIndex = 6
 
 								TextLabel.Parent = Button
-								TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+								TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 								TextLabel.BackgroundTransparency = 1.000
-								TextLabel.BorderColor3 = theme[_G.menutheme]["Secondary"]
+								TextLabel.BorderColor3 = COL3RGB(24,24,24)
 								TextLabel.Position = UDIM2(0, 5, 0, -1)
 								TextLabel.Size = UDIM2(-0.21714285, 208, 1, 0)
 								TextLabel.Font = Enum.Font.SourceSansSemibold
 								TextLabel.Text = v
-								TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+								TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 								TextLabel.TextSize = 14.000
 								TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 							
@@ -1904,10 +1881,10 @@ end
 									Drop.CanvasPosition = Vec2(0,0)
 								end)
 								Button.MouseEnter:Connect(function()
-									library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 =  theme[_G.menutheme]["Text"]})
+									library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 =  COL3RGB(255, 255, 255)})
 								end)
 								Button.MouseLeave:Connect(function()
-									library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 =  theme[_G.menutheme]["Text2"]})
+									library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 =  COL3RGB(200, 200, 200)})
 								end)
 
 								first = false
@@ -1922,20 +1899,20 @@ end
 						end
 
 						ImageLabel.Parent = Button
-						ImageLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						ImageLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 						ImageLabel.BackgroundTransparency = 1.000
 						ImageLabel.Position = UDIM2(0, 165, 0, 6)
 						ImageLabel.Size = UDIM2(0, 6, 0, 4)
 						ImageLabel.Image = "http://www.roblox.com/asset/?id=6724771531"
 
 						TextLabel_3.Parent = Dropdown
-						TextLabel_3.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						TextLabel_3.BackgroundColor3 = COL3RGB(255, 255, 255)
 						TextLabel_3.BackgroundTransparency = 1.000
 						TextLabel_3.Position = UDIM2(0, 32, 0, -1)
 						TextLabel_3.Size = UDIM2(0.111913361, 208, 0.382215232, 0)
 						TextLabel_3.Font = Enum.Font.SourceSansSemibold
 						TextLabel_3.Text = text
-						TextLabel_3.TextColor3 = theme[_G.menutheme]["Text2"]
+						TextLabel_3.TextColor3 = COL3RGB(200, 200, 200)
 						TextLabel_3.TextSize = 14.000
 						TextLabel_3.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -1981,27 +1958,27 @@ end
 
 						Slider.Name = "Slider"
 						Slider.Parent = tab1
-						Slider.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						Slider.BackgroundColor3 = COL3RGB(255, 255, 255)
 						Slider.BackgroundTransparency = 1.000
 						Slider.Position = UDIM2(0, 0, 0.653061211, 0)
 						Slider.Size = UDIM2(1, 0, 0, 25)
 
 						TextLabel.Parent = Slider
-						TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 						TextLabel.BackgroundTransparency = 1.000
 						TextLabel.Position = UDIM2(0, 32, 0, -2)
 						TextLabel.Size = UDIM2(0, 100, 0, 15)
 						TextLabel.Font = Enum.Font.SourceSansSemibold
 						TextLabel.Text = text
-						TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+						TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 						TextLabel.TextSize = 14.000
 						TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 					
 
 						Button.Name = "Button"
 						Button.Parent = Slider
-						Button.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-						Button.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Button.BackgroundColor3 = COL3RGB(24,24,24)
+						Button.BorderColor3 = COL3RGB(24,24,24)
 						Button.Position = UDIM2(0, 30, 0, 15)
 						Button.Size = UDIM2(0, 175, 0, 5)
 						Button.AutoButtonColor = false
@@ -2011,26 +1988,26 @@ end
 						Button.TextSize = 14.000
 
 						Frame.Parent = Button
-						Frame.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						Frame.BackgroundColor3 = COL3RGB(255, 255, 255)
 						Frame.BorderSizePixel = 0
 						Frame.Size = UDIM2(0.5, 0, 1, 0)
 
-						UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, theme[_G.menutheme]["Activated"]), ColorSequenceKeypoint.new(1, theme[_G.menutheme]["Activated"])}
+						UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, COL3RGB(119,0,255)), ColorSequenceKeypoint.new(1, COL3RGB(119,0,255))}
 						UIGradient.Rotation = 90
 						UIGradient.Parent = Frame
 
 						Value.Name = "Value"
 						Value.Parent = Slider
-						Value.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						Value.BackgroundColor3 = COL3RGB(255, 255, 255)
 						Value.BackgroundTransparency = 1.000
 						Value.Position = UDIM2(0, 150, 0, -1)
 						Value.Size = UDIM2(0, 55, 0, 15)
 						Value.Font = Enum.Font.SourceSansSemibold
 						Value.Text = "50"
-						Value.TextColor3 = theme[_G.menutheme]["Text2"]
+						Value.TextColor3 = COL3RGB(200, 200, 200)
 						Value.TextSize = 14.000
 						Value.TextXAlignment = Enum.TextXAlignment.Right
-						local min, max, default = data.min or 0, data.max or 100, data.default or 0
+						local min, max, default, division = data.min or 0, data.max or 100, data.default or 0, data.division or 1
 						Element.value = {Slider = default}
 
 						function Element:SetValue(value)
@@ -2061,16 +2038,16 @@ end
 						Button.MouseButton1Down:Connect(function()
 							Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
 							val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X) + tonumber(min)) or 0
-							Value.Text = val
-							Element.value.Slider = val
-							values[tabname][sectorname][tabtext][text] = Element.value
+							Value.Text = val/division
+							Element.value.Slider = val/division
+							values[tabname][sectorname][tabtext][text] = Element.value/division
 							callback(Element.value)
 							moveconnection = mouse.Move:Connect(function()
 								Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
 								val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X) + tonumber(min))
-								Value.Text = val
-								Element.value.Slider = val
-								values[tabname][sectorname][tabtext][text] = Element.value
+								Value.Text = val/division
+								Element.value.Slider = val/division
+								values[tabname][sectorname][tabtext][text] = Element.value/division
 								callback(Element.value)
 							end)
 							releaseconnection = uis.InputEnded:Connect(function(Mouse)
@@ -2093,15 +2070,15 @@ end
 
 						Button.Name = "Button"
 						Button.Parent = tab1
-						Button.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						Button.BackgroundColor3 = COL3RGB(255, 255, 255)
 						Button.BackgroundTransparency = 1.000
 						Button.Position = UDIM2(0, 0, 0.236059487, 0)
 						Button.Size = UDIM2(1, 0, 0, 24)
 
 						Button_2.Name = "Button"
 						Button_2.Parent = Button
-						Button_2.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-						Button_2.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Button_2.BackgroundColor3 = COL3RGB(24,24,24)
+						Button_2.BorderColor3 = COL3RGB(24,24,24)
 						Button_2.Position = UDIM2(0, 30, 0.5, -9)
 						Button_2.Size = UDIM2(0, 175, 0, 18)
 						Button_2.AutoButtonColor = false
@@ -2111,28 +2088,28 @@ end
 						Button_2.TextSize = 14.000
 
 						TextLabel.Parent = Button_2
-						TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 						TextLabel.BackgroundTransparency = 1.000
-						TextLabel.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						TextLabel.BorderColor3 = COL3RGB(24,24,24)
 						TextLabel.Size = UDIM2(1, 0, 1, 0)
 						TextLabel.Font = Enum.Font.SourceSansSemibold
 						TextLabel.Text = text
-						TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+						TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 						TextLabel.TextSize = 14.000
 
 						function Element:SetValue()
 						end
 
 						Button_2.MouseButton1Down:Connect(function()
-							TextLabel.TextColor3 = theme[_G.menutheme]["Activated"]
-							library:Tween(TextLabel, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+							TextLabel.TextColor3 = COL3RGB(119,0,255)
+							library:Tween(TextLabel, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 							callback()
 						end)
 						Button_2.MouseEnter:Connect(function()
-							library:Tween(TextLabel, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+							library:Tween(TextLabel, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 						end)
 						Button_2.MouseLeave:Connect(function()
-							library:Tween(TextLabel, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+							library:Tween(TextLabel, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 						end)
 					end
 					
@@ -2153,7 +2130,7 @@ end
 						Section.Size = tabsize
 					end)()
 					selected = text
-					TextButton.TextColor3 = theme[_G.menutheme]["Text"]
+					TextButton.TextColor3 = COL3RGB(255,255,255)
 					tab1.Visible = true
 					firs = false
 				end
@@ -2174,31 +2151,30 @@ end
 
 			Section.Name = "Section"
 			Section.Parent = TabGui[side]
-			Section.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-			Section.BackgroundTransparency = 1
-			Section.BorderColor3 = theme[_G.menutheme]["Secondary"]
+			Section.BackgroundColor3 = COL3RGB(24,24,24)
+			Section.BorderColor3 = COL3RGB(24,24,24)
 			Section.BorderSizePixel = 0
 			Section.Position = UDIM2(0.00358422939, 0, 0, 0)
 			Section.Size = UDIM2(1, 0, 0, 24)
 
 			SectionText.Name = "SectionText"
 			SectionText.Parent = Section
-			SectionText.BackgroundColor3 = theme[_G.menutheme]["Text"]
+			SectionText.BackgroundColor3 = COL3RGB(255, 255, 255)
 			SectionText.BackgroundTransparency = 1.000
 			SectionText.Position = UDIM2(0, 7, 0, -6)
 			SectionText.Size = UDIM2(0, 270, 0, 19)
 			SectionText.ZIndex = 2
 			SectionText.Font = Enum.Font.SourceSansSemibold
 			SectionText.Text = text
-			SectionText.TextColor3 = theme[_G.menutheme]["Text"]
+			SectionText.TextColor3 = COL3RGB(255, 255, 255)
 			SectionText.TextSize = 15.000
 			SectionText.TextXAlignment = Enum.TextXAlignment.Left
 			
 
 			Inner.Name = "Inner"
 			Inner.Parent = Section
-			Inner.BackgroundColor3 = theme[_G.menutheme]["Main"]
-			Inner.BorderColor3 = theme[_G.menutheme]["Secondary"]
+			Inner.BackgroundColor3 = COL3RGB(20, 20, 20)
+			Inner.BorderColor3 = COL3RGB(24,24,24)
 			Inner.BorderSizePixel = 0
 			Inner.Position = UDIM2(0, 1, 0, 1)
 			Inner.Size = UDIM2(1, -2, 1, -2)
@@ -2254,15 +2230,15 @@ end
 
 					Dropdown.Name = "Dropdown"
 					Dropdown.Parent = Inner
-					Dropdown.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					Dropdown.BackgroundColor3 = COL3RGB(255, 255, 255)
 					Dropdown.BackgroundTransparency = 1.000
 					Dropdown.Position = UDIM2(0, 0, 0, 0)
 					Dropdown.Size = UDIM2(1, 0, 0, 39)
 
 					Button.Name = "Button"
 					Button.Parent = Dropdown
-					Button.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-					Button.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Button.BackgroundColor3 = COL3RGB(24,24,24)
+					Button.BorderColor3 = COL3RGB(24,24,24)
 					Button.Position = UDIM2(0, 30, 0, 16)
 					Button.Size = UDIM2(0, 175, 0, 17)
 					Button.AutoButtonColor = false
@@ -2274,14 +2250,14 @@ end
 					local TextLabel = INST("TextLabel")
 
 					TextLabel.Parent = Button
-					TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 					TextLabel.BackgroundTransparency = 1.000
-					TextLabel.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					TextLabel.BorderColor3 = COL3RGB(24,24,24)
 					TextLabel.Position = UDIM2(0, 5, 0, 0)
 					TextLabel.Size = UDIM2(-0.21714285, 208, 1, 0)
 					TextLabel.Font = Enum.Font.SourceSansSemibold
 					TextLabel.Text = "lol"
-					TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+					TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 					TextLabel.TextSize = 14.000
 					TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 				
@@ -2291,8 +2267,8 @@ end
 					Drop.Name = "Drop"
 					Drop.Parent = Button
 					Drop.Active = true
-					Drop.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-					Drop.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Drop.BackgroundColor3 = COL3RGB(24,24,24)
+					Drop.BorderColor3 = COL3RGB(24,24,24)
 					Drop.Position = UDIM2(0, 0, 1, 1)
 					Drop.Size = UDIM2(1, 0, 0, 20)
 					Drop.Visible = false
@@ -2303,7 +2279,7 @@ end
 					Drop.MidImage = "http://www.roblox.com/asset/?id=6724808282"
 					Drop.AutomaticCanvasSize = "Y"
 					Drop.ZIndex = 5
-					Drop.ScrollBarImageColor3 = theme[_G.menutheme]["Activated"]
+					Drop.ScrollBarImageColor3 = COL3RGB(119,0,255)
 
 					UIListLayout.Parent = Drop
 					UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -2330,8 +2306,8 @@ end
 
 							Button.Name = v
 							Button.Parent = Drop
-							Button.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-							Button.BorderColor3 = theme[_G.menutheme]["Secondary"]
+							Button.BackgroundColor3 = COL3RGB(24,24,24)
+							Button.BorderColor3 = COL3RGB(24,24,24)
 							Button.Position = UDIM2(0, 30, 0, 16)
 							Button.Size = UDIM2(0, 175, 0, 17)
 							Button.AutoButtonColor = false
@@ -2343,14 +2319,14 @@ end
 							Button.ZIndex = 6
 
 							TextLabel.Parent = Button
-							TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+							TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 							TextLabel.BackgroundTransparency = 1.000
-							TextLabel.BorderColor3 = theme[_G.menutheme]["Secondary"]
+							TextLabel.BorderColor3 = COL3RGB(24,24,24)
 							TextLabel.Position = UDIM2(0, 5, 0, -1)
 							TextLabel.Size = UDIM2(-0.21714285, 208, 1, 0)
 							TextLabel.Font = Enum.Font.SourceSansSemibold
 							TextLabel.Text = v
-							TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+							TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 							TextLabel.TextSize = 14.000
 							TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 						
@@ -2370,10 +2346,10 @@ end
 								callback(Element.value)
 							end)
 							Button.MouseEnter:Connect(function()
-								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 =  theme[_G.menutheme]["Text"]})
+								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 =  COL3RGB(255, 255, 255)})
 							end)
 							Button.MouseLeave:Connect(function()
-								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 =  theme[_G.menutheme]["Text2"]})
+								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 =  COL3RGB(200, 200, 200)})
 							end)
 
 							if first then
@@ -2385,7 +2361,7 @@ end
 
 							Scroll.Name = "Scroll"
 							Scroll.Parent = Dropdown
-							Scroll.BackgroundColor3 = theme[_G.menutheme]["Text"]
+							Scroll.BackgroundColor3 = COL3RGB(255, 255, 255)
 							Scroll.BackgroundTransparency = 1.000
 							Scroll.Position = UDIM2(0, 0, 0, 0)
 							Scroll.Size = UDIM2(1, 0, 0, amount * 16 + 8)
@@ -2396,8 +2372,8 @@ end
 							Frame.Name = "Frame"
 							Frame.Parent = Scroll
 							Frame.Active = true
-							Frame.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-							Frame.BorderColor3 = theme[_G.menutheme]["Secondary"]
+							Frame.BackgroundColor3 = COL3RGB(24,24,24)
+							Frame.BorderColor3 = COL3RGB(24,24,24)
 							Frame.Position = UDIM2(0, 30, 0, 40)
 							Frame.Size = UDIM2(0, 175, 0, 16 * amount)
 							Frame.BottomImage = "http://www.roblox.com/asset/?id=6724808282"
@@ -2406,7 +2382,7 @@ end
 							Frame.ScrollBarThickness = 4
 							Frame.TopImage = "http://www.roblox.com/asset/?id=6724808282"
 							Frame.AutomaticCanvasSize = "Y"
-							Frame.ScrollBarImageColor3 = theme[_G.menutheme]["Activated"]
+							Frame.ScrollBarImageColor3 = COL3RGB(119,0,255)
 
 							UIListLayout.Parent = Frame
 							UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -2418,8 +2394,8 @@ end
 
 								Button.Name = v
 								Button.Parent = Frame
-								Button.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-								Button.BorderColor3 = theme[_G.menutheme]["Secondary"]
+								Button.BackgroundColor3 = COL3RGB(24,24,24)
+								Button.BorderColor3 = COL3RGB(24,24,24)
 								Button.BorderSizePixel = 0
 								Button.Position = UDIM2(0, 30, 0, 16)
 								Button.Size = UDIM2(1, 0, 0, 16)
@@ -2430,31 +2406,31 @@ end
 								Button.TextSize = 14.000
 
 								TextLabel.Parent = Button
-								TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+								TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 								TextLabel.BackgroundTransparency = 1.000
-								TextLabel.BorderColor3 = theme[_G.menutheme]["Secondary"]
+								TextLabel.BorderColor3 = COL3RGB(24,24,24)
 								TextLabel.Position = UDIM2(0, 4, 0, -1)
 								TextLabel.Size = UDIM2(1, 1, 1, 1)
 								TextLabel.Font = Enum.Font.SourceSansSemibold
 								TextLabel.Text = v
-								TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+								TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 								TextLabel.TextSize = 14.000
 								TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 							
 								if joll then
 									joll = false
-									TextLabel.TextColor3 = theme[_G.menutheme]["Activated"]
+									TextLabel.TextColor3 = COL3RGB(119,0,255)
 								end
 
 								Button.MouseButton1Down:Connect(function()
 
 									for i,v in pairs(Frame:GetChildren()) do
 										if v:IsA("TextButton") then
-											library:Tween(v.TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+											library:Tween(v.TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 										end
 									end
 
-									library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+									library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 
 									Element.value.Scroll[joell] = v
 
@@ -2463,12 +2439,12 @@ end
 								end)
 								Button.MouseEnter:Connect(function()
 									if Element.value.Scroll[joell] ~= v then
-										library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+										library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 									end
 								end)
 								Button.MouseLeave:Connect(function()
 									if Element.value.Scroll[joell] ~= v then
-										library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+										library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 									end
 								end)
 							end
@@ -2477,20 +2453,20 @@ end
 					end
 
 					ImageLabel.Parent = Button
-					ImageLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					ImageLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 					ImageLabel.BackgroundTransparency = 1.000
 					ImageLabel.Position = UDIM2(0, 165, 0, 6)
 					ImageLabel.Size = UDIM2(0, 6, 0, 4)
 					ImageLabel.Image = "http://www.roblox.com/asset/?id=6724771531"
 
 					TextLabel_3.Parent = Dropdown
-					TextLabel_3.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					TextLabel_3.BackgroundColor3 = COL3RGB(255, 255, 255)
 					TextLabel_3.BackgroundTransparency = 1.000
 					TextLabel_3.Position = UDIM2(0, 32, 0, -1)
 					TextLabel_3.Size = UDIM2(0.111913361, 208, 0.382215232, 0)
 					TextLabel_3.Font = Enum.Font.SourceSansSemibold
 					TextLabel_3.Text = text
-					TextLabel_3.TextColor3 = theme[_G.menutheme]["Text2"]
+					TextLabel_3.TextColor3 = COL3RGB(200, 200, 200)
 					TextLabel_3.TextSize = 14.000
 					TextLabel_3.TextXAlignment = Enum.TextXAlignment.Left
 				
@@ -2537,9 +2513,9 @@ end
 								end
 								for _,bad in pairs(v.Frame:GetChildren()) do
 									if bad:IsA("TextButton") then
-										bad.TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+										bad.TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 										if bad.Name == Element.value.Scroll[v.Name] then
-											bad.TextLabel.TextColor3 = theme[_G.menutheme]["Activated"]
+											bad.TextLabel.TextColor3 = COL3RGB(119,0,255)
 										end
 									end
 								end
@@ -2569,7 +2545,7 @@ end
 
 					Scroll.Name = "Scroll"
 					Scroll.Parent = Inner
-					Scroll.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					Scroll.BackgroundColor3 = COL3RGB(255, 255, 255)
 					Scroll.BackgroundTransparency = 1.000
 					Scroll.Position = UDIM2(0, 0, 00, 0)
 					Scroll.Size = UDIM2(1, 0, 0, amount * 16 + 8)
@@ -2578,8 +2554,8 @@ end
 					Frame.Name = "Frame"
 					Frame.Parent = Scroll
 					Frame.Active = true
-					Frame.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-					Frame.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Frame.BackgroundColor3 = COL3RGB(24,24,24)
+					Frame.BorderColor3 = COL3RGB(24,24,24)
 					Frame.Position = UDIM2(0, 30, 0, 0)
 					Frame.Size = UDIM2(0, 175, 0, 16 * amount)
 					Frame.BottomImage = "http://www.roblox.com/asset/?id=6724808282"
@@ -2588,7 +2564,7 @@ end
 					Frame.ScrollBarThickness = 4
 					Frame.TopImage = "http://www.roblox.com/asset/?id=6724808282"
 					Frame.AutomaticCanvasSize = "Y"
-					Frame.ScrollBarImageColor3 = theme[_G.menutheme]["Activated"]
+					Frame.ScrollBarImageColor3 = COL3RGB(119,0,255)
 
 					UIListLayout.Parent = Frame
 					UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -2600,8 +2576,8 @@ end
 
 						Button.Name = v
 						Button.Parent = Frame
-						Button.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-						Button.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Button.BackgroundColor3 = COL3RGB(24,24,24)
+						Button.BorderColor3 = COL3RGB(24,24,24)
 						Button.BorderSizePixel = 0
 						Button.Position = UDIM2(0, 30, 0, 16)
 						Button.Size = UDIM2(1, 0, 0, 16)
@@ -2612,30 +2588,30 @@ end
 						Button.TextSize = 14.000
 
 						TextLabel.Parent = Button
-						TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+						TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 						TextLabel.BackgroundTransparency = 1.000
-						TextLabel.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						TextLabel.BorderColor3 = COL3RGB(24,24,24)
 						TextLabel.Position = UDIM2(0, 4, 0, -1)
 						TextLabel.Size = UDIM2(1, 1, 1, 1)
 						TextLabel.Font = Enum.Font.SourceSansSemibold
 						TextLabel.Text = v
-						TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+						TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 						TextLabel.TextSize = 14.000
 						TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 					
 						if first then first = false
-							TextLabel.TextColor3 = theme[_G.menutheme]["Activated"]
+							TextLabel.TextColor3 = COL3RGB(119,0,255)
 						end
 
 						Button.MouseButton1Down:Connect(function()
 
 							for i,v in pairs(Frame:GetChildren()) do
 								if v:IsA("TextButton") then
-									library:Tween(v.TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+									library:Tween(v.TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 								end
 							end
 
-							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 
 							Element.value.Scroll = v
 
@@ -2644,12 +2620,12 @@ end
 						end)
 						Button.MouseEnter:Connect(function()
 							if Element.value.Scroll ~= v then
-								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 							end
 						end)
 						Button.MouseLeave:Connect(function()
 							if Element.value.Scroll ~= v then
-								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 							end
 						end)
 					end
@@ -2659,11 +2635,11 @@ end
 
 						for i,v in pairs(Frame:GetChildren()) do
 							if v:IsA("TextButton") then
-								library:Tween(v.TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+								library:Tween(v.TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 							end
 						end
 
-						library:Tween(Frame[Element.value.Scroll].TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+						library:Tween(Frame[Element.value.Scroll].TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 						values[tabname][sectorname][text] = Element.value
 						callback(Element.value)
 					end
@@ -2692,8 +2668,8 @@ end
 
 					Button.Name = "Button"
 					Button.Parent = Dropdown
-					Button.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-					Button.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Button.BackgroundColor3 = COL3RGB(24,24,24)
+					Button.BorderColor3 = COL3RGB(24,24,24)
 					Button.Position = UDIM2(0, 30, 0, 16)
 					Button.Size = UDIM2(0, 175, 0, 17)
 					Button.AutoButtonColor = false
@@ -2703,14 +2679,14 @@ end
 					Button.TextSize = 14.000
 
 					TextLabel.Parent = Button
-					TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 					TextLabel.BackgroundTransparency = 1.000
-					TextLabel.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					TextLabel.BorderColor3 = COL3RGB(24,24,24)
 					TextLabel.Position = UDIM2(0, 5, 0, 0)
 					TextLabel.Size = UDIM2(-0.21714285, 208, 1, 0)
 					TextLabel.Font = Enum.Font.SourceSansSemibold
 					TextLabel.Text = "..."
-					TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+					TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 					TextLabel.TextSize = 14.000
 					TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 				
@@ -2720,8 +2696,8 @@ end
 					Drop.Name = "Drop"
 					Drop.Parent = Button
 					Drop.Active = true
-					Drop.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-					Drop.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Drop.BackgroundColor3 = COL3RGB(24,24,24)
+					Drop.BorderColor3 = COL3RGB(24,24,24)
 					Drop.Position = UDIM2(0, 0, 1, 1)
 					Drop.Size = UDIM2(1, 0, 0, 20)
 					Drop.Visible = false
@@ -2735,7 +2711,7 @@ end
 						Drop.CanvasSize = Drop.CanvasSize + UDIM2(0, 0, 0, 17)
 					end
 					Drop.ZIndex = 5
-					Drop.ScrollBarImageColor3 = theme[_G.menutheme]["Activated"]
+					Drop.ScrollBarImageColor3 = COL3RGB(119,0,255)
 
 					UIListLayout.Parent = Drop
 					UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -2793,8 +2769,8 @@ end
 
 							Button.Name = v
 							Button.Parent = Drop
-							Button.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-							Button.BorderColor3 = theme[_G.menutheme]["Secondary"]
+							Button.BackgroundColor3 = COL3RGB(24,24,24)
+							Button.BorderColor3 = COL3RGB(24,24,24)
 							Button.Position = UDIM2(0, 30, 0, 16)
 							Button.Size = UDIM2(0, 175, 0, 17)
 							Button.AutoButtonColor = false
@@ -2806,14 +2782,14 @@ end
 							Button.ZIndex = 6
 
 							TextLabel.Parent = Button
-							TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+							TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 							TextLabel.BackgroundTransparency = 1.000
-							TextLabel.BorderColor3 = theme[_G.menutheme]["Secondary"]
+							TextLabel.BorderColor3 = COL3RGB(24,24,24)
 							TextLabel.Position = UDIM2(0, 5, 0, -1)
 							TextLabel.Size = UDIM2(-0.21714285, 208, 1, 0)
 							TextLabel.Font = Enum.Font.SourceSansSemibold
 							TextLabel.Text = v
-							TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+							TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 							TextLabel.TextSize = 14.000
 							TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 						
@@ -2826,10 +2802,10 @@ end
 											TBLREMOVE(Element.value.Jumbobox, i)
 										end
 									end
-									library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+									library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 								else
 									INSERT(Element.value.Jumbobox, v)
-									library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Activated"]})
+									library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(119,0,255)})
 								end
 								updatetext()
 
@@ -2838,12 +2814,12 @@ end
 							end)
 							Button.MouseEnter:Connect(function()
 								if not TBLFIND(Element.value.Jumbobox, v) then
-									library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+									library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 								end
 							end)
 							Button.MouseLeave:Connect(function()
 								if not TBLFIND(Element.value.Jumbobox, v) then
-									library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+									library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 								end
 							end)
 
@@ -2855,9 +2831,9 @@ end
 						for i,v in pairs(Drop:GetChildren()) do
 							if v.Name ~= "UIListLayout" then
 								if TBLFIND(val.Jumbobox, v.Name) then
-									v.TextLabel.TextColor3 = theme[_G.menutheme]["Activated"]
+									v.TextLabel.TextColor3 = COL3RGB(119,0,255)
 								else
-									v.TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+									v.TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 								end
 							end
 						end
@@ -2870,20 +2846,20 @@ end
 					end
 
 					ImageLabel.Parent = Button
-					ImageLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					ImageLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 					ImageLabel.BackgroundTransparency = 1.000
 					ImageLabel.Position = UDIM2(0, 165, 0, 6)
 					ImageLabel.Size = UDIM2(0, 6, 0, 4)
 					ImageLabel.Image = "http://www.roblox.com/asset/?id=6724771531"
 
 					TextLabel_3.Parent = Dropdown
-					TextLabel_3.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					TextLabel_3.BackgroundColor3 = COL3RGB(255, 255, 255)
 					TextLabel_3.BackgroundTransparency = 1.000
 					TextLabel_3.Position = UDIM2(0, 32, 0, -1)
 					TextLabel_3.Size = UDIM2(0.111913361, 208, 0.382215232, 0)
 					TextLabel_3.Font = Enum.Font.SourceSansSemibold
 					TextLabel_3.Text = text
-					TextLabel_3.TextColor3 = theme[_G.menutheme]["Text2"]
+					TextLabel_3.TextColor3 = COL3RGB(200, 200, 200)
 					TextLabel_3.TextSize = 14.000
 					TextLabel_3.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -2926,13 +2902,13 @@ end
 
 					Toggle.Name = "Toggle"
 					Toggle.Parent = Inner
-					Toggle.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					Toggle.BackgroundColor3 = COL3RGB(255, 255, 255)
 					Toggle.BackgroundTransparency = 1.000
 					Toggle.Size = UDIM2(1, 0, 0, 15)
 
 					Button.Name = "Button"
 					Button.Parent = Toggle
-					Button.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					Button.BackgroundColor3 = COL3RGB(255, 255, 255)
 					Button.BackgroundTransparency = 1.000
 					Button.Size = UDIM2(1, 0, 1, 0)
 					Button.Font = Enum.Font.SourceSans
@@ -2942,19 +2918,19 @@ end
 
 					Color.Name = "Color"
 					Color.Parent = Button
-					Color.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-					Color.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Color.BackgroundColor3 = COL3RGB(24,24,24)
+					Color.BorderColor3 = COL3RGB(24,24,24)
 					Color.Position = UDIM2(0, 15, 0.5, -5)
 					Color.Size = UDIM2(0, 8, 0, 8)
 					local binding = false
 					TextLabel.Parent = Button
-					TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 					TextLabel.BackgroundTransparency = 1.000
 					TextLabel.Position = UDIM2(0, 32, 0, -1)
 					TextLabel.Size = UDIM2(0.111913361, 208, 1, 0)
 					TextLabel.Font = Enum.Font.SourceSansSemibold
 					TextLabel.Text = text
-					TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+					TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 					TextLabel.TextSize = 14.000
 					TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 				
@@ -2962,11 +2938,11 @@ end
 					local function update()
 						if Element.value.Toggle then
 							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(119, 0, 255)})
-							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 						else
 							keybindremove(text)
-							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = theme[_G.menutheme]["Secondary"]})
-							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(24,24,24)})
+							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 						end
 						values[tabname][sectorname][text] = Element.value
 						callback(Element.value)
@@ -2995,22 +2971,22 @@ end
 
 						Keybind.Name = "Keybind"
 						Keybind.Parent = Button
-						Keybind.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-						Keybind.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Keybind.BackgroundColor3 = COL3RGB(24,24,24)
+						Keybind.BorderColor3 = COL3RGB(24,24,24)
 						Keybind.Position = UDIM2(0, 270, 0.5, -6)
 						Keybind.Text = data.default and data.default.Key or "NONE"
 						Keybind.Size = UDIM2(0, 43, 0, 12)
 						Keybind.Size = UDIM2(0,txt:GetTextSize(Keybind.Text, 14, Enum.Font.SourceSansSemibold, Vec2(700, 12)).X + 5,0, 12)
 						Keybind.AutoButtonColor = false
 						Keybind.Font = Enum.Font.SourceSansSemibold
-						Keybind.TextColor3 = theme[_G.menutheme]["Text2"]
+						Keybind.TextColor3 = COL3RGB(200, 200, 200)
 						Keybind.TextSize = 14.000
 						Keybind.AnchorPoint = Vec2(1,0)
 						Keybind.ZIndex = 3
 
 						Frame.Parent = Keybind
-						Frame.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-						Frame.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Frame.BackgroundColor3 = COL3RGB(24,24,24)
+						Frame.BorderColor3 = COL3RGB(24,24,24)
 						Frame.Position = UDIM2(1, -49, 0, 1)
 						Frame.Size = UDIM2(0, 49, 0, 49)
 						Frame.Visible = false
@@ -3018,15 +2994,15 @@ end
 
 						Always.Name = "Always"
 						Always.Parent = Frame
-						Always.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
+						Always.BackgroundColor3 = COL3RGB(24,24,24)
 						Always.BackgroundTransparency = 1.000
-						Always.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Always.BorderColor3 = COL3RGB(24,24,24)
 						Always.Position = UDIM2(-3.03289485, 231, 0.115384616, -6)
 						Always.Size = UDIM2(1, 0, 0, 16)
 						Always.AutoButtonColor = false
 						Always.Font = Enum.Font.SourceSansBold
 						Always.Text = "Always"
-						Always.TextColor3 = theme[_G.menutheme]["Text2"]
+						Always.TextColor3 = COL3RGB(200,200,200)
 						Always.TextSize = 14.000
 						Always.ZIndex = 3
 
@@ -3036,29 +3012,29 @@ end
 
 						Hold.Name = "Hold"
 						Hold.Parent = Frame
-						Hold.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
+						Hold.BackgroundColor3 = COL3RGB(24,24,24)
 						Hold.BackgroundTransparency = 1.000
-						Hold.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Hold.BorderColor3 = COL3RGB(24,24,24)
 						Hold.Position = UDIM2(-3.03289485, 231, 0.115384616, -6)
 						Hold.Size = UDIM2(1, 0, 0, 16)
 						Hold.AutoButtonColor = false
 						Hold.Font = Enum.Font.SourceSansSemibold
 						Hold.Text = "Hold"
-						Hold.TextColor3 = theme[_G.menutheme]["Text2"]
+						Hold.TextColor3 = COL3RGB(200, 200, 200)
 						Hold.TextSize = 14.000
 						Hold.ZIndex = 3
 
 						Toggle.Name = "Toggle"
 						Toggle.Parent = Frame
-						Toggle.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
+						Toggle.BackgroundColor3 = COL3RGB(24,24,24)
 						Toggle.BackgroundTransparency = 1.000
-						Toggle.BorderColor3 = theme[_G.menutheme]["Secondary"]
+						Toggle.BorderColor3 = COL3RGB(24,24,24)
 						Toggle.Position = UDIM2(-3.03289485, 231, 0.115384616, -6)
 						Toggle.Size = UDIM2(1, 0, 0, 16)
 						Toggle.AutoButtonColor = false
 						Toggle.Font = Enum.Font.SourceSansSemibold
 						Toggle.Text = "Toggle"
-						Toggle.TextColor3 = theme[_G.menutheme]["Activated"]
+						Toggle.TextColor3 = COL3RGB(119,0,255)
 						Toggle.TextSize = 14.000
 						Toggle.ZIndex = 3
 
@@ -3077,21 +3053,21 @@ end
 									for _,button in pairs(Frame:GetChildren()) do
 										if button:IsA("TextButton") and button.Text ~= Element.value.Type then
 											button.Font = Enum.Font.SourceSansSemibold
-											library:Tween(button, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+											library:Tween(button, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200,200,200)})
 										end
 									end
 									button.Font = Enum.Font.SourceSansBold
-									button.TextColor3 = theme[_G.menutheme]["Activated"]
+									button.TextColor3 = COL3RGB(119,0,255)
 									values[tabname][sectorname][text] = Element.value
 								end)
 								button.MouseEnter:Connect(function()
 									if Element.value.Type ~= button.Text then
-										library:Tween(button, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+										library:Tween(button, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255,255,255)})
 									end
 								end)
 								button.MouseLeave:Connect(function()
 									if Element.value.Type ~= button.Text then
-										library:Tween(button, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+										library:Tween(button, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200,200,200)})
 									end
 								end)
 							end
@@ -3240,13 +3216,13 @@ end
 
 					Toggle.Name = "Toggle"
 					Toggle.Parent = Inner
-					Toggle.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					Toggle.BackgroundColor3 = COL3RGB(255, 255, 255)
 					Toggle.BackgroundTransparency = 1.000
 					Toggle.Size = UDIM2(1, 0, 0, 15)
 
 					Button.Name = "Button"
 					Button.Parent = Toggle
-					Button.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					Button.BackgroundColor3 = COL3RGB(255, 255, 255)
 					Button.BackgroundTransparency = 1.000
 					Button.Size = UDIM2(1, 0, 1, 0)
 					Button.Font = Enum.Font.SourceSans
@@ -3256,30 +3232,30 @@ end
 
 					Color.Name = "Color"
 					Color.Parent = Button
-					Color.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-					Color.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Color.BackgroundColor3 = COL3RGB(24,24,24)
+					Color.BorderColor3 = COL3RGB(24,24,24)
 					Color.Position = UDIM2(0, 15, 0.5, -5)
 					Color.Size = UDIM2(0, 8, 0, 8)
 
 					TextLabel.Parent = Button
-					TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 					TextLabel.BackgroundTransparency = 1.000
 					TextLabel.Position = UDIM2(0, 32, 0, -1)
 					TextLabel.Size = UDIM2(0.111913361, 208, 1, 0)
 					TextLabel.Font = Enum.Font.SourceSansSemibold
 					TextLabel.Text = text
-					TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+					TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 					TextLabel.TextSize = 14.000
 					TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 				
 
 					local function update()
 						if Element.value.Toggle then
-							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = theme[_G.menutheme]["Activated"]})
-							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(119, 0, 255)})
+							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 						else
-							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = theme[_G.menutheme]["Secondary"]})
-							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(24,24,24)})
+							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 						end
 						values[tabname][sectorname][text] = Element.value
 					end
@@ -3302,7 +3278,7 @@ end
 					end
 				elseif type == "ToggleColor" then
 					Section.Size = Section.Size + UDIM2(0,0,0,16)
-					Element.value = {Toggle = data.default and data.default.Toggle or false, Color = data.default and data.default.Color or theme[_G.menutheme]["Text"]}
+					Element.value = {Toggle = data.default and data.default.Toggle or false, Color = data.default and data.default.Color or COL3RGB(255,255,255)}
 
 					local Toggle = INST("Frame")
 					local Button = INST("TextButton")
@@ -3311,13 +3287,13 @@ end
 
 					Toggle.Name = "Toggle"
 					Toggle.Parent = Inner
-					Toggle.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					Toggle.BackgroundColor3 = COL3RGB(255, 255, 255)
 					Toggle.BackgroundTransparency = 1.000
 					Toggle.Size = UDIM2(1, 0, 0, 15)
 
 					Button.Name = "Button"
 					Button.Parent = Toggle
-					Button.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					Button.BackgroundColor3 = COL3RGB(255, 255, 255)
 					Button.BackgroundTransparency = 1.000
 					Button.Size = UDIM2(1, 0, 1, 0)
 					Button.Font = Enum.Font.SourceSans
@@ -3327,19 +3303,19 @@ end
 
 					Color.Name = "Color"
 					Color.Parent = Button
-					Color.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-					Color.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Color.BackgroundColor3 = COL3RGB(24,24,24)
+					Color.BorderColor3 = COL3RGB(24,24,24)
 					Color.Position = UDIM2(0, 15, 0.5, -5)
 					Color.Size = UDIM2(0, 8, 0, 8)
 
 					TextLabel.Parent = Button
-					TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 					TextLabel.BackgroundTransparency = 1.000
 					TextLabel.Position = UDIM2(0, 32, 0, -1)
 					TextLabel.Size = UDIM2(0.111913361, 208, 1, 0)
 					TextLabel.Font = Enum.Font.SourceSansSemibold
 					TextLabel.Text = text
-					TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+					TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 					TextLabel.TextSize = 14.000
 					TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 				
@@ -3347,10 +3323,10 @@ end
 					local function update()
 						if Element.value.Toggle then
 							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(119, 0, 255)})
-							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 						else
-							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = theme[_G.menutheme]["Secondary"]})
-							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(24,24,24)})
+							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 						end
 						values[tabname][sectorname][text] = Element.value
 					end
@@ -3368,18 +3344,18 @@ end
 					ColorP.Parent = Button
 					ColorP.AnchorPoint = Vec2(1, 0)
 					ColorP.BackgroundColor3 = COL3RGB(255, 0, 0)
-					ColorP.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					ColorP.BorderColor3 = COL3RGB(24,24,24)
 					ColorP.Position = UDIM2(0, 270, 0.5, -4)
 					ColorP.Size = UDIM2(0, 18, 0, 8)
 					ColorP.AutoButtonColor = false
 					ColorP.Font = Enum.Font.SourceSansSemibold
 					ColorP.Text = ""
-					ColorP.TextColor3 = theme[_G.menutheme]["Text2"]
+					ColorP.TextColor3 = COL3RGB(200, 200, 200)
 					ColorP.TextSize = 14.000
 
 					Frame.Parent = ColorP
-					Frame.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-					Frame.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Frame.BackgroundColor3 = COL3RGB(24,24,24)
+					Frame.BorderColor3 = COL3RGB(24,24,24)
 					Frame.Position = UDIM2(-0.666666687, -170, 1.375, 0)
 					Frame.Size = UDIM2(0, 200, 0, 170)
 					Frame.Visible = false
@@ -3387,8 +3363,8 @@ end
 
 					Colorpick.Name = "Colorpick"
 					Colorpick.Parent = Frame
-					Colorpick.BackgroundColor3 = theme[_G.menutheme]["Text"]
-					Colorpick.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Colorpick.BackgroundColor3 = COL3RGB(255, 255, 255)
+					Colorpick.BorderColor3 = COL3RGB(24,24,24)
 					Colorpick.ClipsDescendants = false
 					Colorpick.Position = UDIM2(0, 40, 0, 10)
 					Colorpick.Size = UDIM2(0, 150, 0, 150)
@@ -3400,15 +3376,15 @@ end
 					ColorDrag.Name = "ColorDrag"
 					ColorDrag.Parent = Colorpick
 					ColorDrag.AnchorPoint = Vec2(0.5, 0.5)
-					ColorDrag.BackgroundColor3 = theme[_G.menutheme]["Text"]
-					ColorDrag.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					ColorDrag.BackgroundColor3 = COL3RGB(255, 255, 255)
+					ColorDrag.BorderColor3 = COL3RGB(24,24,24)
 					ColorDrag.Size = UDIM2(0, 4, 0, 4)
 					ColorDrag.ZIndex = 3
 
 					Huepick.Name = "Huepick"
 					Huepick.Parent = Frame
-					Huepick.BackgroundColor3 = theme[_G.menutheme]["Text"]
-					Huepick.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Huepick.BackgroundColor3 = COL3RGB(255, 255, 255)
+					Huepick.BorderColor3 = COL3RGB(24,24,24)
 					Huepick.ClipsDescendants = false
 					Huepick.Position = UDIM2(0, 10, 0, 10)
 					Huepick.Size = UDIM2(0, 20, 0, 150)
@@ -3435,8 +3411,8 @@ end
 
 					Huedrag.Name = "Huedrag"
 					Huedrag.Parent = Huepick
-					Huedrag.BackgroundColor3 = theme[_G.menutheme]["Text"]
-					Huedrag.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Huedrag.BackgroundColor3 = COL3RGB(255, 255, 255)
+					Huedrag.BorderColor3 = COL3RGB(24,24,24)
 					Huedrag.Size = UDIM2(1, 0, 0, 2)
 					Huedrag.ZIndex = 3
 
@@ -3564,7 +3540,7 @@ end
 					end
 				elseif type == "ToggleTrans" then
 					Section.Size = Section.Size + UDIM2(0,0,0,16)
-					Element.value = {Toggle = data.default and data.default.Toggle or false, Color = data.default and data.default.Color or theme[_G.menutheme]["Text"], Transparency = data.default and data.default.Transparency or 0}
+					Element.value = {Toggle = data.default and data.default.Toggle or false, Color = data.default and data.default.Color or COL3RGB(255,255,255), Transparency = data.default and data.default.Transparency or 0}
 
 					local Toggle = INST("Frame")
 					local Button = INST("TextButton")
@@ -3573,13 +3549,13 @@ end
 
 					Toggle.Name = "Toggle"
 					Toggle.Parent = Inner
-					Toggle.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					Toggle.BackgroundColor3 = COL3RGB(255, 255, 255)
 					Toggle.BackgroundTransparency = 1.000
 					Toggle.Size = UDIM2(1, 0, 0, 15)
 
 					Button.Name = "Button"
 					Button.Parent = Toggle
-					Button.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					Button.BackgroundColor3 = COL3RGB(255, 255, 255)
 					Button.BackgroundTransparency = 1.000
 					Button.Size = UDIM2(1, 0, 1, 0)
 					Button.Font = Enum.Font.SourceSans
@@ -3589,19 +3565,19 @@ end
 
 					Color.Name = "Color"
 					Color.Parent = Button
-					Color.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-					Color.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Color.BackgroundColor3 = COL3RGB(24,24,24)
+					Color.BorderColor3 = COL3RGB(24,24,24)
 					Color.Position = UDIM2(0, 15, 0.5, -5)
 					Color.Size = UDIM2(0, 8, 0, 8)
 
 					TextLabel.Parent = Button
-					TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 					TextLabel.BackgroundTransparency = 1.000
 					TextLabel.Position = UDIM2(0, 32, 0, -1)
 					TextLabel.Size = UDIM2(0.111913361, 208, 1, 0)
 					TextLabel.Font = Enum.Font.SourceSansSemibold
 					TextLabel.Text = text
-					TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+					TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 					TextLabel.TextSize = 14.000
 					TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 				
@@ -3609,10 +3585,10 @@ end
 					local function update()
 						if Element.value.Toggle then
 							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(119, 0, 255)})
-							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 						else
-							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = theme[_G.menutheme]["Secondary"]})
-							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(24,24,24)})
+							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 						end
 						values[tabname][sectorname][text] = Element.value
 						callback(Element.value)
@@ -3631,18 +3607,18 @@ end
 					ColorP.Parent = Button
 					ColorP.AnchorPoint = Vec2(1, 0)
 					ColorP.BackgroundColor3 = COL3RGB(255, 0, 0)
-					ColorP.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					ColorP.BorderColor3 = COL3RGB(24,24,24)
 					ColorP.Position = UDIM2(0, 270, 0.5, -4)
 					ColorP.Size = UDIM2(0, 18, 0, 8)
 					ColorP.AutoButtonColor = false
 					ColorP.Font = Enum.Font.SourceSansSemibold
 					ColorP.Text = ""
-					ColorP.TextColor3 = theme[_G.menutheme]["Text2"]
+					ColorP.TextColor3 = COL3RGB(200, 200, 200)
 					ColorP.TextSize = 14.000
 
 					Frame.Parent = ColorP
-					Frame.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-					Frame.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Frame.BackgroundColor3 = COL3RGB(24,24,24)
+					Frame.BorderColor3 = COL3RGB(24,24,24)
 					Frame.Position = UDIM2(-0.666666687, -170, 1.375, 0)
 					Frame.Size = UDIM2(0, 200, 0, 190)
 					Frame.Visible = false
@@ -3650,8 +3626,8 @@ end
 
 					Colorpick.Name = "Colorpick"
 					Colorpick.Parent = Frame
-					Colorpick.BackgroundColor3 = theme[_G.menutheme]["Text"]
-					Colorpick.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Colorpick.BackgroundColor3 = COL3RGB(255, 255, 255)
+					Colorpick.BorderColor3 = COL3RGB(24,24,24)
 					Colorpick.ClipsDescendants = false
 					Colorpick.Position = UDIM2(0, 40, 0, 10)
 					Colorpick.Size = UDIM2(0, 150, 0, 150)
@@ -3663,15 +3639,15 @@ end
 					ColorDrag.Name = "ColorDrag"
 					ColorDrag.Parent = Colorpick
 					ColorDrag.AnchorPoint = Vec2(0.5, 0.5)
-					ColorDrag.BackgroundColor3 = theme[_G.menutheme]["Text"]
-					ColorDrag.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					ColorDrag.BackgroundColor3 = COL3RGB(255, 255, 255)
+					ColorDrag.BorderColor3 = COL3RGB(24,24,24)
 					ColorDrag.Size = UDIM2(0, 4, 0, 4)
 					ColorDrag.ZIndex = 3
 
 					Huepick.Name = "Huepick"
 					Huepick.Parent = Frame
-					Huepick.BackgroundColor3 = theme[_G.menutheme]["Text"]
-					Huepick.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Huepick.BackgroundColor3 = COL3RGB(255, 255, 255)
+					Huepick.BorderColor3 = COL3RGB(24,24,24)
 					Huepick.ClipsDescendants = true
 					Huepick.Position = UDIM2(0, 10, 0, 10)
 					Huepick.Size = UDIM2(0, 20, 0, 150)
@@ -3698,8 +3674,8 @@ end
 
 					Huedrag.Name = "Huedrag"
 					Huedrag.Parent = Huepick
-					Huedrag.BackgroundColor3 = theme[_G.menutheme]["Text"]
-					Huedrag.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Huedrag.BackgroundColor3 = COL3RGB(255, 255, 255)
+					Huedrag.BorderColor3 = COL3RGB(24,24,24)
 					Huedrag.Size = UDIM2(1, 0, 0, 2)
 					Huedrag.ZIndex = 3
 
@@ -3709,8 +3685,8 @@ end
 
 					Transpick.Name = "Transpick"
 					Transpick.Parent = Frame
-					Transpick.BackgroundColor3 = theme[_G.menutheme]["Text"]
-					Transpick.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Transpick.BackgroundColor3 = COL3RGB(255, 255, 255)
+					Transpick.BorderColor3 = COL3RGB(24,24,24)
 					Transpick.Position = UDIM2(0, 10, 0, 167)
 					Transpick.Size = UDIM2(0, 180, 0, 15)
 					Transpick.AutoButtonColor = false
@@ -3721,7 +3697,7 @@ end
 
 					Transcolor.Name = "Transcolor"
 					Transcolor.Parent = Transpick
-					Transcolor.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					Transcolor.BackgroundColor3 = COL3RGB(255, 255, 255)
 					Transcolor.BackgroundTransparency = 1.000
 					Transcolor.Size = UDIM2(1, 0, 1, 0)
 					Transcolor.Image = "rbxassetid://3887017050"
@@ -3730,8 +3706,8 @@ end
 
 					Transdrag.Name = "Transdrag"
 					Transdrag.Parent = Transcolor
-					Transdrag.BackgroundColor3 = theme[_G.menutheme]["Text"]
-					Transdrag.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Transdrag.BackgroundColor3 = COL3RGB(255, 255, 255)
+					Transdrag.BorderColor3 = COL3RGB(24,24,24)
 					Transdrag.Position = UDIM2(0, -1, 0, 0)
 					Transdrag.Size = UDIM2(0, 2, 1, 0)
 					Transdrag.ZIndex = 3
@@ -3865,10 +3841,10 @@ end
 					if data.default then
 						if Element.value.Toggle then
 							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(155, 155, 155)})
-							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 						else
-							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = theme[_G.menutheme]["Secondary"]})
-							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(24,24,24)})
+							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 						end
 						values[tabname][sectorname][text] = Element.value
 					end
@@ -3896,20 +3872,20 @@ end
 
 					Box.Name = "Box"
 					Box.Parent = Inner
-					Box.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					Box.BackgroundColor3 = COL3RGB(255, 255, 255)
 					Box.BackgroundTransparency = 1.000
 					Box.Position = UDIM2(0, 0, 0.542059898, 0)
 					Box.Size = UDIM2(1, 0, 0, 30)
 
 					TextBox.Parent = Box
-					TextBox.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-					TextBox.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					TextBox.BackgroundColor3 = COL3RGB(24,24,24)
+					TextBox.BorderColor3 = COL3RGB(24,24,24)
 					TextBox.Position = UDIM2(0.108303241, 0, 0.224465579, 0)
 					TextBox.Size = UDIM2(0, 175, 0, 20)
 					TextBox.Font = Enum.Font.SourceSans
 					TextBox.PlaceholderText = data.placeholder
 					TextBox.Text = Element.value.Text
-					TextBox.TextColor3 = theme[_G.menutheme]["Text"]
+					TextBox.TextColor3 = COL3RGB(255, 255, 255)
 					TextBox.TextSize = 14.000
 					TextBox.ClearTextOnFocus = false
 
@@ -3946,15 +3922,15 @@ end
 
 					Dropdown.Name = "Dropdown"
 					Dropdown.Parent = Inner
-					Dropdown.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					Dropdown.BackgroundColor3 = COL3RGB(255, 255, 255)
 					Dropdown.BackgroundTransparency = 1.000
 					Dropdown.Position = UDIM2(0, 0, 0.255102038, 0)
 					Dropdown.Size = UDIM2(1, 0, 0, 39)
 
 					Button.Name = "Button"
 					Button.Parent = Dropdown
-					Button.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-					Button.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Button.BackgroundColor3 = COL3RGB(24,24,24)
+					Button.BorderColor3 = COL3RGB(24,24,24)
 					Button.Position = UDIM2(0, 30, 0, 16)
 					Button.Size = UDIM2(0, 175, 0, 17)
 					Button.AutoButtonColor = false
@@ -3964,14 +3940,14 @@ end
 					Button.TextSize = 14.000
 
 					TextLabel.Parent = Button
-					TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 					TextLabel.BackgroundTransparency = 1.000
-					TextLabel.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					TextLabel.BorderColor3 = COL3RGB(24,24,24)
 					TextLabel.Position = UDIM2(0, 5, 0, 0)
 					TextLabel.Size = UDIM2(-0.21714285, 208, 1, 0)
 					TextLabel.Font = Enum.Font.SourceSansSemibold
 					TextLabel.Text = Element.value.Dropdown
-					TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+					TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 					TextLabel.TextSize = 14.000
 					TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 				
@@ -3981,8 +3957,8 @@ end
 					Drop.Name = "Drop"
 					Drop.Parent = Button
 					Drop.Active = true
-					Drop.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-					Drop.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Drop.BackgroundColor3 = COL3RGB(24,24,24)
+					Drop.BorderColor3 = COL3RGB(24,24,24)
 					Drop.Position = UDIM2(0, 0, 1, 1)
 					Drop.Size = UDIM2(1, 0, 0, 20)
 					Drop.Visible = false
@@ -4015,8 +3991,8 @@ end
 
 							Button.Name = v
 							Button.Parent = Drop
-							Button.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-							Button.BorderColor3 = theme[_G.menutheme]["Secondary"]
+							Button.BackgroundColor3 = COL3RGB(24,24,24)
+							Button.BorderColor3 = COL3RGB(24,24,24)
 							Button.Position = UDIM2(0, 30, 0, 16)
 							Button.Size = UDIM2(0, 175, 0, 17)
 							Button.AutoButtonColor = false
@@ -4028,14 +4004,14 @@ end
 							Button.ZIndex = 6
 
 							TextLabel.Parent = Button
-							TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+							TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 							TextLabel.BackgroundTransparency = 1.000
-							TextLabel.BorderColor3 = theme[_G.menutheme]["Secondary"]
+							TextLabel.BorderColor3 = COL3RGB(24,24,24)
 							TextLabel.Position = UDIM2(0, 5, 0, -1)
 							TextLabel.Size = UDIM2(-0.21714285, 208, 1, 0)
 							TextLabel.Font = Enum.Font.SourceSansSemibold
 							TextLabel.Text = v
-							TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+							TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 							TextLabel.TextSize = 14.000
 							TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 						
@@ -4050,10 +4026,10 @@ end
 								Drop.CanvasPosition = Vec2(0,0)
 							end)
 							Button.MouseEnter:Connect(function()
-								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 =  theme[_G.menutheme]["Text"]})
+								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 =  COL3RGB(255, 255, 255)})
 							end)
 							Button.MouseLeave:Connect(function()
-								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 =  theme[_G.menutheme]["Text2"]})
+								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 =  COL3RGB(200, 200, 200)})
 							end)
 
 							first = false
@@ -4095,8 +4071,8 @@ end
 
 							Button.Name = droptext
 							Button.Parent = Drop
-							Button.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-							Button.BorderColor3 = theme[_G.menutheme]["Secondary"]
+							Button.BackgroundColor3 = COL3RGB(24,24,24)
+							Button.BorderColor3 = COL3RGB(24,24,24)
 							Button.Position = UDIM2(0, 30, 0, 16)
 							Button.Size = UDIM2(0, 175, 0, 17)
 							Button.AutoButtonColor = false
@@ -4108,14 +4084,14 @@ end
 							Button.ZIndex = 6
 
 							TextLabel.Parent = Button
-							TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+							TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 							TextLabel.BackgroundTransparency = 1.000
-							TextLabel.BorderColor3 = theme[_G.menutheme]["Secondary"]
+							TextLabel.BorderColor3 = COL3RGB(24,24,24)
 							TextLabel.Position = UDIM2(0, 5, 0, -1)
 							TextLabel.Size = UDIM2(-0.21714285, 208, 1, 0)
 							TextLabel.Font = Enum.Font.SourceSansSemibold
 							TextLabel.Text = droptext
-							TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+							TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 							TextLabel.TextSize = 14.000
 							TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 						
@@ -4130,10 +4106,10 @@ end
 								Drop.CanvasPosition = Vec2(0,0)
 							end)
 							Button.MouseEnter:Connect(function()
-								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 =  theme[_G.menutheme]["Text"]})
+								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 =  COL3RGB(255, 255, 255)})
 							end)
 							Button.MouseLeave:Connect(function()
-								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 =  theme[_G.menutheme]["Text2"]})
+								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 =  COL3RGB(200, 200, 200)})
 							end)
 
 							first = false
@@ -4148,20 +4124,20 @@ end
 					end
 
 					ImageLabel.Parent = Button
-					ImageLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					ImageLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 					ImageLabel.BackgroundTransparency = 1.000
 					ImageLabel.Position = UDIM2(0, 165, 0, 6)
 					ImageLabel.Size = UDIM2(0, 6, 0, 4)
 					ImageLabel.Image = "http://www.roblox.com/asset/?id=6724771531"
 
 					TextLabel_3.Parent = Dropdown
-					TextLabel_3.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					TextLabel_3.BackgroundColor3 = COL3RGB(255, 255, 255)
 					TextLabel_3.BackgroundTransparency = 1.000
 					TextLabel_3.Position = UDIM2(0, 32, 0, -1)
 					TextLabel_3.Size = UDIM2(0.111913361, 208, 0.382215232, 0)
 					TextLabel_3.Font = Enum.Font.SourceSansSemibold
 					TextLabel_3.Text = text
-					TextLabel_3.TextColor3 = theme[_G.menutheme]["Text2"]
+					TextLabel_3.TextColor3 = COL3RGB(200, 200, 200)
 					TextLabel_3.TextSize = 14.000
 					TextLabel_3.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -4207,27 +4183,27 @@ end
 
 					Slider.Name = "Slider"
 					Slider.Parent = Inner
-					Slider.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					Slider.BackgroundColor3 = COL3RGB(255, 255, 255)
 					Slider.BackgroundTransparency = 1.000
 					Slider.Position = UDIM2(0, 0, 0.653061211, 0)
 					Slider.Size = UDIM2(1, 0, 0, 25)
 
 					TextLabel.Parent = Slider
-					TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 					TextLabel.BackgroundTransparency = 1.000
 					TextLabel.Position = UDIM2(0, 32, 0, -2)
 					TextLabel.Size = UDIM2(0, 100, 0, 15)
 					TextLabel.Font = Enum.Font.SourceSansSemibold
 					TextLabel.Text = text
-					TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+					TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 					TextLabel.TextSize = 14.000
 					TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 				
 
 					Button.Name = "Button"
 					Button.Parent = Slider
-					Button.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-					Button.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Button.BackgroundColor3 = COL3RGB(24,24,24)
+					Button.BorderColor3 = COL3RGB(24,24,24)
 					Button.Position = UDIM2(0, 30, 0, 15)
 					Button.Size = UDIM2(0, 175, 0, 5)
 					Button.AutoButtonColor = false
@@ -4247,13 +4223,13 @@ end
 
 					Value.Name = "Value"
 					Value.Parent = Slider
-					Value.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					Value.BackgroundColor3 = COL3RGB(255, 255, 255)
 					Value.BackgroundTransparency = 1.000
 					Value.Position = UDIM2(0, 150, 0, -1)
 					Value.Size = UDIM2(0, 55, 0, 15)
 					Value.Font = Enum.Font.SourceSansSemibold
 					Value.Text = "50"
-					Value.TextColor3 = theme[_G.menutheme]["Text2"]
+					Value.TextColor3 = COL3RGB(200, 200, 200)
 					Value.TextSize = 14.000
 					Value.TextXAlignment = Enum.TextXAlignment.Right
 					local min, max, default = data.min or 0, data.max or 100, data.default or 0
@@ -4319,15 +4295,15 @@ end
 
 					Button.Name = "Button"
 					Button.Parent = Inner
-					Button.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					Button.BackgroundColor3 = COL3RGB(255, 255, 255)
 					Button.BackgroundTransparency = 1.000
 					Button.Position = UDIM2(0, 0, 0.236059487, 0)
 					Button.Size = UDIM2(1, 0, 0, 24)
 
 					Button_2.Name = "Button"
 					Button_2.Parent = Button
-					Button_2.BackgroundColor3 = theme[_G.menutheme]["Secondary"]
-					Button_2.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					Button_2.BackgroundColor3 = COL3RGB(24,24,24)
+					Button_2.BorderColor3 = COL3RGB(24,24,24)
 					Button_2.Position = UDIM2(0, 30, 0.5, -9)
 					Button_2.Size = UDIM2(0, 175, 0, 18)
 					Button_2.AutoButtonColor = false
@@ -4337,13 +4313,13 @@ end
 					Button_2.TextSize = 14.000
 
 					TextLabel.Parent = Button_2
-					TextLabel.BackgroundColor3 = theme[_G.menutheme]["Text"]
+					TextLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 					TextLabel.BackgroundTransparency = 1.000
-					TextLabel.BorderColor3 = theme[_G.menutheme]["Secondary"]
+					TextLabel.BorderColor3 = COL3RGB(24,24,24)
 					TextLabel.Size = UDIM2(1, 0, 1, 0)
 					TextLabel.Font = Enum.Font.SourceSansSemibold
 					TextLabel.Text = text
-					TextLabel.TextColor3 = theme[_G.menutheme]["Text2"]
+					TextLabel.TextColor3 = COL3RGB(200, 200, 200)
 					TextLabel.TextSize = 14.000
 
 					function Element:SetValue()
@@ -4351,14 +4327,14 @@ end
 
 					Button_2.MouseButton1Down:Connect(function()
 						TextLabel.TextColor3 = COL3RGB(119, 0, 255)
-						library:Tween(TextLabel, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+						library:Tween(TextLabel, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 						callback()
 					end)
 					Button_2.MouseEnter:Connect(function()
-						library:Tween(TextLabel, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text"]})
+						library:Tween(TextLabel, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 					end)
 					Button_2.MouseLeave:Connect(function()
-						library:Tween(TextLabel, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = theme[_G.menutheme]["Text2"]})
+						library:Tween(TextLabel, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 					end)
 				end
 				
