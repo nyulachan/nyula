@@ -2035,7 +2035,7 @@ end
 						local val
 						Button.MouseButton1Down:Connect(function()
 							Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X/division, 0, 175), 0, 5)
-							val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X/division) + tonumber(min)) or 0
+							val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X) + tonumber(min)) or 0
 							Value.Text = val/division
 							Element.value.Slider = val/division
 							values[tabname][sectorname][tabtext][text] = Element.value
