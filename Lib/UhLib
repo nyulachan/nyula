@@ -2008,7 +2008,7 @@ end
 						Value.TextSize = 14.000
 						Value.TextXAlignment = Enum.TextXAlignment.Right
 						local min, max, default, division = data.min or 0, data.max or 100, data.default or 0, data.division or 1
-						Element.value = {Slider = default/division}
+						Element.value = {Slider = default}
 
 						function Element:SetValue(value)
 							Element.value = value
@@ -2037,14 +2037,14 @@ end
 						local val
 						Button.MouseButton1Down:Connect(function()
 							Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
-							val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X) + tonumber(min)) or 0
+							val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min)) or 0
 							Value.Text = val/division
 							Element.value.Slider = val/division
 							values[tabname][sectorname][tabtext][text] = Element.value
 							callback(Element.value)
 							moveconnection = mouse.Move:Connect(function()
 								Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
-								val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X) + tonumber(min))
+								val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min))
 								Value.Text = val/division
 								Element.value.Slider = val/division
 								values[tabname][sectorname][tabtext][text] = Element.value
@@ -2053,7 +2053,7 @@ end
 							releaseconnection = uis.InputEnded:Connect(function(Mouse)
 								if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
 									Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
-									val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X) + tonumber(min))
+									val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min))
 									values[tabname][sectorname][tabtext][text] = Element.value
 									callback(Element.value)
 									moveconnection:Disconnect()
@@ -4233,7 +4233,7 @@ end
 					Value.TextSize = 14.000
 					Value.TextXAlignment = Enum.TextXAlignment.Right
 					local min, max, default, division = data.min or 0, data.max or 100, data.default or 0, data.division or 1
-					Element.value = {Slider = default/division}
+					Element.value = {Slider = default}
 
 					function Element:SetValue(value)
 						Element.value = value
@@ -4262,14 +4262,14 @@ end
 					local val
 					Button.MouseButton1Down:Connect(function()
 						Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
-						val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X) + tonumber(min)) or 0
+						val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min)) or 0
 						Value.Text = val/division
 						Element.value.Slider = val/division
 						values[tabname][sectorname][text] = Element.value
 						callback(Element.value)
 						moveconnection = mouse.Move:Connect(function()
 							Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
-							val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X) + tonumber(min))
+							val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min))
 							Value.Text = val/division
 							Element.value.Slider = val/division
 							values[tabname][sectorname][text] = Element.value
@@ -4278,7 +4278,7 @@ end
 						releaseconnection = uis.InputEnded:Connect(function(Mouse)
 							if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
 								Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
-								val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X) + tonumber(min))
+								val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min))
 								values[tabname][sectorname][text] = Element.value
 								callback(Element.value)
 								moveconnection:Disconnect()
