@@ -1761,7 +1761,7 @@ end
 							Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
 						end
 					elseif type == "Dropdown" then
-						tabsize = tabsize + UDIM2(0,0,0,39)
+						tabsize = tabsize + UDIM2(0,0,0,45)
 						Element.value = {Dropdown = data.options[1]}
 
 						local Dropdown = INST("Frame")
@@ -3905,7 +3905,7 @@ end
 					end
 
 				elseif type == "Dropdown" then
-					Section.Size = Section.Size + UDIM2(0,0,0,39)
+					Section.Size = Section.Size + UDIM2(0,0,0,45)
 					Element.value = {Dropdown = data.options[1]}
 
 					local Dropdown = INST("Frame")
