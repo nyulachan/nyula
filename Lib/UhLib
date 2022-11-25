@@ -1,6 +1,4 @@
 -- modified stormy.solutions
-local GameCheck = loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Lib/Checkers2"))()
-if GameCheck ~= true then return end
 _G.menukey = "v"
 local library = {}
 function library:New(name)
@@ -1113,7 +1111,7 @@ end
 							update()
 						end
 					elseif type == "Toggle" then
-						tabsize = tabsize + UDIM2(0,0,0,20)
+						tabsize = tabsize + UDIM2(0,0,0,19)
 						Element.value = {Toggle = data.default and data.default.Toggle or false}
 
 						local Toggle = INST("Frame")
@@ -1763,7 +1761,7 @@ end
 							Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
 						end
 					elseif type == "Dropdown" then
-						tabsize = tabsize + UDIM2(0,0,0,39)
+						tabsize = tabsize + UDIM2(0,0,0,42)
 						Element.value = {Dropdown = data.options[1]}
 
 						local Dropdown = INST("Frame")
@@ -3206,7 +3204,7 @@ end
 						update()
 					end
 				elseif type == "Toggle" then
-					Section.Size = Section.Size + UDIM2(0,0,0,16)
+					Section.Size = Section.Size + UDIM2(0,0,0,19)
 					Element.value = {Toggle = data.default and data.default.Toggle or false}
 
 					local Toggle = INST("Frame")
@@ -3907,7 +3905,7 @@ end
 					end
 
 				elseif type == "Dropdown" then
-					Section.Size = Section.Size + UDIM2(0,0,0,39)
+					Section.Size = Section.Size + UDIM2(0,0,0,42)
 					Element.value = {Dropdown = data.options[1]}
 
 					local Dropdown = INST("Frame")
