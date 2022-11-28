@@ -3115,7 +3115,7 @@ end
 									Keybind.Text = "NONE"
 									Keybind.Size = UDIM2(0,txt:GetTextSize(Keybind.Text, 14, Enum.Font.SourceSansSemibold, Vec2(700, 12)).X + 4,0, 12)
 									Element.value.Key = nil
-									Element.value.Active = true
+									Element.value.Active = false
 								end
 								callback(Element.value)
 							else
@@ -3162,7 +3162,7 @@ end
 										end
 									end
 								else
-									Element.value.Active = true
+									Element.value.Active = false
 								end
 							end
 							values[tabname][sectorname][text] = Element.value
