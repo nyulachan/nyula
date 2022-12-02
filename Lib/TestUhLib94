@@ -4272,8 +4272,8 @@ end
 						else
 							val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X) + tonumber(min)) or 0
 						end	
-						Value.Text = val/division
-						Element.value.Slider = val/division
+						Value.Text = val
+						Element.value.Slider = val
 						values[tabname][sectorname][text] = Element.value
 						callback(Element.value)
 						moveconnection = mouse.Move:Connect(function()
@@ -4283,8 +4283,8 @@ end
 							else
 								val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X) + tonumber(min)) or 0
 							end	
-							Value.Text = val/division
-							Element.value.Slider = val/division
+							Value.Text = val
+							Element.value.Slider = val
 							values[tabname][sectorname][text] = Element.value
 							callback(Element.value)
 						end)
