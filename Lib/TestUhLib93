@@ -4248,9 +4248,7 @@ end
 					end
 					local a
 					--[[
-						0 - -4 / 4 - -4
-						0+4/4+4
-						4/8
+						
 					]]
 					if min > 0 then
 						a = ((Element.value.Slider - min)) / (max-min)
@@ -4265,14 +4263,14 @@ end
 					local val
 					Button.MouseButton1Down:Connect(function()
 						--[[
-							-4 + 4 = 0 
-							4 - 4
+							4 -- 4 /175 
+							8/175
 						]]
 						Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
 						if tonumber(min) > 0 then
 							val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min)) or 0
 						else
-							val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min)) or 0
+							val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X) + tonumber(min)) or 0
 						end	
 						Value.Text = val/division
 						Element.value.Slider = val/division
@@ -4283,7 +4281,7 @@ end
 							if tonumber(min) > 0 then
 								val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min)) or 0
 							else
-								val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min)) or 0
+								val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X) + tonumber(min)) or 0
 							end	
 							Value.Text = val/division
 							Element.value.Slider = val/division
@@ -4296,7 +4294,7 @@ end
 								if tonumber(min) > 0 then
 									val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min)) or 0
 								else
-									val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min)) or 0
+									val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X) + tonumber(min)) or 0
 								end	
 								values[tabname][sectorname][text] = Element.value
 								callback(Element.value)
