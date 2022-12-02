@@ -4265,11 +4265,13 @@ end
 					local val
 					Button.MouseButton1Down:Connect(function()
 						--[[
-							4 -- 4 / 175 -> 8/175
+							4 - 4 = 0/175 
+
+
 						]]
 						Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
 						if tonumber(min) > 0 then
-							val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division)) + min ) or 0
+							val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division)) ) or 0
 						else
 							val = FLOOR((((tonumber(max) + tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division)) ) or 0
 						end	
@@ -4280,7 +4282,7 @@ end
 						moveconnection = mouse.Move:Connect(function()
 							Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
 							if tonumber(min) > 0 then
-								val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division)) + min ) or 0
+								val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division))  ) or 0
 							else
 								val = FLOOR((((tonumber(max) + tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division))  ) or 0
 							end	
@@ -4293,7 +4295,7 @@ end
 							if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
 								Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
 								if tonumber(min) > 0 then
-									val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division)) + min ) or 0
+									val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division))  ) or 0
 								else
 									val = FLOOR((((tonumber(max) + tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division)) ) or 0
 								end	
