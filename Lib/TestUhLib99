@@ -4281,7 +4281,7 @@ end
 							if tonumber(min) > 0 then
 								val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min)) or 0
 							else
-								val = FLOOR(((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X)) + tonumber(min)) or 0
+								val = FLOOR(((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X)) + tonumber(min)) or 0 -- a
 							end	
 							Value.Text = val
 							Element.value.Slider = val
