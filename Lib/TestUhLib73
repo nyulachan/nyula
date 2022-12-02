@@ -4259,14 +4259,14 @@ end
 					local mouse = game.Players.LocalPlayer:GetMouse()
 					local val
 					Button.MouseButton1Down:Connect(function()
-						Frame.Size = UDIM2(0, CLAMP(mouse.X - (Frame.AbsolutePosition.X*division), 0, 175), 0, 5)
+						Frame.Size = UDIM2(0, CLAMP(mouse.X - (Frame.AbsolutePosition.X/division), 0, 175), 0, 5)
 						val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min)) or 0
 						Value.Text = val/division
 						Element.value.Slider = val/division
 						values[tabname][sectorname][text] = Element.value
 						callback(Element.value)
 						moveconnection = mouse.Move:Connect(function()
-							Frame.Size = UDIM2(0, CLAMP(mouse.X - (Frame.AbsolutePosition.X*division), 0, 175), 0, 5)
+							Frame.Size = UDIM2(0, CLAMP(mouse.X - (Frame.AbsolutePosition.X/division), 0, 175), 0, 5)
 							val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min))
 							Value.Text = val/division
 							Element.value.Slider = val/division
@@ -4275,7 +4275,7 @@ end
 						end)
 						releaseconnection = uis.InputEnded:Connect(function(Mouse)
 							if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
-								Frame.Size = UDIM2(0, CLAMP(mouse.X - (Frame.AbsolutePosition.X*division), 0, 175), 0, 5)
+								Frame.Size = UDIM2(0, CLAMP(mouse.X - (Frame.AbsolutePosition.X/division), 0, 175), 0, 5)
 								val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min))
 								values[tabname][sectorname][text] = Element.value
 								callback(Element.value)
