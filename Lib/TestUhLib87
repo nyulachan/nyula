@@ -4271,7 +4271,7 @@ end
 						if tonumber(min) > 0 then
 							val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division)) + min ) or 0
 						else
-							val = FLOOR((((tonumber(max) + tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division)) - min ) or 0
+							val = FLOOR((((tonumber(max) + tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division)) ) or 0
 						end	
 						Value.Text = val/division
 						Element.value.Slider = val/division
@@ -4282,7 +4282,7 @@ end
 							if tonumber(min) > 0 then
 								val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division)) + min ) or 0
 							else
-								val = FLOOR((((tonumber(max) + tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division)) - min ) or 0
+								val = FLOOR((((tonumber(max) + tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division))  ) or 0
 							end	
 							Value.Text = val/division
 							Element.value.Slider = val/division
@@ -4295,7 +4295,7 @@ end
 								if tonumber(min) > 0 then
 									val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division)) + min ) or 0
 								else
-									val = FLOOR((((tonumber(max) + tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division)) - min ) or 0
+									val = FLOOR((((tonumber(max) + tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division)) ) or 0
 								end	
 								values[tabname][sectorname][text] = Element.value
 								callback(Element.value)
