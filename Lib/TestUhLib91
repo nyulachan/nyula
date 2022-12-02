@@ -4266,14 +4266,13 @@ end
 					Button.MouseButton1Down:Connect(function()
 						--[[
 							-4 + 4 = 0 
-
-
+							4 - 4
 						]]
 						Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
 						if tonumber(min) > 0 then
 							val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division)) ) or 0
 						else
-							val = FLOOR((((tonumber(min) - tonumber(max)) / 175) * (Frame.AbsoluteSize.X*division))  ) or 0
+							val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division))  ) or 0
 						end	
 						Value.Text = val/division
 						Element.value.Slider = val/division
@@ -4282,9 +4281,9 @@ end
 						moveconnection = mouse.Move:Connect(function()
 							Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
 							if tonumber(min) > 0 then
-								val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division))  ) or 0
+								val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division)) ) or 0
 							else
-								val = FLOOR((((tonumber(min) - tonumber(max)) / 175) * (Frame.AbsoluteSize.X*division))  ) or 0
+								val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division))  ) or 0
 							end	
 							Value.Text = val/division
 							Element.value.Slider = val/division
@@ -4295,9 +4294,9 @@ end
 							if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
 								Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
 								if tonumber(min) > 0 then
-									val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division))  ) or 0
+									val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division)) ) or 0
 								else
-									val = FLOOR((((tonumber(min) - tonumber(max)) / 175) * (Frame.AbsoluteSize.X*division))  ) or 0
+									val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * (Frame.AbsoluteSize.X*division))  ) or 0
 								end	
 								values[tabname][sectorname][text] = Element.value
 								callback(Element.value)
