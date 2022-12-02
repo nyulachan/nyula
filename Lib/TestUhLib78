@@ -4239,7 +4239,7 @@ end
 						if min > 0 then
 							a = ((Element.value.Slider - min)) / (max-min)
 						else
-							a = (Element.value.Slider+min)/(max+min)
+							a = (Element.value.Slider+min)/(max-min)
 						end
 						Value.Text = Element.value.Slider
 						Frame.Size = UDIM2(a,0,1,0)
@@ -4250,7 +4250,7 @@ end
 					if min > 0 then
 						a = ((Element.value.Slider - min)) / (max-min)
 					else
-						a = (Element.value.Slider-min)/(max-min)
+						a = (Element.value.Slider+min)/(max-min)
 					end
 					Value.Text = Element.value.Slider
 					Frame.Size = UDIM2(a,0,1,0)
