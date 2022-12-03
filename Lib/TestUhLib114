@@ -4263,26 +4263,20 @@ end
 					local val
 					Button.MouseButton1Down:Connect(function()
 						--[[
-							find a method where it totals to 500 when min is 100 and max is 500, division is 0.1 (when 175 absolute.x then value should be 50 (which gets divided by 0.1 and gets 500) )
-							500-100 = 400/175 ~= 2.2857*175*0.1 = 40 + min = 140 ❌
-							500-100 = 400/ 
-							2.2857-0.57143 = 1.71427*175*0.1 =~ 30 + min = 130
+							500-10/175 = 2.2857
+							2.2857*175 = 400 + 100 = 500
 
-							500-0 = 500/175 = 2.857*175 = 500*0.1 = 50 + 0 = 50
-							500-100 = 400/175 = 2.286*175 = 400*0.1 = 40+100 = 140
-
-							50
 
 						]]
 						Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
-						val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min)) or 0
+						val = FLOOR((((tonumber(max) - (tonumber(min))*division) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min)) or 0
 						Value.Text = val/division
 						Element.value.Slider = val/division
 						values[tabname][sectorname][text] = Element.value
 						callback(Element.value)
 						moveconnection = mouse.Move:Connect(function()
 							Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
-							val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min)) or 0
+							val = FLOOR((((tonumber(max) - (tonumber(min))*division) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min)) or 0
 							Value.Text = val/division
 							Element.value.Slider = val/division
 							values[tabname][sectorname][text] = Element.value
@@ -4291,7 +4285,7 @@ end
 						releaseconnection = uis.InputEnded:Connect(function(Mouse)
 							if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
 								Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
-								val = FLOOR((((tonumber(max) - tonumber(min)) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min)) or 0
+								val = FLOOR((((tonumber(max) - (tonumber(min))*division) / 175) * Frame.AbsoluteSize.X*division) + tonumber(min)) or 0
 								print(val)
 								values[tabname][sectorname][text] = Element.value
 								callback(Element.value)
