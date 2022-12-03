@@ -4262,6 +4262,10 @@ end
 					local mouse = game.Players.LocalPlayer:GetMouse()
 					local val
 					Button.MouseButton1Down:Connect(function()
+						--[[
+							4+4*0.1 = 0.8 -4 = -4.8
+							
+						]]
 						Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
 						val = FLOOR((((tonumber(max) - (tonumber(min))/division) / 175) * Frame.AbsoluteSize.X*division) + (tonumber(min))) or 0
 						Value.Text = val/division
