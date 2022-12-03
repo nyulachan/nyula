@@ -4268,7 +4268,7 @@ end
 							division = 10
 
 							(4/10)-(-4/10)= 0.4 + 0.4 = 0.8*10 = 8.0 -4.0 = 4.0
-							(4/10)-(-4/10) = 0.8/175 = 0.004~ * 0 = 0 
+							(4/10)-(-4/10) = 0.8/175 = 0.004~ * 0 = 0 -4 = -4.0
 
 
 
@@ -4277,22 +4277,26 @@ end
 						Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
 						if division > 1 then
 							val = FLOOR((((((tonumber(max))/division) - (tonumber(min))/division) / 175) * Frame.AbsoluteSize.X*division) + (tonumber(min))) or 0
+							Value.Text = val
+							Element.value.Slider = val
 						else
 							val = FLOOR((((tonumber(max) - (tonumber(min))/division) / 175) * Frame.AbsoluteSize.X*division) + (tonumber(min))) or 0
+							Value.Text = val/division
+							Element.value.Slider = val/division
 						end
-						Value.Text = val/division
-						Element.value.Slider = val/division
 						values[tabname][sectorname][text] = Element.value
 						callback(Element.value)
 						moveconnection = mouse.Move:Connect(function()
 							Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
 							if division > 1 then
 								val = FLOOR((((((tonumber(max))/division) - (tonumber(min))/division) / 175) * Frame.AbsoluteSize.X*division) + (tonumber(min))) or 0
+								Value.Text = val
+								Element.value.Slider = val
 							else
 								val = FLOOR((((tonumber(max) - (tonumber(min))/division) / 175) * Frame.AbsoluteSize.X*division) + (tonumber(min))) or 0
+								Value.Text = val/division
+								Element.value.Slider = val/division
 							end
-							Value.Text = val/division
-							Element.value.Slider = val/division
 							values[tabname][sectorname][text] = Element.value
 							callback(Element.value)
 						end)
