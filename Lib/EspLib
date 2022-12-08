@@ -1,12 +1,13 @@
--- Made by kiriot : https://v3rmillion.net/member.php?action=profile&uid=46812
--- Put here so if their site gets ddossed it wont matter cus its here on github
+-- Made by kiriot CREATOR : https://v3rmillion.net/member.php?action=profile&uid=46812
+-- POST : https://v3rmillion.net/showthread.php?tid=1088719
+-- Put here so if their site gets ddossed/unpaid it wont matter cus its here on github
 
 --Settings--
 local ESP = {
     Enabled = false,
     Boxes = true,
     BoxShift = CFrame.new(0,-1.5,0),
-	  BoxSize = Vector3.new(4,6,0),
+    BoxSize = Vector3.new(4,6,0),
     Color = Color3.fromRGB(255, 170, 0),
     FaceCamera = false,
     Names = true,
@@ -15,7 +16,6 @@ local ESP = {
     AttachShift = 1,
     TeamMates = true,
     Players = true,
-    
     Objects = setmetatable({}, {__mode="kv"}),
     Overrides = {}
 }
