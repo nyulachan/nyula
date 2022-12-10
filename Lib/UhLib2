@@ -11,12 +11,12 @@ local ConfigLoad = library.ConfigLoad
 local txt = game:GetService("TextService")
 local TweenService = game:GetService("TweenService")
 function library:Tween(...) TweenService:Create(...):Play() end
-local cfglocation = "nyula/untitledhood/"
+local cfglocation = "nyula/configs/"
 if not isfolder("nyula") then
     makefolder("nyula")
 end
-if not isfolder("nyula/untitledhood") then
-    makefolder("nyula/untitledhood")
+if not isfolder("nyula/configs") then
+    makefolder("nyula/configs")
 end
 if not isfolder("nyula/luas") then
     makefolder("nyula/luas")
