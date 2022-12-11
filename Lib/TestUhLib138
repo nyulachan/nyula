@@ -1432,18 +1432,19 @@ end
 						values[tabname][sectorname][tabtext][text] = Element.value
 						function Element:SetValue(value)
 							Element.value = value
-							if value.Color == nil then print(tabname,sectorname,tabtext,text) return end
+							--[[
+							if value.Color == nil then print(tabname,sectorname,tabtext,text) print("for ^ "..tostring(value.Color)) return end
 							local duplicate = COL3(value.Color.R, value.Color.G, value.Color.B)
 							ColorH, ColorS, ColorV = duplicate:ToHSV()
 							ColorH = CLAMP(ColorH,0,1)
 							ColorS = CLAMP(ColorS,0,1)
 							ColorV = CLAMP(ColorV,0,1)
-
 							ColorDrag.Position = UDIM2(1-ColorS,0,1-ColorV,0)
 							Colorpick.ImageColor3 = COL3HSV(ColorH, 1, 1)
 							ColorP.BackgroundColor3 = COL3HSV(ColorH, ColorS, ColorV)
+							--]]
 							update()
-							Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
+							--Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
 						end
 					elseif type == "ToggleTrans" then
 						tabsize = tabsize + UDIM2(0,0,0,16)
