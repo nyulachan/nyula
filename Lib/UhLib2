@@ -1,4 +1,5 @@
 -- modified stormy.solutions
+-- wsg ma ;) btw this isnt the actual script idk why people wanna send me this thinking it is
 local library = {}
 function library:New(name)
 local Signal = loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Lib/Signal"))()
@@ -177,6 +178,11 @@ end
 	Menu.BorderSizePixel = 0
 
 	library.uiopen = true
+	
+	function library:ToggleMenu()
+		Ova.Enabled = not Ova.Enabled
+		library.uiopen = Ova.Enabled
+	end	
     
 	library.dragging = false
 	do
