@@ -1432,7 +1432,9 @@ end
 						values[tabname][sectorname][tabtext][text] = Element.value
 						function Element:SetValue(value)
 							Element.value = value
-							print(value)
+							for i,v in pairs(value) do 
+								print(i,v)
+							end
 							local duplicate = COL3(value.Color.R, value.Color.G, value.Color.B)
 							ColorH, ColorS, ColorV = duplicate:ToHSV()
 							ColorH = CLAMP(ColorH,0,1)
