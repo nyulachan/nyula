@@ -2112,7 +2112,7 @@ end
 						end)
 					end
 					
-					ConfigLoad:Connect(function(cfg)
+					library.ConfigLoad:Connect(function(cfg)
 						print("2116")
 						local fix = library:ConfigFix(cfg)
 						print("2118")
@@ -4371,13 +4371,15 @@ end
 					end)
 				end
 				
-				ConfigLoad:Connect(function(cfg)
-					print("4373")
-					local fix = library:ConfigFix(cfg)
-					print("4375")
-					if fix[tabname][sectorname][text] ~= nil then
-						Element:SetValue(fix[tabname][sectorname][text])
-					end
+				library.ConfigLoad:Connect(function(cfg)
+					pcall(function()
+						print("4376")
+						local fix = library:ConfigFix(cfg)
+						print("4378")
+						if fix[tabname][sectorname][text] ~= nil then
+							Element:SetValue(fix[tabname][sectorname][text])
+						end
+					end)
 				end)
 				
 
