@@ -7,6 +7,7 @@ library.ConfigSave = Signal.new("ConfigSave")
 library.ConfigLoad = Signal.new("ConfigLoad")
 local ConfigSave = library.ConfigSave
 local ConfigLoad = library.ConfigLoad
+print(ConfigLoad)
 
 local txt = game:GetService("TextService")
 local TweenService = game:GetService("TweenService")
@@ -1432,7 +1433,7 @@ end
 						function Element:SetValue(value)
 							Element.value = value
 							for i,v in pairs(value) do 
-								print(v)
+								print(i,v)
 							end
 							local duplicate = COL3(value.Color.R, value.Color.G, value.Color.B)
 							ColorH, ColorS, ColorV = duplicate:ToHSV()
