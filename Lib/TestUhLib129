@@ -2113,7 +2113,7 @@ end
 						end)
 					end
 					
-					library.ConfigLoad:Connect(function(cfg)
+					ConfigLoad:Connect(function(cfg)
 						print("2116")
 						local fix = library:ConfigFix(cfg)
 						print("2118")
@@ -4372,7 +4372,7 @@ end
 					end)
 				end
 				
-				library.ConfigLoad:Connect(function(cfg)
+				ConfigLoad:Connect(function(cfg)
 					pcall(function()
 						print("4376")
 						--local fix = library:ConfigFix(cfg)
