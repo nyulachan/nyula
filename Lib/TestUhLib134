@@ -1433,7 +1433,11 @@ end
 						function Element:SetValue(value)
 							Element.value = value
 							for i,v in pairs(value) do 
-								print(i,v)
+								if type(v) == "table" then
+									for d,k in pairs(v) do
+										print(d,k)
+									end
+								end
 							end
 							local duplicate = COL3(value.Color.R, value.Color.G, value.Color.B)
 							ColorH, ColorS, ColorV = duplicate:ToHSV()
