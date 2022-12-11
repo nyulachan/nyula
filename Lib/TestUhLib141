@@ -1443,9 +1443,6 @@ end
 							ColorP.BackgroundColor3 = COL3HSV(ColorH, ColorS, ColorV)
 							update()
 							Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
-							updateColor()
-							updateHue()
-							--Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
 						end
 					elseif type == "ToggleTrans" then
 						tabsize = tabsize + UDIM2(0,0,0,16)
@@ -3538,8 +3535,6 @@ end
 						ColorP.BackgroundColor3 = COL3HSV(ColorH, ColorS, ColorV)
 						update()
 						Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
-						updateColor()
-						updateHue()
 						callback(value)
 					end
 				elseif type == "ToggleTrans" then
