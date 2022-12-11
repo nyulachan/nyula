@@ -1442,6 +1442,9 @@ end
 							Colorpick.ImageColor3 = COL3HSV(ColorH, 1, 1)
 							ColorP.BackgroundColor3 = COL3HSV(ColorH, ColorS, ColorV)
 							update()
+							Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
+							updateColor()
+							updateHue()
 							--Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
 						end
 					elseif type == "ToggleTrans" then
@@ -3535,7 +3538,8 @@ end
 						ColorP.BackgroundColor3 = COL3HSV(ColorH, ColorS, ColorV)
 						update()
 						Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
-
+						updateColor()
+						updateHue()
 						callback(value)
 					end
 				elseif type == "ToggleTrans" then
