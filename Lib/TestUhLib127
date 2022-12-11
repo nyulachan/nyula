@@ -4374,7 +4374,7 @@ end
 				library.ConfigLoad:Connect(function(cfg)
 					pcall(function()
 						print("4376")
-						local fix = library:ConfigFix(cfg)
+						--local fix = library:ConfigFix(cfg)
 						print("4378")
 						if fix[tabname][sectorname][text] ~= nil then
 							Element:SetValue(fix[tabname][sectorname][text])
