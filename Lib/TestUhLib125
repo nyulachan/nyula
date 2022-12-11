@@ -11,12 +11,12 @@ local ConfigLoad = library.ConfigLoad
 local txt = game:GetService("TextService")
 local TweenService = game:GetService("TweenService")
 function library:Tween(...) TweenService:Create(...):Play() end
-local cfglocation = "nyula/untitledhood/"
+local cfglocation = "nyula/configs/"
 if not isfolder("nyula") then
     makefolder("nyula")
 end
-if not isfolder("nyula/untitledhood") then
-    makefolder("nyula/untitledhood")
+if not isfolder("nyula/configs") then
+    makefolder("nyula/configs")
 end
 if not isfolder("nyula/luas") then
     makefolder("nyula/luas")
@@ -58,6 +58,7 @@ end
 function tbltorgb(tbl)
 	return COL3(tbl.R, tbl.G, tbl.B)
 end
+
 function library:deepCopy(original)
 	local copy = {}
 	for k, v in pairs(original) do
@@ -2112,7 +2113,9 @@ end
 					end
 					
 					ConfigLoad:Connect(function(cfg)
+						print("2116")
 						local fix = library:ConfigFix(cfg)
+						print("2118")
 						if fix[tabname][sectorname][tabtext][text] ~= nil then
 							Element:SetValue(fix[tabname][sectorname][tabtext][text])
 						end
@@ -4369,12 +4372,12 @@ end
 				end
 				
 				ConfigLoad:Connect(function(cfg)
-					pcall(function()
-						local fix = library:ConfigFix(cfg)
-						if fix[tabname][sectorname][text] ~= nil then
-							Element:SetValue(fix[tabname][sectorname][text])
-						end
-					end)
+					print("4373")
+					local fix = library:ConfigFix(cfg)
+					print("4375")
+					if fix[tabname][sectorname][text] ~= nil then
+						Element:SetValue(fix[tabname][sectorname][text])
+					end
 				end)
 				
 
