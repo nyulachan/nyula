@@ -151,15 +151,6 @@ end
 	but.BackgroundTransparency = 1
 	but.Parent = Ova
 
-	local cursor = INST("ImageLabel")
-	cursor.Name = "cursor"
-	cursor.Parent = Ova
-	cursor.BackgroundTransparency = 1
-	cursor.Size = UDIM2(0,17,0,17)
-	cursor.Image = "rbxassetid://518398610"
-	cursor.ZIndex = 1000
-	cursor.ImageColor3 = COL3RGB(255,255,255)
-
 	local Players = game:GetService("Players")
 	local LocalPlayer = Players.LocalPlayer
 	local Mouse = LocalPlayer:GetMouse()
