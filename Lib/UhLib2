@@ -5,8 +5,11 @@ function library:New(name)
 local Signal = loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Lib/Signal"))()
 library.ConfigSave = Signal.new("ConfigSave")
 library.ConfigLoad = Signal.new("ConfigLoad")
+library.OnlineConfigLoad = Signal.new("OnlineConfigLoad")
+
 local ConfigSave = library.ConfigSave
 local ConfigLoad = library.ConfigLoad
+local OnlineConfigLoad = library.OnlineConfigLoad
 
 local txt = game:GetService("TextService")
 local TweenService = game:GetService("TweenService")
@@ -84,6 +87,20 @@ function library:ConfigFix(cfg)
 	end
 	return copy
 end
+function library:OnlineConfigFix(cfg)
+	local copy = cfg
+	for i,Tabs in pairs(copy) do
+		for i,Sectors in pairs(Tabs) do
+			for i,Elements in pairs(Sectors) do
+				if Elements.Color ~= nil then
+					local a = Elements.Color
+					Elements.Color = tbltorgb(a)
+				end
+			end
+		end
+	end
+	return copy
+end
 function library:SaveConfig(cfg)
 	local copy = library:deepCopy(values)
 	for i,Tabs in pairs(copy) do
@@ -107,19 +124,6 @@ function library:OnlineDeepCopy(original)
 		copy[k] = v
 	end
 	return copy
-end
-function library:SaveOnlineConfig(cfg,name)
-    local copy = library:OnlineDeepCopy(cfg)
-    for i,Tabs in pairs(copy) do
-		for i,Sectors in pairs(Tabs) do
-			for i,Elements in pairs(Sectors) do
-				if Elements.Color ~= nil then
-					Elements.Color = {R=Elements.Color.R, G=Elements.Color.G, B=Elements.Color.B}
-				end
-			end
-		end
-    end
-    writefile(cfglocation..name..".txt", game:GetService("HttpService"):JSONEncode(copy))
 end
     
     
@@ -2041,6 +2045,13 @@ end
 					
 					ConfigLoad:Connect(function(cfg)
 						local fix = library:ConfigFix(cfg)
+						if fix[tabname][sectorname][tabtext][text] ~= nil then
+							Element:SetValue(fix[tabname][sectorname][tabtext][text])
+						end
+					end)
+
+					OnlineConfigLoad:Connect(function(cfg) -- has to be the json decoded one
+						local fix = library:OnlineConfigFix(cfg)
 						if fix[tabname][sectorname][tabtext][text] ~= nil then
 							Element:SetValue(fix[tabname][sectorname][tabtext][text])
 						end
@@ -4302,6 +4313,16 @@ end
 						end
 					end)
 				end)
+
+				OnlineConfigLoad:Connect(function(cfg) -- has to be the json decoded one
+					pcall(function()
+						local fix = library:OnlineConfigFix(cfg)
+						if fix[tabname][sectorname][tabtext][text] ~= nil then
+							Element:SetValue(fix[tabname][sectorname][tabtext][text])
+						end
+					end)
+				end)
+				
 				
 
 				return Element
