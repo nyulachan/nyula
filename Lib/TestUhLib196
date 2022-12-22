@@ -2052,6 +2052,7 @@ end
 						local fix = library:ConfigFix(cfg)
 						for i,v in pairs(fix[tabname][sectorname][tabtext]) do
 							print(i,typeof(i),v,typeof(v),"finished")
+							print(v.Color)
 						end
 						if fix[tabname][sectorname][tabtext][text] ~= nil then
 							Element:SetValue(fix[tabname][sectorname][tabtext][text])
