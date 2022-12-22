@@ -79,7 +79,9 @@ function library:ConfigFix(cfg)
 		for i,Sectors in pairs(Tabs) do
 			for i,Elements in pairs(Sectors) do
 				if Elements.Color ~= nil then
-					print("testicles")
+					for i,v in pairs(Elements.Color) do
+						print(i,v)
+					end
 					local a = Elements.Color
 					Elements.Color = tbltorgb(a)
 				end
