@@ -78,9 +78,7 @@ function library:ConfigFix(cfg)
 	for i,Tabs in pairs(copy) do
 		for i,Sectors in pairs(Tabs) do
 			for i,Elements in pairs(Sectors) do
-				for l,v in pairs(Elements) do
-					print(l,v,"MarryJane")
-				end
+				print(i,Elements,"MarryJane")
 				if Elements.Color ~= nil then
 					print(Elements.Color,"heybab")
 					local a = Elements.Color
