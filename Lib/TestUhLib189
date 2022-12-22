@@ -2053,6 +2053,9 @@ end
 						for i,v in pairs(fix[tabname][sectorname][tabtext]) do 
 							if i == "Color" then
 								print("UNCLE RUCKUS") -- works
+							end
+							if i ~= "Color" then
+								print(i,v,"NOT UNCLE")
 							end	
 						end
 						if fix[tabname][sectorname][tabtext][text] ~= nil then
