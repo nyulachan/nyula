@@ -78,6 +78,7 @@ function library:ConfigFix(cfg)
 	for i,Tabs in pairs(copy) do
 		for i,Sectors in pairs(Tabs) do
 			for i,Elements in pairs(Sectors) do
+				-- inside the elements, there is an index called color that contains R,G, AND B
 				print(i,Elements,"MarryJane")
 				for i,v in pairs(Elements) do
 					print(i,v,"Lock")
@@ -86,8 +87,9 @@ function library:ConfigFix(cfg)
 							print(i,v,"FINAL")
 						end
 					end
-				end	
+				end
 				if Elements.Color ~= nil then
+					print(Elements.Color.R)
 					local a = Elements.Color
 					Elements.Color = tbltorgb(a)
 				end
