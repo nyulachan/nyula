@@ -79,11 +79,6 @@ function library:ConfigFix(cfg)
 		for i,Sectors in pairs(Tabs) do
 			for i,Elements in pairs(Sectors) do
 				print(i,Elements,"MarryJane")
-				if typeof(Elements) == "table" or typeof(Elements) == "Table" then
-					for k,l in pairs(Elements) do
-						print(k,l,"Dick")
-					end
-				end	
 				for i,v in pairs(Elements) do
 					print(i,v,"Lock")
 				end	
