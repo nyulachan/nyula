@@ -79,15 +79,7 @@ function library:ConfigFix(cfg)
 		for i,Sectors in pairs(Tabs) do
 			for i,Elements in pairs(Sectors) do
 				-- inside the elements, there is an index called color that contains R,G, AND B
-				for i,v in pairs(Elements) do
-					if i == "Color" then
-						for i,v in pairs(v) do 
-							--print(i,v,"FINAL")
-						end
-					end
-				end
 				if Elements.Color ~= nil then
-					--print(Elements.Color.R,Elements.Color.G,Elements.Color.B) -- works
 					--local a = Elements.Color
 					--Elements.Color = tbltorgb(a)
 					Elements.Color = Color3.new(Elements.Color.R,Elements.Color.G,Elements.Color.B)
@@ -2061,11 +2053,6 @@ end
 						local fix = library:ConfigFix(cfg)
 						-- cant index nil with Main
 						-- Main for aimlock is the Aimlock MSector tab
-						--print(fix,"Fix")
-						--print(fix[tabname],"tabname")
-						--print(fix[tabname][sectorname],"sectorname")
-						--print(fix[tabname][sectorname][tabtext],"tabtext")
-						--print(fix[tabname][sectorname][tabtext][text],"text")
 						if fix[tabname][sectorname][tabtext][text] ~= nil then
 							Element:SetValue(fix[tabname][sectorname][tabtext][text])
 						end
