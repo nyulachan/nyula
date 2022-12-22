@@ -2051,8 +2051,10 @@ end
 					ConfigLoad:Connect(function(cfg) -- 1
 						local fix = library:ConfigFix(cfg)
 						for i,v in pairs(fix[tabname][sectorname][tabtext]) do 
-							print(i,v,"UNCLE RUCKUS")
-							print(typeof(v))
+							if typeof(v) == "Color3" then
+								Element:SetValue(fix[tabname][sectorname][tabtext])
+								return
+							end	
 						end
 						if fix[tabname][sectorname][tabtext][text] ~= nil then
 							Element:SetValue(fix[tabname][sectorname][tabtext][text])
