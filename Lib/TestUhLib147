@@ -2045,6 +2045,13 @@ end
 					
 					ConfigLoad:Connect(function(cfg) -- 1
 						local fix = library:ConfigFix(cfg)
+						-- cant index nil with Main
+						-- Main for aimlock is the Aimlock MSector tab
+						print(fix,"Fix")
+						print(fix[tabname],"tabname")
+						print(fix[tabname][sectorname],"sectorname")
+						print(fix[tabname][sectorname][tabtext],"tabtext")
+						print(fix[tabname][sectorname][tabtext][text],"text")
 						if fix[tabname][sectorname][tabtext][text] ~= nil then
 							Element:SetValue(fix[tabname][sectorname][tabtext][text])
 						end
