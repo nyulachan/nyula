@@ -78,10 +78,12 @@ function library:ConfigFix(cfg)
 	for i,Tabs in pairs(copy) do
 		for i,Sectors in pairs(Tabs) do
 			for i,Elements in pairs(Sectors) do
+				--[[
 				if Elements.Color ~= nil then
 					local a = Elements.Color
 					Elements.Color = tbltorgb(a)
 				end
+				--]]
 			end
 		end
 	end
