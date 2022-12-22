@@ -1365,7 +1365,7 @@ end
 						values[tabname][sectorname][tabtext][text] = Element.value
 						function Element:SetValue(value)
 							Element.value = value
-							print(Element.value.Color)
+							--print(Element.value.Color)
 							for i,v in pairs(value) do
 								print(i,v)
 							end
