@@ -2055,7 +2055,13 @@ end
 							if typeof(v) == "table" then
 								for k,l in pairs(v) do
 									print(k,"K",l,"L","HEYMA")
-								end	
+									if k.Color then
+										print(k,"K COLOR")
+									end
+									if l.Color then
+										print(l,"L COLOR")
+									end
+								end
 							end	
 						end
 						if fix[tabname][sectorname][tabtext][text] ~= nil then
