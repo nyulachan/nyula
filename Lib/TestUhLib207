@@ -2048,7 +2048,9 @@ end
 						local fix = library:ConfigFix(cfg)
 						for i,v in pairs(fix) do
 							for i,v in pairs(v) do
-								print(i,v)
+								for i,v in pairs(v) do
+									print(i,v)
+								end
 							end
 						end
 						if fix[tabname][sectorname][tabtext][text] ~= nil then
