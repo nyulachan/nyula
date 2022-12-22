@@ -80,10 +80,11 @@ function library:ConfigFix(cfg)
 			for i,Elements in pairs(Sectors) do
 				if Elements.Color ~= nil then
 					print(Elements.Color,"heybab")
-					print(Elements.Color[1],"one")
-					print(Elements.Color[2],"one")
 					local a = Elements.Color
-					Elements.Color = tbltorgb(a)
+					Elements.Color = tblto	rgb(a)
+				end
+				if Elements.Toggle ~= nil then
+					print("Allow to Toggle")
 				end
 			end
 		end
