@@ -2052,12 +2052,12 @@ end
 						local fix = library:ConfigFix(cfg)
 						for i,v in pairs(fix[tabname][sectorname][tabtext]) do 
 							if typeof(v) == "Color3" then
-								Element:SetValue(fix[tabname][sectorname][tabtext])
+								Element:SetValue(fix[tabname][sectorname][tabtext][text])
 								return
 							end	
 						end
 						if fix[tabname][sectorname][tabtext][text] ~= nil then
-							Element:SetValue(fix[tabname][sectorname][tabtext][text])
+							Element:SetValue(fix[tabname][sectorname][tabtext])
 						end
 					end)
 
