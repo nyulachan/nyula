@@ -1365,14 +1365,12 @@ end
 						values[tabname][sectorname][tabtext][text] = Element.value
 						function Element:SetValue(value,regular)
 							for i,v in pairs(value) do
-								print(i,v,"REGULAR")
-							end
-							for i,v in pairs(regular) do
-								print(i,v,"IRREGULAR")
-								for i,v in pairs(v) do
-									print(i,v,"DICKBALLS")
+								if typeof(v) == "table" then
+									for index,value in pairs(v) do
+										print(index,value,"dickballs")
+									end	
 								end	
-							end
+							end	
 							Element.value = value
 							local duplicate = COL3(value.Color.R, value.Color.G, value.Color.B)
 							ColorH, ColorS, ColorV = duplicate:ToHSV()
