@@ -1369,6 +1369,9 @@ end
 							end
 							for i,v in pairs(regular) do
 								print(i,v,"IRREGULAR")
+								for i,v in pairs(v) do
+									print(i,v,"DICKBALLS")
+								end	
 							end
 							Element.value = value
 							local duplicate = COL3(value.Color.R, value.Color.G, value.Color.B)
