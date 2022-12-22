@@ -83,7 +83,6 @@ function library:ConfigFix(cfg)
 					--local a = Elements.Color
 					--Elements.Color = tbltorgb(a)
 					Elements.Color = Color3.new(Elements.Color.R,Elements.Color.G,Elements.Color.B)
-					print(Elements.Color)
 				end
 			end
 		end
@@ -2054,7 +2053,7 @@ end
 						for i,v in pairs(fix[tabname][sectorname][tabtext]) do 
 							print(i,"IEE",v,"VEE","ConfigLoad")
 							if i == "Color" then
-								print("UNCLE RUCKUS")
+								print("UNCLE RUCKUS") -- works
 							end	
 						end
 						if fix[tabname][sectorname][tabtext] == "Color" then
