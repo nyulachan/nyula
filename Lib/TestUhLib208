@@ -2049,7 +2049,9 @@ end
 						for i,v in pairs(fix) do
 							for i,v in pairs(v) do
 								for i,v in pairs(v) do
-									print(i,v)
+									for i,v in pairs(v) do
+										print(i,v)
+									end	
 								end
 							end
 						end
