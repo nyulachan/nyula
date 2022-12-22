@@ -78,11 +78,11 @@ function library:ConfigFix(cfg)
 	for i,Tabs in pairs(copy) do
 		for i,Sectors in pairs(Tabs) do
 			for i,Elements in pairs(Sectors) do
-				-- inside the elements, there is an index called color that contains R,G, AND B
 				if Elements.Color ~= nil then
 					--local a = Elements.Color
 					--Elements.Color = tbltorgb(a)
 					Elements.Color = Color3.new(Elements.Color.R,Elements.Color.G,Elements.Color.B)
+					print(Tabs,Sectors,Elements)
 				end
 			end
 		end
@@ -1364,13 +1364,6 @@ end
 						end
 						values[tabname][sectorname][tabtext][text] = Element.value
 						function Element:SetValue(value,regular)
-							for i,v in pairs(value) do
-								if typeof(v) == "table" then
-									for index,value in pairs(v) do
-										print(index,value,"dickballs")
-									end	
-								end	
-							end	
 							Element.value = value
 							local duplicate = COL3(value.Color.R, value.Color.G, value.Color.B)
 							ColorH, ColorS, ColorV = duplicate:ToHSV()
@@ -2055,7 +2048,7 @@ end
 					ConfigLoad:Connect(function(cfg) -- 1
 						local fix = library:ConfigFix(cfg)
 						if fix[tabname][sectorname][tabtext][text] ~= nil then
-							Element:SetValue(fix[tabname][sectorname][tabtext][text],fix[tabname][sectorname][tabtext])
+							Element:SetValue(fix[tabname][sectorname][tabtext][text])
 						end
 					end)
 
