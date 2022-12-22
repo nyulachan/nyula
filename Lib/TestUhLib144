@@ -1361,6 +1361,7 @@ end
 							update()
 						end
 						values[tabname][sectorname][tabtext][text] = Element.value
+						print(values[tabname][sectorname][tabtext][text])
 						function Element:SetValue(value)
 							Element.value = value
 							local duplicate = COL3(value.Color.R, value.Color.G, value.Color.B)
