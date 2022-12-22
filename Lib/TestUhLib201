@@ -1364,6 +1364,9 @@ end
 						end
 						values[tabname][sectorname][tabtext][text] = Element.value
 						function Element:SetValue(value,regular)
+							for i,v in pairs(value) do
+								print(i,v,"REGULAR")
+							end
 							for i,v in pairs(regular) do
 								print(i,v,"IRREGULAR")
 							end
