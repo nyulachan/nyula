@@ -1368,15 +1368,12 @@ end
 							ColorH = CLAMP(ColorH,0,1)
 							ColorS = CLAMP(ColorS,0,1)
 							ColorV = CLAMP(ColorV,0,1)
-	
 							ColorDrag.Position = UDIM2(1-ColorS,0,1-ColorV,0)
 							Colorpick.ImageColor3 = COL3HSV(ColorH, 1, 1)
 							ColorP.BackgroundColor3 = COL3HSV(ColorH, ColorS, ColorV)
 							update()
 							Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
-							callback(value)
 						end
-						print(values[tabname][sectorname][tabtext][text])
 					elseif type == "ToggleTrans" then
 						tabsize = tabsize + UDIM2(0,0,0,16)
 						Element.value = {Toggle = data.default and data.default.Toggle or false, Color = data.default and data.default.Color or COL3RGB(255,255,255), Transparency = data.default and data.default.Transparency or 0}
@@ -1695,7 +1692,6 @@ end
 							update()
 							Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
 						end
-						print(values[tabname][sectorname][tabtext][text],"h")
 					elseif type == "Dropdown" then
 						tabsize = tabsize + UDIM2(0,0,0,42)
 						Element.value = {Dropdown = data.options[1]}
@@ -2047,15 +2043,14 @@ end
 						end)
 					end
 					
-					ConfigLoad:Connect(function(cfg)
+					ConfigLoad:Connect(function(cfg) -- 1
 						local fix = library:ConfigFix(cfg)
-						print(fix,fix[tabname],fix[tabname][sectorname],fix[tabname][sectorname][tabtext],fix[tabname][sectorname][tabtext][text])
 						if fix[tabname][sectorname][tabtext][text] ~= nil then
 							Element:SetValue(fix[tabname][sectorname][tabtext][text])
 						end
 					end)
 
-					OnlineConfigLoad:Connect(function(cfg) -- has to be the json decoded one
+					OnlineConfigLoad:Connect(function(cfg)
 						local fix = library:OnlineConfigFix(cfg)
 						if fix[tabname][sectorname][tabtext][text] ~= nil then
 							Element:SetValue(fix[tabname][sectorname][tabtext][text])
@@ -2902,7 +2897,6 @@ end
 						update()
 					end
 					values[tabname][sectorname][text] = Element.value
-					-- not responding
 					do
 						local Keybind = INST("TextButton")
 						local Frame = INST("Frame")
@@ -4310,16 +4304,16 @@ end
 					end)
 				end
 				
-				ConfigLoad:Connect(function(cfg)
+				ConfigLoad:Connect(function(cfg) -- 2
 					pcall(function()
 						local fix = library:ConfigFix(cfg)
-						if fix[tabname][sectorname][text] ~= nil then
-							Element:SetValue(fix[tabname][sectorname][text])
+						if fix[tabname][sectorname][tabtext][text] ~= nil then
+							Element:SetValue(fix[tabname][sectorname][tabtext][text])
 						end
 					end)
 				end)
 
-				OnlineConfigLoad:Connect(function(cfg) -- has to be the json decoded one
+				OnlineConfigLoad:Connect(function(cfg)
 					pcall(function()
 						local fix = library:OnlineConfigFix(cfg)
 						if fix[tabname][sectorname][tabtext][text] ~= nil then
