@@ -87,7 +87,7 @@ function library:ConfigFix(cfg)
 					end
 				end
 				if Elements.Color ~= nil then
-					print(Elements.Color.R) -- works
+					print(Elements.Color.R,Elements.Color.G,Elements.Color.B) -- works
 					local a = Elements.Color
 					Elements.Color = tbltorgb(a)
 				end
