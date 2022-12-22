@@ -81,9 +81,6 @@ function library:ConfigFix(cfg)
 				print(i,Elements,"MarryJane")
 				for i,v in pairs(Elements) do
 					print(i,v,"Lock")
-					for i,v in pairs(v) do
-						print(i,v,"KLL")
-					end
 				end	
 				if Elements.Color ~= nil then
 					local a = Elements.Color
