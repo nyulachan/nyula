@@ -82,7 +82,6 @@ function library:ConfigFix(cfg)
 					--local a = Elements.Color
 					--Elements.Color = tbltorgb(a)
 					Elements.Color = Color3.new(Elements.Color.R,Elements.Color.G,Elements.Color.B)
-					print(Tabs,Sectors,Elements)
 				end
 			end
 		end
@@ -2047,6 +2046,9 @@ end
 					
 					ConfigLoad:Connect(function(cfg) -- 1
 						local fix = library:ConfigFix(cfg)
+						for i,v in pairs(fix) do
+							print(i,v)
+						end
 						if fix[tabname][sectorname][tabtext][text] ~= nil then
 							Element:SetValue(fix[tabname][sectorname][tabtext][text])
 						end
