@@ -79,8 +79,10 @@ function library:ConfigFix(cfg)
 		for i,Sectors in pairs(Tabs) do
 			for i,Elements in pairs(Sectors) do
 				print(i,Elements,"MarryJane")
+				for i,v in pairs(i) do
+					print(i,v,"Lockk")
+				end	
 				if Elements.Color ~= nil then
-					print(Elements.Color,"heybab")
 					local a = Elements.Color
 					Elements.Color = tblto	rgb(a)
 				end
