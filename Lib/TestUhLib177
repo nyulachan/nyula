@@ -82,12 +82,12 @@ function library:ConfigFix(cfg)
 				for i,v in pairs(Elements) do
 					if i == "Color" then
 						for i,v in pairs(v) do 
-							print(i,v,"FINAL")
+							--print(i,v,"FINAL")
 						end
 					end
 				end
 				if Elements.Color ~= nil then
-					print(Elements.Color.R,Elements.Color.G,Elements.Color.B) -- works
+					--print(Elements.Color.R,Elements.Color.G,Elements.Color.B) -- works
 					--local a = Elements.Color
 					--Elements.Color = tbltorgb(a)
 				end
