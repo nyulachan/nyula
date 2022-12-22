@@ -2047,6 +2047,7 @@ end
 					
 					ConfigLoad:Connect(function(cfg)
 						local fix = library:ConfigFix(cfg)
+						print(fix,fix[tabname],fix[tabname][sectorname],fix[tabname][sectorname][tabtext],fix[tabname][sectorname][tabtext][text])
 						if fix[tabname][sectorname][tabtext][text] ~= nil then
 							Element:SetValue(fix[tabname][sectorname][tabtext][text])
 						end
