@@ -1361,7 +1361,6 @@ end
 							update()
 						end
 						values[tabname][sectorname][tabtext][text] = Element.value
-						print(values[tabname][sectorname][tabtext][text])
 						function Element:SetValue(value)
 							Element.value = value
 							local duplicate = COL3(value.Color.R, value.Color.G, value.Color.B)
@@ -1377,6 +1376,7 @@ end
 							Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
 							callback(value)
 						end
+						print(values[tabname][sectorname][tabtext][text])
 					elseif type == "ToggleTrans" then
 						tabsize = tabsize + UDIM2(0,0,0,16)
 						Element.value = {Toggle = data.default and data.default.Toggle or false, Color = data.default and data.default.Color or COL3RGB(255,255,255), Transparency = data.default and data.default.Transparency or 0}
@@ -1695,6 +1695,7 @@ end
 							update()
 							Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
 						end
+						print(values[tabname][sectorname][tabtext][text],"h")
 					elseif type == "Dropdown" then
 						tabsize = tabsize + UDIM2(0,0,0,42)
 						Element.value = {Dropdown = data.options[1]}
