@@ -2053,7 +2053,9 @@ end
 						local fix = library:ConfigFix(cfg)
 						for i,v in pairs(fix[tabname][sectorname][tabtext]) do 
 							print(i,"IEE",v,"VEE","ConfigLoad")
-							print(typeof(i))
+							if i == "Color" then
+								print("UNCLE RUCKUS")
+							end	
 						end
 						if fix[tabname][sectorname][tabtext] == "Color" then
 							print("FUCKTHIS")
