@@ -1374,7 +1374,7 @@ end
 							update()
 							Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
 						end
-						print(Element.value.Color)
+						print(Element.value.Color.R)
 					elseif type == "ToggleTrans" then
 						tabsize = tabsize + UDIM2(0,0,0,16)
 						Element.value = {Toggle = data.default and data.default.Toggle or false, Color = data.default and data.default.Color or COL3RGB(255,255,255), Transparency = data.default and data.default.Transparency or 0}
