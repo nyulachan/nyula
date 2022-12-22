@@ -90,6 +90,8 @@ function library:ConfigFix(cfg)
 					--print(Elements.Color.R,Elements.Color.G,Elements.Color.B) -- works
 					--local a = Elements.Color
 					--Elements.Color = tbltorgb(a)
+					Elements.Color = Color3.new(Elements.Color.R,Elements.Color.G,Elements.Color.B)
+					print(Elements.Color)
 				end
 			end
 		end
