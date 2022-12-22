@@ -2052,8 +2052,10 @@ end
 						local fix = library:ConfigFix(cfg)
 						for i,v in pairs(fix[tabname][sectorname][tabtext]) do
 							print(i,typeof(i),v,typeof(v),"finished")
-							if v.Color ~= nil then
-								print(v.Color)
+							if typeof(v) == "table" then
+								for k,l in pairs(v) do
+									print(k,"K",l,"L","HEYMA")
+								end	
 							end	
 						end
 						if fix[tabname][sectorname][tabtext][text] ~= nil then
