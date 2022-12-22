@@ -1,13 +1,15 @@
 -- modified stormy.solutions
-_G.menukey = "v"
+-- wsg ma ;) btw this isnt the actual script, ITS JUST THE UI LIBRARY, idk why people wanna send me this thinking it is
 local library = {}
 function library:New(name)
 local Signal = loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Lib/Signal"))()
 library.ConfigSave = Signal.new("ConfigSave")
 library.ConfigLoad = Signal.new("ConfigLoad")
+library.OnlineConfigLoad = Signal.new("OnlineConfigLoad")
+
 local ConfigSave = library.ConfigSave
 local ConfigLoad = library.ConfigLoad
-print(ConfigLoad)
+local OnlineConfigLoad = library.OnlineConfigLoad
 
 local txt = game:GetService("TextService")
 local TweenService = game:GetService("TweenService")
@@ -24,7 +26,7 @@ if not isfolder("nyula/luas") then
 end
 
 local Vec2 = Vector2.new
-local Vec3 = Vector3.newv
+local Vec3 = Vector3.new
 local CF = CFrame.new
 local INST = Instance.new
 local COL3 = Color3.new
@@ -60,6 +62,7 @@ function tbltorgb(tbl)
 	return COL3(tbl.R, tbl.G, tbl.B)
 end
 
+
 function library:deepCopy(original)
 	local copy = {}
 	for k, v in pairs(original) do
@@ -72,6 +75,20 @@ function library:deepCopy(original)
 end
 function library:ConfigFix(cfg)
 	local copy = game:GetService("HttpService"):JSONDecode(readfile(cfglocation..cfg..".txt"))
+	for i,Tabs in pairs(copy) do
+		for i,Sectors in pairs(Tabs) do
+			for i,Elements in pairs(Sectors) do
+				if Elements.Color ~= nil then
+					local a = Elements.Color
+					Elements.Color = tbltorgb(a)
+				end
+			end
+		end
+	end
+	return copy
+end
+function library:OnlineConfigFix(cfg)
+	local copy = cfg
 	for i,Tabs in pairs(copy) do
 		for i,Sectors in pairs(Tabs) do
 			for i,Elements in pairs(Sectors) do
@@ -108,19 +125,6 @@ function library:OnlineDeepCopy(original)
 	end
 	return copy
 end
-function library:SaveOnlineConfig(cfg,name)
-    local copy = library:OnlineDeepCopy(cfg)
-    for i,Tabs in pairs(copy) do
-		for i,Sectors in pairs(Tabs) do
-			for i,Elements in pairs(Sectors) do
-				if Elements.Color ~= nil then
-					Elements.Color = {R=Elements.Color.R, G=Elements.Color.G, B=Elements.Color.B}
-				end
-			end
-		end
-    end
-    writefile(cfglocation..name..".txt", game:GetService("HttpService"):JSONEncode(copy))
-end
     
     
     
@@ -151,15 +155,6 @@ end
 	but.BackgroundTransparency = 1
 	but.Parent = Ova
 
-	local cursor = INST("ImageLabel")
-	cursor.Name = "cursor"
-	cursor.Parent = Ova
-	cursor.BackgroundTransparency = 1
-	cursor.Size = UDIM2(0,17,0,17)
-	cursor.Image = "rbxassetid://518398610"
-	cursor.ZIndex = 1000
-	cursor.ImageColor3 = COL3RGB(255,255,255)
-
 	local Players = game:GetService("Players")
 	local LocalPlayer = Players.LocalPlayer
 	local Mouse = LocalPlayer:GetMouse()
@@ -174,75 +169,11 @@ end
 
 	library.uiopen = true
 	
-	game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(k)
-	    if k == _G.menukey then
-	        Ova.Enabled = not Ova.Enabled
-			library.uiopen = Ova.Enabled
-	    end
-	end)
+	function library:ToggleMenu()
+		Ova.Enabled = not Ova.Enabled
+		library.uiopen = Ova.Enabled
+	end	
     
-
-	local KeybindList = INST("ScreenGui")
-	do
-		local TextLabel = INST("TextLabel")
-		local Frame = INST("Frame")
-		local UIListLayout = INST("UIListLayout")
-
-		KeybindList.Name = "KeybindList"
-		KeybindList.ZIndexBehavior = Enum.ZIndexBehavior.Global
-		KeybindList.Enabled = false
-
-		TextLabel.Parent = KeybindList
-		TextLabel.BackgroundColor3 = COL3RGB(16, 16, 16)
-		TextLabel.BorderColor3 = COL3RGB(119, 0, 255)
-		TextLabel.Position = UDIM2(0, 1, 0.300000012, 0)
-		TextLabel.Size = UDIM2(0, 155, 0, 24)
-		TextLabel.ZIndex = 2
-		TextLabel.Font = Enum.Font.SourceSansSemibold
-		TextLabel.Text = "keybinds"
-		TextLabel.TextColor3 = COL3RGB(119, 0, 255)
-		TextLabel.TextSize = 14.000
-
-		Frame.Parent = TextLabel
-		Frame.BackgroundColor3 = COL3RGB(255, 255, 255)
-		Frame.BackgroundTransparency = 1.000
-		Frame.Position = UDIM2(0, 0, 1, 1)
-		Frame.Size = UDIM2(1, 0, 1, 0)
-
-		UIListLayout.Parent = Frame
-		UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-		UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-
-		KeybindList.Parent = game.CoreGui
-	end
-
-	function keybindadd(text)
-		if not KeybindList.TextLabel.Frame:FindFirstChild(text) then
-			local TextLabel = INST("TextLabel")
-			TextLabel.BackgroundColor3 = COL3RGB(16, 16, 16)
-			TextLabel.BorderColor3 = COL3RGB(119, 0, 255)
-			TextLabel.BorderSizePixel = 0
-			TextLabel.Size = UDIM2(0, 155, 0, 24)
-			TextLabel.ZIndex = 2
-			TextLabel.Font = Enum.Font.SourceSansSemibold
-			TextLabel.Text = text
-			TextLabel.TextColor3 = COL3RGB(255, 255, 255)
-			TextLabel.TextSize = 14.000
-			TextLabel.Name = text
-			TextLabel.Parent = KeybindList.TextLabel.Frame
-		end
-	end
-
-	function keybindremove(text)
-		if KeybindList.TextLabel.Frame:FindFirstChild(text) then
-			KeybindList.TextLabel.Frame:FindFirstChild(text):Destroy()
-		end
-	end
-
-	function library:SetKeybindVisible(Joe)
-		KeybindList.Enabled = Joe
-	end
-
 	library.dragging = false
 	do
 		local UserInputService = game:GetService("UserInputService")
@@ -858,7 +789,7 @@ end
 								tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(119, 0, 255)})
 								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 							else
-								keybindremove(text)
+								
 								tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(24,24,24)})
 								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 							end
@@ -962,7 +893,7 @@ end
 										Frame.Visible = false
 										Element.value.Active = Element.value.Type == "Always" and true or false
 										if Element.value.Type == "Always" then
-											keybindremove(text)
+											
 										end
 										for _,button in pairs(Frame:GetChildren()) do
 											if button:IsA("TextButton") and button.Text ~= Element.value.Type then
@@ -1039,16 +970,16 @@ end
 												if Element.value.Type == "Hold" then
 													Element.value.Active = true
 													if Element.value.Active and Element.value.Toggle then
-														keybindadd(text)
+		
 													else
-														keybindremove(text)
+														
 													end
 												elseif Element.value.Type == "Toggle" then
 													Element.value.Active = not Element.value.Active
 													if Element.value.Active and Element.value.Toggle then
-														keybindadd(text)
+		
 													else
-														keybindremove(text)
+														
 													end
 												end
 											end
@@ -1057,16 +988,16 @@ end
 												if Element.value.Type == "Hold" then
 													Element.value.Active = true
 													if Element.value.Active and Element.value.Toggle then
-														keybindadd(text)
+		
 													else
-														keybindremove(text)
+														
 													end
 												elseif Element.value.Type == "Toggle" then
 													Element.value.Active = not Element.value.Active
 													if Element.value.Active and Element.value.Toggle then
-														keybindadd(text)
+		
 													else
-														keybindremove(text)
+														
 													end
 												end
 											end
@@ -1085,9 +1016,9 @@ end
 											if Element.value.Type == "Hold" then
 												Element.value.Active = false
 												if Element.value.Active and Element.value.Toggle then
-													keybindadd(text)
+	
 												else
-													keybindremove(text)
+													
 												end
 											end
 										end
@@ -1096,9 +1027,9 @@ end
 											if Element.value.Type == "Hold" then
 												Element.value.Active = false
 												if Element.value.Active and Element.value.Toggle then
-													keybindadd(text)
+	
 												else
-													keybindremove(text)
+													
 												end
 											end
 										end
@@ -1161,7 +1092,7 @@ end
 								tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(119, 0, 255)})
 								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 							else
-								keybindremove(text)
+								
 								tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(24,24,24)})
 								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 							end
@@ -1432,17 +1363,18 @@ end
 						values[tabname][sectorname][tabtext][text] = Element.value
 						function Element:SetValue(value)
 							Element.value = value
-							if value.Color == nil then print(tabname,sectorname,tabtext,text) print("for ^ "..tostring(value.Color)) return end
 							local duplicate = COL3(value.Color.R, value.Color.G, value.Color.B)
 							ColorH, ColorS, ColorV = duplicate:ToHSV()
 							ColorH = CLAMP(ColorH,0,1)
 							ColorS = CLAMP(ColorS,0,1)
 							ColorV = CLAMP(ColorV,0,1)
+	
 							ColorDrag.Position = UDIM2(1-ColorS,0,1-ColorV,0)
 							Colorpick.ImageColor3 = COL3HSV(ColorH, 1, 1)
 							ColorP.BackgroundColor3 = COL3HSV(ColorH, ColorS, ColorV)
 							update()
 							Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
+							callback(value)
 						end
 					elseif type == "ToggleTrans" then
 						tabsize = tabsize + UDIM2(0,0,0,16)
@@ -2115,6 +2047,13 @@ end
 					
 					ConfigLoad:Connect(function(cfg)
 						local fix = library:ConfigFix(cfg)
+						if fix[tabname][sectorname][tabtext][text] ~= nil then
+							Element:SetValue(fix[tabname][sectorname][tabtext][text])
+						end
+					end)
+
+					OnlineConfigLoad:Connect(function(cfg) -- has to be the json decoded one
+						local fix = library:OnlineConfigFix(cfg)
 						if fix[tabname][sectorname][tabtext][text] ~= nil then
 							Element:SetValue(fix[tabname][sectorname][tabtext][text])
 						end
@@ -2940,7 +2879,7 @@ end
 							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(119, 0, 255)})
 							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 						else
-							keybindremove(text)
+							
 							tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(24,24,24)})
 							library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
 						end
@@ -3048,7 +2987,7 @@ end
 										callback(Element.value)
 									end
 									if button.Text == "Always" then
-										keybindremove(text)
+										
 									end
 									for _,button in pairs(Frame:GetChildren()) do
 										if button:IsA("TextButton") and button.Text ~= Element.value.Type then
@@ -3128,17 +3067,17 @@ end
 												Element.value.Active = true
 												callback(Element.value)
 												if Element.value.Active and Element.value.Toggle then
-													keybindadd(text)
+	
 												else
-													keybindremove(text)
+													
 												end
 											elseif Element.value.Type == "Toggle" then
 												Element.value.Active = not Element.value.Active
 												callback(Element.value)
 												if Element.value.Active and Element.value.Toggle then
-													keybindadd(text)
+	
 												else
-													keybindremove(text)
+													
 												end
 											end
 										end
@@ -3148,17 +3087,17 @@ end
 												Element.value.Active = true
 												callback(Element.value)
 												if Element.value.Active and Element.value.Toggle then
-													keybindadd(text)
+	
 												else
-													keybindremove(text)
+													
 												end
 											elseif Element.value.Type == "Toggle" then
 												Element.value.Active = not Element.value.Active
 												callback(Element.value)
 												if Element.value.Active and Element.value.Toggle then
-													keybindadd(text)
+	
 												else
-													keybindremove(text)
+													
 												end
 											end
 										end
@@ -3178,9 +3117,9 @@ end
 											Element.value.Active = false
 											callback(Element.value)
 											if Element.value.Active then
-												keybindadd(text)
+
 											else
-												keybindremove(text)
+												
 											end
 										end
 									end
@@ -3190,9 +3129,9 @@ end
 											Element.value.Active = false
 											callback(Element.value)
 											if Element.value.Active then
-												keybindadd(text)
+
 											else
-												keybindremove(text)
+												
 											end
 										end
 									end
@@ -4309,7 +4248,6 @@ end
 								else
 									val = FLOOR((((tonumber(max) - (tonumber(min))/division) / 175) * Frame.AbsoluteSize.X*division) + (tonumber(min))) or 0
 								end
-								print(val)
 								values[tabname][sectorname][text] = Element.value
 								callback(Element.value)
 								moveconnection:Disconnect()
@@ -4377,6 +4315,16 @@ end
 						end
 					end)
 				end)
+
+				OnlineConfigLoad:Connect(function(cfg) -- has to be the json decoded one
+					pcall(function()
+						local fix = library:OnlineConfigFix(cfg)
+						if fix[tabname][sectorname][tabtext][text] ~= nil then
+							Element:SetValue(fix[tabname][sectorname][tabtext][text])
+						end
+					end)
+				end)
+				
 				
 
 				return Element
