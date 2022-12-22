@@ -79,6 +79,11 @@ function library:ConfigFix(cfg)
 		for i,Sectors in pairs(Tabs) do
 			for i,Elements in pairs(Sectors) do
 				print(i,Elements,"MarryJane")
+				if type(Elements) == "table" then
+					for i,v in pairs(Elements) do
+						print(i,v,"Dick")
+					end
+				end	
 				for i,v in pairs(Elements) do
 					print(i,v,"Lock")
 				end	
@@ -1367,10 +1372,6 @@ end
 						values[tabname][sectorname][tabtext][text] = Element.value
 						function Element:SetValue(value)
 							Element.value = value
-							--print(Element.value.Color)
-							for i,v in pairs(value) do
-								print(i,v)
-							end
 							local duplicate = COL3(value.Color.R, value.Color.G, value.Color.B)
 							ColorH, ColorS, ColorV = duplicate:ToHSV()
 							ColorH = CLAMP(ColorH,0,1)
@@ -1382,7 +1383,6 @@ end
 							update()
 							Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
 						end
-						print(Element.value.Color.R)
 					elseif type == "ToggleTrans" then
 						tabsize = tabsize + UDIM2(0,0,0,16)
 						Element.value = {Toggle = data.default and data.default.Toggle or false, Color = data.default and data.default.Color or COL3RGB(255,255,255), Transparency = data.default and data.default.Transparency or 0}
