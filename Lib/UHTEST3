@@ -74,6 +74,7 @@ function library:deepCopy(original)
 	return copy
 end
 function library:ConfigFix(cfg)
+	if not isfile(cfglocation..cfg..".txt") then return end
 	local copy = game:GetService("HttpService"):JSONDecode(readfile(cfglocation..cfg..".txt"))
 	for i,Tabs in pairs(copy) do
 		for i,Sectors in pairs(Tabs) do
