@@ -1365,7 +1365,7 @@ end
 							if not value then return end
 							if value.R then
 								Element.value.Color = value
-								local duplicate = COL3(value.Color.R, value.Color.G, value.Color.B)
+								local duplicate = COL3(value.R, value.G, value.B)
 								ColorH, ColorS, ColorV = duplicate:ToHSV()
 								ColorH = CLAMP(ColorH,0,1)
 								ColorS = CLAMP(ColorS,0,1)
