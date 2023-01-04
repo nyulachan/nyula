@@ -1,5 +1,5 @@
 -- modified stormy.solutions
--- wsg ma ;) btw this isnt the actual script, ITS JUST THE UI LIBRARY, idk why people wanna send me this thinking it is 1
+-- wsg ma ;) btw this isnt the actual script, ITS JUST THE UI LIBRARY, idk why people wanna send me this thinking it is 2
 local library = {}
 function library:New(name)
 local Signal = loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Lib/Signal"))()
@@ -1363,8 +1363,8 @@ end
 						values[tabname][sectorname][tabtext][text] = Element.value
 						function Element:SetValue(value)
 							Element.value = value
-							if value == nil or value.R == nil then return end
-							local duplicate = COL3(value.R, value.G, value.B)
+							if not value or not value.Color or not value.Color.R then return end
+							local duplicate = COL3(value.Color.R, value.Color.G, value.Color.B)
 							ColorH, ColorS, ColorV = duplicate:ToHSV()
 							ColorH = CLAMP(ColorH,0,1)
 							ColorS = CLAMP(ColorS,0,1)
