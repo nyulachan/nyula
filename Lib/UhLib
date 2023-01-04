@@ -1,5 +1,5 @@
 -- modified stormy.solutions
--- wsg ma ;) btw this isnt the actual script, ITS JUST THE UI LIBRARY, idk why people wanna send me this thinking it is e
+-- wsg ma ;) btw this isnt the actual script, ITS JUST THE UI LIBRARY, idk why people wanna send me this thinking it is ee
 local library = {}
 function library:New(name)
 local Signal = loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Lib/Signal"))()
@@ -736,6 +736,7 @@ end
 					end)
 
 					function Element:SetValue(value)
+							if value == nil then return end
 						Element.value = value
 						values[tabname][sectorname][tabtext][text] = Element.value
 						TextBox.Text = Element.value.Text
@@ -1041,6 +1042,7 @@ end
 							end)
 						end
 						function Element:SetValue(value)
+							if value == nil then return end
 							Element.value = value
 							update()
 						end
@@ -1111,6 +1113,7 @@ end
 						end
 						values[tabname][sectorname][tabtext][text] = Element.value
 						function Element:SetValue(value)
+							if value == nil then return end
 							Element.value = value
 							values[tabname][sectorname][tabtext][text] = Element.value
 							update()
@@ -1680,6 +1683,7 @@ end
 						end
 						values[tabname][sectorname][tabtext][text] = Element.value
 						function Element:SetValue(value)
+							if value == nil then return end
 							Element.value = value
 							local duplicate = COL3(value.Color.R, value.Color.G, value.Color.B)
 							ColorH, ColorS, ColorV = duplicate:ToHSV()
@@ -1942,6 +1946,7 @@ end
 						Element.value = {Slider = default}
 
 						function Element:SetValue(value)
+							if value == nil then return end
 							Element.value = value
 							local a
 							if min > 0 then
@@ -3153,6 +3158,7 @@ end
 						end)
 					end
 					function Element:SetValue(value)
+							if value == nil then return end
 						Element.value = value
 						update()
 					end
@@ -3222,6 +3228,7 @@ end
 					end
 					values[tabname][sectorname][text] = Element.value
 					function Element:SetValue(value)
+							if value == nil then return end
 						Element.value = value
 						values[tabname][sectorname][text] = Element.value
 						update()
@@ -3474,6 +3481,7 @@ end
 					end
 					values[tabname][sectorname][text] = Element.value
 					function Element:SetValue(value)
+							if value == nil then return end
 						Element.value = value
 						local duplicate = COL3(value.Color.R, value.Color.G, value.Color.B)
 						ColorH, ColorS, ColorV = duplicate:ToHSV()
@@ -3800,6 +3808,7 @@ end
 					end
 					values[tabname][sectorname][text] = Element.value
 					function Element:SetValue(value)
+							if value == nil then return end
 						Element.value = value
 						local duplicate = COL3(value.Color.R, value.Color.G, value.Color.B)
 						ColorH, ColorS, ColorV = duplicate:ToHSV()
@@ -3851,6 +3860,7 @@ end
 					end)
 
 					function Element:SetValue(value)
+							if value == nil then return end
 						Element.value = value
 						values[tabname][sectorname][text] = Element.value
 						TextBox.Text = Element.value.Text
@@ -4186,6 +4196,7 @@ end
 					Element.value = {Slider = default}
 
 					function Element:SetValue(value)
+							if value == nil then return end
 						Element.value = value
 						local a
 						if min > 0 then
