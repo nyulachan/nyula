@@ -1,5 +1,5 @@
 -- modified stormy.solutions
--- wsg ma ;) btw this isnt the actual script, ITS JUST THE UI LIBRARY, idk why people wanna send me this thinking it is 3
+-- wsg ma ;) btw this isnt the actual script, ITS JUST THE UI LIBRARY, idk why people wanna send me this thinking it is
 local library = {}
 function library:New(name)
 local Signal = loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Lib/Signal"))()
@@ -1362,18 +1362,22 @@ end
 						end
 						values[tabname][sectorname][tabtext][text] = Element.value
 						function Element:SetValue(value)
-							Element.value = value
-							if not value or not value.R then return end
-							local duplicate = COL3(value.R, value.G, value.B)
-							ColorH, ColorS, ColorV = duplicate:ToHSV()
-							ColorH = CLAMP(ColorH,0,1)
-							ColorS = CLAMP(ColorS,0,1)
-							ColorV = CLAMP(ColorV,0,1)
-							ColorDrag.Position = UDIM2(1-ColorS,0,1-ColorV,0)
-							Colorpick.ImageColor3 = COL3HSV(ColorH, 1, 1)
-							ColorP.BackgroundColor3 = COL3HSV(ColorH, ColorS, ColorV)
+							if not value then return end
+							if value.R then
+								Element.value.Color = value
+								local duplicate = COL3(value.R, value.G, value.B)
+								ColorH, ColorS, ColorV = duplicate:ToHSV()
+								ColorH = CLAMP(ColorH,0,1)
+								ColorS = CLAMP(ColorS,0,1)
+								ColorV = CLAMP(ColorV,0,1)
+								ColorDrag.Position = UDIM2(1-ColorS,0,1-ColorV,0)
+								Colorpick.ImageColor3 = COL3HSV(ColorH, 1, 1)
+								ColorP.BackgroundColor3 = COL3HSV(ColorH, ColorS, ColorV)
+								Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
+							else
+								Element.value = value
+							end	
 							update()
-							Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
 						end
 					elseif type == "ToggleTrans" then
 						tabsize = tabsize + UDIM2(0,0,0,16)
