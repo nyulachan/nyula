@@ -74,7 +74,7 @@ function library:deepCopy(original)
 	return copy
 end
 function library:ConfigFix(cfg)
-	if not isfile(cfglocation..cfg..".txt") then return end
+	if not isfile(cfglocation..cfg..".txt") then return nil end
 	local copy = game:GetService("HttpService"):JSONDecode(readfile(cfglocation..cfg..".txt"))
 	for i,Tabs in pairs(copy) do
 		for i,Sectors in pairs(Tabs) do
@@ -2056,14 +2056,14 @@ end
 					
 					ConfigLoad:Connect(function(cfg) -- 1
 						local fix = library:ConfigFix(cfg)
-						if fix[tabname][sectorname][tabtext] ~= nil then
+						if fix and fix[tabname][sectorname][tabtext] ~= nil then
 							Element:SetValue(fix[tabname][sectorname][tabtext])
 						end
 					end)
 
 					OnlineConfigLoad:Connect(function(cfg)
 						local fix = library:OnlineConfigFix(cfg)
-						if fix[tabname][sectorname][tabtext][text] ~= nil then
+						if fix and fix[tabname][sectorname][tabtext][text] ~= nil then
 							Element:SetValue(fix[tabname][sectorname][tabtext][text])
 						end
 					end)
@@ -4322,7 +4322,7 @@ end
 				ConfigLoad:Connect(function(cfg) -- 2
 					pcall(function()
 						local fix = library:ConfigFix(cfg)
-						if fix[tabname][sectorname][tabtext][text] ~= nil then
+						if fix and fix[tabname][sectorname][tabtext][text] ~= nil then
 							Element:SetValue(fix[tabname][sectorname][tabtext][text])
 						end
 					end)
@@ -4331,7 +4331,7 @@ end
 				OnlineConfigLoad:Connect(function(cfg)
 					pcall(function()
 						local fix = library:OnlineConfigFix(cfg)
-						if fix[tabname][sectorname][tabtext][text] ~= nil then
+						if fix and fix[tabname][sectorname][tabtext][text] ~= nil then
 							Element:SetValue(fix[tabname][sectorname][tabtext][text])
 						end
 					end)
