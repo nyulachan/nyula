@@ -1,5 +1,6 @@
 -- modified stormy.solutions
 -- wsg ma ;) btw this isnt the actual script, ITS JUST THE UI LIBRARY, idk why people wanna send me this thinking it is
+_G.menukey = "v"
 local library = {}
 function library:New(name)
 local Signal = loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Lib/Signal"))()
@@ -169,10 +170,12 @@ end
 
 	library.uiopen = true
 	
-	function library:ToggleMenu()
-		Ova.Enabled = not Ova.Enabled
-		library.uiopen = Ova.Enabled
-	end	
+	game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(k)
+	    if k == _G.menukey then
+	        Ova.Enabled = not Ova.Enabled
+			library.uiopen = Ova.Enabled
+	    end
+	end)
     
 	library.dragging = false
 	do
