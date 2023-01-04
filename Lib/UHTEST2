@@ -1,5 +1,5 @@
 -- modified stormy.solutions
--- wsg ma ;) btw this isnt the actual script, ITS JUST THE UI LIBRARY, idk why people wanna send me this thinking it is 
+-- wsg ma ;) btw this isnt the actual script, ITS JUST THE UI LIBRARY, idk why people wanna send me this thinking it is e
 local library = {}
 function library:New(name)
 local Signal = loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Lib/Signal"))()
@@ -736,8 +736,9 @@ end
 					end)
 
 					function Element:SetValue(value)
-							if value == nil then return end
+						if value == nil then return end
 						Element.value = value
+						if Element.value.Text == nil then return end
 						values[tabname][sectorname][tabtext][text] = Element.value
 						TextBox.Text = Element.value.Text
 					end
