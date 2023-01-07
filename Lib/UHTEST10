@@ -1882,7 +1882,7 @@ end
 						values[tabname][sectorname][tabtext][text] = Element.value
 					elseif type == "Slider" then
 
-						tabsize = tabsize + UDIM2(0,0,0,40)
+						tabsize = tabsize + UDIM2(0,0,0,30)
 
 						local Slider = INST("Frame")
 						local TextLabel = INST("TextLabel")
