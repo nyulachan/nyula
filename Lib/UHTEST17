@@ -698,7 +698,7 @@ end
 						end)
 					elseif type == "TextBox" then
 
-					Section.Size = Section.Size + UDIM2(0,0,0,30)
+					Section.Size = Section.Size + UDIM2(0,0,0,100)
 					Element.value = {Text = data.default and data.default.text or ""}
 
 					local Box = INST("Frame")
