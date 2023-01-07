@@ -1044,7 +1044,7 @@ end
 							update()
 						end
 					elseif type == "Toggle" then
-						tabsize = tabsize + UDIM2(0,0,0,10)
+						tabsize = tabsize + UDIM2(0,0,0,19)
 						Element.value = {Toggle = data.default and data.default.Toggle or false}
 
 						local Toggle = INST("Frame")
@@ -1881,8 +1881,7 @@ end
 						end)
 						values[tabname][sectorname][tabtext][text] = Element.value
 					elseif type == "Slider" then
-
-						tabsize = tabsize + UDIM2(0,0,0,25)
+						tabsize = tabsize + UDIM2(0,0,0,30)
 
 						local Slider = INST("Frame")
 						local TextLabel = INST("TextLabel")
