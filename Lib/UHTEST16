@@ -1996,8 +1996,7 @@ end
 							end)
 						end)
 					elseif type == "Button" then
-
-						tabsize = tabsize + UDIM2(0,0,0,24)
+						tabsize = tabsize + UDIM2(0,0,0,30)
 						local Button = INST("Frame")
 						local Button_2 = INST("TextButton")
 						local TextLabel = INST("TextLabel")
@@ -4258,7 +4257,6 @@ end
 						end)
 					end)
 				elseif type == "Button" then
-
 					Section.Size = Section.Size + UDIM2(0,0,0,24)
 					local Button = INST("Frame")
 					local Button_2 = INST("TextButton")
