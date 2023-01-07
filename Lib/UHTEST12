@@ -443,6 +443,7 @@ end
 						end
 					end
 					Section.Size = tabsize
+					Section.AutomaticCanvasSize = "Y"
 					tab1.Visible = true
 					library:Tween(TextButton, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
 				end)
@@ -3805,7 +3806,7 @@ end
 						Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
 					end
 				elseif type == "TextBox" then
-					Section.Size = Section.Size + UDIM2(0,0,0,35)
+					Section.Size = Section.Size + UDIM2(0,0,0,30)
 					Element.value = {Text = data.default and data.default.text or ""}
 
 					local Box = INST("Frame")
