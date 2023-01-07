@@ -1881,7 +1881,7 @@ end
 						end)
 						values[tabname][sectorname][tabtext][text] = Element.value
 					elseif type == "Slider" then
-						tabsize = tabsize + UDIM2(0,0,0,30)
+						tabsize = tabsize + UDIM2(0,0,0,25)
 
 						local Slider = INST("Frame")
 						local TextLabel = INST("TextLabel")
@@ -3804,7 +3804,7 @@ end
 						Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
 					end
 				elseif type == "TextBox" then
-					Section.Size = Section.Size + UDIM2(0,0,0,30)
+					Section.Size = Section.Size + UDIM2(0,0,0,35)
 					Element.value = {Text = data.default and data.default.text or ""}
 
 					local Box = INST("Frame")
