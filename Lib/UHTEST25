@@ -3148,7 +3148,7 @@ end
 						update()
 					end
 				elseif type == "Toggle" then
-					Section.Size = Section.Size + UDIM2(0,0,0,24)
+					Section.Size = Section.Size + UDIM2(0,0,0,19)
 					Element.value = {Toggle = data.default and data.default.Toggle or false}
 
 					local Toggle = INST("Frame")
@@ -3848,7 +3848,7 @@ end
 					end
 
 				elseif type == "Dropdown" then
-					Section.Size = Section.Size + UDIM2(0,0,0,42)
+					Section.Size = Section.Size + UDIM2(0,0,0,48)
 					Element.value = {Dropdown = data.options[1]}
 
 					local Dropdown = INST("Frame")
