@@ -1,4 +1,7 @@
 --[[
+UPD : 2/7/23 
+UPD DSC : REMOVED TOGGLECOLOR CONFIG LOADING DUE TO ISSUES WITH COLOR LOADING
+
 modified stormy.solutions ui lib
 find an example by just looking for stormy.solutions online
 wsg ma ;) btw this isnt the actual script, ITS JUST THE UI LIBRARY, idk why people wanna send me this thinking it is
@@ -1364,6 +1367,7 @@ end
 						end
 						values[tabname][sectorname][tabtext][text] = Element.value
 						function Element:SetValue(value)
+							--[[
 							if not value then return end
 							if value.R then
 								Element.value.Color = value
@@ -1380,6 +1384,7 @@ end
 								Element.value = value
 							end	
 							update()
+							--]]
 						end
 					elseif type == "ToggleTrans" then
 						tabsize = tabsize + UDIM2(0,0,0,16)
@@ -3465,6 +3470,7 @@ end
 					end
 					values[tabname][sectorname][text] = Element.value
 					function Element:SetValue(value)
+						--[[
 						Element.value = value
 						local duplicate = COL3(value.Color.R, value.Color.G, value.Color.B)
 						ColorH, ColorS, ColorV = duplicate:ToHSV()
@@ -3478,6 +3484,7 @@ end
 						update()
 						Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
 						callback(value)
+						--]]
 					end
 				elseif type == "ToggleTrans" then
 					Section.Size = Section.Size + UDIM2(0,0,0,16)
