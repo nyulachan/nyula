@@ -1,3 +1,6 @@
+--[[
+    @gs.cc
+]]
 -- // Variables
 local ws, uis, rs, hs, cas, plrs, stats = game:GetService("Workspace"), game:GetService("UserInputService"), game:GetService("RunService"), game:GetService("HttpService"), game:GetService("ContextActionService"), game:GetService("Players"), game:GetService("Stats")
 --
@@ -57,9 +60,9 @@ local sections = {}
 -- Theme Variables
 --local themes = {}
 local theme = {
-    accent = Color3.fromRGB(189, 182, 240),
+    accent = Color3.fromRGB(55, 175, 225),
     lightcontrast = Color3.fromRGB(30, 30, 30),
-    darkcontrast = Color3.fromRGB(25, 25, 25),
+    darkcontrast = Color3.fromRGB(20, 20, 20),
     outline = Color3.fromRGB(0, 0, 0),
     inline = Color3.fromRGB(50, 50, 50),
     textcolor = Color3.fromRGB(255, 255, 255),
@@ -69,19 +72,6 @@ local theme = {
     font = 2,
     textsize = 13
 }
-function library:UpdateColor(ColorType, ColorValue)
-    local ColorType = ColorType:lower()
-    --
-    theme[ColorType] = ColorValue
-    --
-    for Index, Value in pairs(library.colors) do
-        for Index2, Value2 in pairs(Value) do
-            if Value2 == ColorType then
-                Index[Index2] = theme[Value2]
-            end
-        end
-    end
-end
 -- // utility Functions
 do
     function utility:Size(xScale,xOffset,yScale,yOffset,instance)
