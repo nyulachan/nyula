@@ -1,13 +1,12 @@
 --[[
-UPD : 2/7/23 
-UPD DSC : REMOVED TOGGLECOLOR CONFIG LOADING DUE TO ISSUES WITH COLOR LOADING
-
-lmao github hurry up blud it been 30 mins an u still havent updated this loadstring bro
+UPD : 2/26/23 12:53AM EST
+UPD DSC : FIXED MOST OF CONFIG LOADING + ADDED OUTLINE
 
 modified stormy.solutions ui lib
 find an example by just looking for stormy.solutions online
 wsg ma ;) btw this isnt the actual script, ITS JUST THE UI LIBRARY, idk why people wanna send me this thinking it is
 --]]
+getgenv().values = {}
 local library = {}
 function library:New(name)
 local Signal = loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Lib/Signal"))()
@@ -69,13 +68,18 @@ end
 function tbltorgb(tbl)
 	return COL3(tbl.R, tbl.G, tbl.B)
 end
-
-
-function library:deepCopy(original)
+function String2Clr(text)
+    local wdh = string.split(text)
+    return Color3.fromRGB(wdh[1],wdh[2],wdh[3])
+end
+function clrtoRGB(RGB)
+    return Color3.new(RGB.R*255,RGB.G*255,RGB.B*255)
+end
+local function deepCopy(original)
 	local copy = {}
 	for k, v in pairs(original) do
 		if type(v) == "table" then
-			v = library:deepCopy(v)
+			v = deepCopy(v)
 		end
 		copy[k] = v
 	end
@@ -88,12 +92,41 @@ function library:ConfigFix(cfg)
 			for i,Elements in pairs(Sectors) do
 				if Elements.Color ~= nil then
 					local a = Elements.Color
-					Elements.Color = tbltorgb(a)
+					Elements.Color = String2Clr(a)
 				end
 			end
 		end
 	end
 	return copy
+end
+function library:SaveConfig(cfg)
+	local copy = deepCopy(values)
+	for i,Tabs in pairs(copy) do
+		for i,Sectors in pairs(Tabs) do
+			for i,Elements in pairs(Sectors) do
+				if Elements.Color ~= nil then
+				    local a = Elements.Color
+				    Elements.Color = tostring(a)
+				elseif type(Elements) == "table" then
+				    for i,v in pairs(Elements) do
+				        if type(v) == "table" then
+				            local a = v.Color
+				            v.Color = tostring(v.Color)
+				            v.Toggle = v.Toggle
+				            v.FixedByNyula = true -- holy shit this took a while to do
+				            v.Text = v.Text
+				            --[[
+				            for n,m in pairs(v) do
+				                print(n,m)
+				            end
+				            --]]
+				        end
+				    end
+				end
+			end
+		end
+	end
+	writefile(cfglocation..cfg..".txt", game:GetService("HttpService"):JSONEncode(copy))
 end
 function library:OnlineConfigFix(cfg)
 	local copy = cfg
@@ -109,20 +142,6 @@ function library:OnlineConfigFix(cfg)
 	end
 	return copy
 end
-function library:SaveConfig(cfg)
-	local copy = library:deepCopy(values)
-	for i,Tabs in pairs(copy) do
-		for i,Sectors in pairs(Tabs) do
-			for i,Elements in pairs(Sectors) do
-				if Elements.Color ~= nil then
-					Elements.Color = {R=Elements.Color.R, G=Elements.Color.G, B=Elements.Color.B}
-				end
-			end
-		end
-	end
-	writefile(cfglocation..cfg..".txt", game:GetService("HttpService"):JSONEncode(copy))
-end
-
 function library:OnlineDeepCopy(original)
 	local copy = {}
 	for k, v in pairs(original) do
@@ -173,7 +192,9 @@ end
 	Menu.Position = UDIM2(0.5, -300, 0.5, -300)
 	Menu.Size = UDIM2(0, 600, 0, 610)
 	Menu.Image = "http://www.roblox.com/asset/?id=7265208537"
-	Menu.BorderSizePixel = 0
+	Menu.BorderSizePixel = 2.5
+	Menu.BorderColor3 = Color3.fromRGB(119,0,255)
+	-- ondihpar
 
 	library.uiopen = true
 	
@@ -706,7 +727,7 @@ end
 						end)
 					elseif type == "TextBox" then
 					tabsize = tabsize + UDIM2(0,0,0,12)
-					Element.value = {Text = data.default and data.default.text or ""}
+					Element.value = {Text = data.default and data.default.Text or ""}
 
 					local Box = INST("Frame")
 					local TextBox = INST("TextBox")
@@ -1124,8 +1145,8 @@ end
 						end
 						--callback(data.default and data.default.Toggle or false)
 					elseif type == "ToggleColor" then
-						tabsize = tabsize + UDIM2(0,0,0,16)
-						Element.value = {Toggle = data.default and data.default.Toggle or false, Color = data.default and data.default.Color or COL3RGB(255,255,255)}
+						tabsize = tabsize + UDim2.new(0,0,0,16)
+						Element.value = {Toggle = data.default and data.default.Toggle or false, Color = data.default and data.default.Color or Color3.fromRGB(255,255,255)}
 
 						local Toggle = INST("Frame")
 						local Button = INST("TextButton")
@@ -1169,11 +1190,11 @@ end
 
 						local function update()
 							if Element.value.Toggle then
-								tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(119, 0, 255)})
-								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(255, 255, 255)})
+								tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(119, 0, 255)})
+								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = Color3.fromRGB(255, 255, 255)})
 							else
-								tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = COL3RGB(24,24,24)})
-								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = COL3RGB(200, 200, 200)})
+								tween = library:Tween(Color, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {BackgroundColor3 = Color3.fromRGB(24, 24, 24)})
+								library:Tween(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = Color3.fromRGB(200, 200, 200)})
 							end
 							values[tabname][sectorname][tabtext][text] = Element.value
 							callback(Element.value)
@@ -1309,26 +1330,26 @@ end
 						end)
 
 						local function updateColor()
-							local ColorX = (CLAMP(mouse.X - Colorpick.AbsolutePosition.X, 0, Colorpick.AbsoluteSize.X)/Colorpick.AbsoluteSize.X)
-							local ColorY = (CLAMP(mouse.Y - Colorpick.AbsolutePosition.Y, 0, Colorpick.AbsoluteSize.Y)/Colorpick.AbsoluteSize.Y)
-							ColorDrag.Position = UDIM2(ColorX, 0, ColorY, 0)
+							local ColorX = (math.clamp(mouse.X - Colorpick.AbsolutePosition.X, 0, Colorpick.AbsoluteSize.X)/Colorpick.AbsoluteSize.X)
+							local ColorY = (math.clamp(mouse.Y - Colorpick.AbsolutePosition.Y, 0, Colorpick.AbsoluteSize.Y)/Colorpick.AbsoluteSize.Y)
+							ColorDrag.Position = UDim2.new(ColorX, 0, ColorY, 0)
 							ColorS = 1-ColorX
 							ColorV = 1-ColorY
-							Colorpick.ImageColor3 = COL3HSV(ColorH, 1, 1)
-							ColorP.BackgroundColor3 = COL3HSV(ColorH, ColorS, ColorV)
+							Colorpick.ImageColor3 = Color3.fromHSV(ColorH, 1, 1)
+							ColorP.BackgroundColor3 = Color3.fromHSV(ColorH, ColorS, ColorV)
 							values[tabname][sectorname][tabtext][text] = Element.value
-							Element.value.Color = COL3HSV(ColorH, ColorS, ColorV)
+							Element.value.Color = Color3.fromHSV(ColorH, ColorS, ColorV)
 							callback(Element.value)
 						end
 						local function updateHue()
-							local y = CLAMP(mouse.Y - Huepick.AbsolutePosition.Y, 0, 148)
-							Huedrag.Position = UDIM2(0, 0, 0, y)
+							local y = math.clamp(mouse.Y - Huepick.AbsolutePosition.Y, 0, 148)
+							Huedrag.Position = UDim2.new(0, 0, 0, y)
 							hue = y/148
 							ColorH = 1-hue
-							Colorpick.ImageColor3 = COL3HSV(ColorH, 1, 1)
-							ColorP.BackgroundColor3 = COL3HSV(ColorH, ColorS, ColorV)
+							Colorpick.ImageColor3 = Color3.fromHSV(ColorH, 1, 1)
+							ColorP.BackgroundColor3 = Color3.fromHSV(ColorH, ColorS, ColorV)
 							values[tabname][sectorname][tabtext][text] = Element.value
-							Element.value.Color = COL3HSV(ColorH, ColorS, ColorV)
+							Element.value.Color = Color3.fromHSV(ColorH, ColorS, ColorV)
 							callback(Element.value)
 						end
 						Colorpick.MouseButton1Down:Connect(function()
@@ -1357,7 +1378,7 @@ end
 								end
 							end)
 						end)
-
+ 
 						Button.MouseButton1Down:Connect(function()
 							Element.value.Toggle = not Element.value.Toggle
 							update()
@@ -1368,25 +1389,31 @@ end
 							update()
 						end
 						values[tabname][sectorname][tabtext][text] = Element.value
+						--print(Element.value.Color)
+						--print(values[tabname][sectorname][tabtext][text].Color)
 						function Element:SetValue(value)
-							--[[
-							if not value then return end
-							if value.R then
-								Element.value.Color = value
-								local duplicate = COL3(value.R, value.G, value.B)
-								ColorH, ColorS, ColorV = duplicate:ToHSV()
-								ColorH = CLAMP(ColorH,0,1)
-								ColorS = CLAMP(ColorS,0,1)
-								ColorV = CLAMP(ColorV,0,1)
-								ColorDrag.Position = UDIM2(1-ColorS,0,1-ColorV,0)
-								Colorpick.ImageColor3 = COL3HSV(ColorH, 1, 1)
-								ColorP.BackgroundColor3 = COL3HSV(ColorH, ColorS, ColorV)
-								Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
-							else
-								Element.value = value
-							end	
+						    if typeof(value) == "table" then -- table is good
+						        local dangman1 = String2Clr(value.Color)
+						        local dangman2 = clrtoRGB(dangman1)
+						        value.Color = dangman2
+						    elseif typeof(value) == "Color3" then -- sum wrong with a toggle
+						        local wthbro = value 
+						        value = {}
+						        value.Color = wthbro
+						        value.Toggle = false
+						    end
+							Element.value = value
+							local duplicate = Color3.new(value.Color.R, value.Color.G, value.Color.B)
+							ColorH, ColorS, ColorV = duplicate:ToHSV()
+							ColorH = math.clamp(ColorH,0,1)
+							ColorS = math.clamp(ColorS,0,1)
+							ColorV = math.clamp(ColorV,0,1)
+ 
+							ColorDrag.Position = UDim2.new(1-ColorS,0,1-ColorV,0)
+							Colorpick.ImageColor3 = Color3.fromHSV(ColorH, 1, 1)
+							ColorP.BackgroundColor3 = Color3.fromHSV(ColorH, ColorS, ColorV)
 							update()
-							--]]
+							Huedrag.Position = UDim2.new(0, 0, 1-ColorH, -1)
 						end
 					elseif type == "ToggleTrans" then
 						tabsize = tabsize + UDIM2(0,0,0,16)
@@ -1693,6 +1720,8 @@ end
 						end
 						values[tabname][sectorname][tabtext][text] = Element.value
 						function Element:SetValue(value)
+						    -- DONT FIX THIS ITS LOWK USELESS (NOT RLLY BUT YK)
+						    --[[
 							Element.value = value
 							local duplicate = COL3(value.Color.R, value.Color.G, value.Color.B)
 							ColorH, ColorS, ColorV = duplicate:ToHSV()
@@ -1705,6 +1734,7 @@ end
 							ColorP.BackgroundColor3 = COL3HSV(ColorH, ColorS, ColorV)
 							update()
 							Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
+							--]]
 						end
 					elseif type == "Dropdown" then
 						tabsize = tabsize + UDIM2(0,0,0,42)
@@ -2056,8 +2086,9 @@ end
 					end
 					
 					ConfigLoad:Connect(function(cfg)
+					    -- possibly broken one
 						local fix = library:ConfigFix(cfg)
-						if fix[tabname][sectorname][tabtext][text] ~= nil then
+						if fix and fix[tabname] and fix[tabname][sectorname] and fix[tabname][sectorname][tabtext] and fix[tabname][sectorname][tabtext][text] ~= nil then
 							Element:SetValue(fix[tabname][sectorname][tabtext][text])
 						end
 					end)
@@ -3472,7 +3503,10 @@ end
 					end
 					values[tabname][sectorname][text] = Element.value
 					function Element:SetValue(value)
-						--[[
+					    -- FIX THIS NOW
+					    local dangman1 = String2Clr(value.Color)
+					    local dangman2 = clrtoRGB(dangman1)
+					    value.Color = dangman2
 						Element.value = value
 						local duplicate = COL3(value.Color.R, value.Color.G, value.Color.B)
 						ColorH, ColorS, ColorV = duplicate:ToHSV()
@@ -3486,7 +3520,6 @@ end
 						update()
 						Huedrag.Position = UDIM2(0, 0, 1-ColorH, -1)
 						callback(value)
-						--]]
 					end
 				elseif type == "ToggleTrans" then
 					Section.Size = Section.Size + UDIM2(0,0,0,16)
@@ -3995,6 +4028,12 @@ end
 					            v:Destroy()
 					        end
 					    end
+					    
+					    data.options = {}
+					    for i,v in pairs(mkan:GetChildren()) do
+					        table.insert(data.options,v.Name)
+					    end
+					    
 					    local num = #data.options
 					    if num > 5 then
 					        mkan.Size = UDIM2(1, 0, 0, 85)
@@ -4002,7 +4041,6 @@ end
 					        mkan.Size = UDIM2(1, 0, 0, 17*num)
 					    end
 					end
-					
 					function Element:Update(droptext)
 					    do
 					        for i,v in pairs(mkan:GetChildren()) do
@@ -4063,6 +4101,10 @@ end
 							end)
 
 							first = false
+							data.options = {}
+					        for i,v in pairs(mkan:GetChildren()) do
+					            table.insert(data.options,v.Name)
+					        end
 						end
 					end
 
@@ -4072,7 +4114,11 @@ end
 						values[tabname][sectorname][text] = Element.value
 						callback(val)
 					end
-
+					
+					function Element:GetList()
+					    return data.options
+					end
+					
 					ImageLabel.Parent = Button
 					ImageLabel.BackgroundColor3 = COL3RGB(255, 255, 255)
 					ImageLabel.BackgroundTransparency = 1.000
