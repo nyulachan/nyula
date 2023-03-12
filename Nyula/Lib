@@ -726,7 +726,7 @@ end
 							end
 						end)
 					elseif type == "TextBox" then
-					tabsize = tabsize + UDIM2(0,0,0,35)
+					tabsize = tabsize + UDIM2(0,0,0,29)
 					Element.value = {Text = data.default and data.default.Text or ""}
 
 					local Box = INST("Frame")
