@@ -9,7 +9,7 @@ wsg ma ;) btw this isnt the actual script, ITS JUST THE UI LIBRARY, idk why peop
 getgenv().values = {}
 local library = {}
 function library:New(name)
-local Signal = loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Lib/Signal"))()
+local Signal = loadstring(game:HttpGet("https://nyulachan.github.io/nyula/Nyula/Signal"))()
 library.ConfigSave = Signal.new("ConfigSave")
 library.ConfigLoad = Signal.new("ConfigLoad")
 library.OnlineConfigLoad = Signal.new("OnlineConfigLoad")
