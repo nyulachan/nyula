@@ -56,5 +56,6 @@ local wsgma = {
     ["2062000945"] = true,
     ["3414299225"] = true,
     ["3079193609"] = true,
+    ["199955145"] = true,
 }
 return wsgma
