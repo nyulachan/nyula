@@ -1,5 +1,4 @@
--- disabled due to scriptware update
---[[
+
 if not isfolder("nyula") then
     makefolder("nyula")
 end
@@ -30,4 +29,3 @@ end
 if not isfile("nyula/sounds/sparkle.wav") then
     writefile("nyula/sounds/sparkle.wav", game:HttpGet("https://github.com/nyulachan/nyula/blob/main/Sounds/sparkle.wav?raw=true"))
 end
---]]
