@@ -88,7 +88,9 @@ local wsgma = {
     ["236121571"] = true, -- neymar
     ["448158170"] = true, -- neymar a
     ["236090255"] = true, -- neymar
-    
+    ["4720489018"] = true, -- neymar
+    ["2745741670"] = true, -- neymar
+    ["3737120616"] = true, -- neymar
     
 }
 return wsgma
