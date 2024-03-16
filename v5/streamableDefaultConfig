@@ -1,22 +1,3 @@
---[[    FOR CONTROLLER KEYBIND
-        "ButtonX"
-        "ButtonY"
-        "ButtonA"
-        "ButtonB"
-        "ButtonR1"
-        "ButtonL1"
-        "ButtonR2"
-        "ButtonL2"
-        "ButtonR3"
-        "ButtonL3"
-        "ButtonStart"
-        "ButtonSelect"
-        "DPadLeft"
-        "DPadRight"
-        "DPadUp"
-        "DPadDown"
-]]
-
 _G.Aiming = {
     Key = "E", -- Capital Letters Only 
     Aiming = "Namecall", -- "Namecall", "Index", "OldNyula" -- OldNyula is an FPS killer
@@ -191,6 +172,7 @@ _G.Aiming = {
     },
     Orbit = {
         Toggle = false,
+        Mode = "Connect", -- "Disconnect" or "Connect"
         DistanceLimiter = false, -- true for hood modded
         DistanceLimit = 40, -- 30-50 for Hood Modded
         Speed = 8,
