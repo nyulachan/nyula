@@ -1,0 +1,199 @@
+_G.Aiming = {
+    Key = "E", -- Capital Letters Only 
+    Aiming = "Namecall", -- "Namecall", "Index", "OldNyula" -- OldNyula is an FPS killer
+    Mode = "Toggle", -- "Toggle" or "Hold" or "Always"
+    ["Face-Target"] = false, -- Faces the person you're locked onto (If you use with macro it'll macro for you)
+    Notifs = false, -- Uses normal roblox notifications in the bottom right
+    Chat = false, -- "Locked Onto: USERNAME" | "Unlocked!"
+    View = false, -- Views when you lock on and unlock
+    SelfLockOn = false,
+    Camlock = {
+        Enabled = false,
+
+        OnlyWhenInFov = false,
+        OnlyWhenVisible = false,
+
+        Parts = {"HumanoidRootPart"}, -- "Head", "HumanoidRootPart", "LowerTorso", {"Head","HumanoidRootPart","LowerTorso"}, "All", {"All"}
+
+        Smoothing = "New", -- "New" or "Classic" or "Off" <- Off IS THE MOST BLATANT, Classic Doesn't work on UWP
+        Smoothness = 0.85,
+
+        Prediction = 0.12654, -- Linked up with auto pred
+        AutoPred = false,
+
+        SeperatePrediction = false,
+        HorizontalPrediction = 0.12643, -- Linked up with auto pred
+        VerticalPrediction = 0.06, -- Not linked up with auto pred
+
+        JumpOffset = false,
+        JumpOffsetVal = 0, -- Negative for Down | Positive for Up
+
+        Shake = {
+            On = false,
+            LeftRight = 0,
+            UpDown = 0,
+            Division = 1, -- keep at 1 or above
+        },
+        
+        FOV = {
+            Toggle = false,
+            Color = Color3.fromRGB(119,0,255),
+            Size = 100,
+            Thickness = 2,
+            Filled = false,
+            Transparency = 1,
+            Rainbow = false,
+        },
+    },
+    SilentAim = { -- Silent Aim is always better when using desync
+        Toggle = false, -- Entire Silent Aim doesn't load if not being used
+        OnlyWhenInFov = false,
+        OnlyWhenVisible = false,
+        Parts = {"HumanoidRootPart"},
+
+        Prediction = 0.13443, -- Linked up with auto pred
+        AutoPred = false,
+        
+        SeperatePrediction = false, -- New In V5
+        HorizontalPrediction = 0.12643, -- Linked up with auto pred -- New In V5
+        VerticalPrediction = 0.06, -- Not linked up with auto pred -- New In V5
+
+        AutoPred = false,
+        Hitchance=100,
+
+        JumpOffset = false,
+        JumpOffsetVal = 0, -- Negative for Down | Positive for Up
+        
+        Shake = {
+            On = false,
+            LeftRight = 0,
+            UpDown = 0,
+            Division = 1, -- keep at 1 or above
+        },
+
+        FOV = {
+            Toggle = false,
+            Color = Color3.fromRGB(119,0,255),
+            Size = 100,
+            Thickness = 2,
+            Filled = false,
+            Transparency = 1,
+            Rainbow = false,
+        },
+    },
+    Resolvers = {
+        Resolver = "Off", -- "Off", "V1", "V2","Movement", "Movement V2", MUST BE SET TO "Off" IF NOT USING A RESOLVER OR THERE WILL BE NO PREDICTION
+        ["V1-Delay"] = 0.085,
+        ["V2-Smoothing"] = 8,
+        ["Movement-V2-Smoothing"] = 8, -- New In V5
+        Aimpart = "HumanoidRootPart",
+        ["Anti-Sky"] = {
+            On = false,
+            Method = "HighestPoint", -- "Torso", "HighestPoint" -- New In V5
+        },
+        ["Anti-UnderGround"] = {
+            On = false,
+            Method = "LowestPoint", -- "Torso", "LowestPoint" -- New In V5
+        },
+        AutoResolver = {
+            On = false,
+            ResolverPriority = "V2", -- "V1" "V2" Doesn't use movement yet
+            MaxHorizontal = 35,
+            MaxVertical = 50,
+            CheckStanding = false,
+        },
+    },
+    Onshot = {
+        Visuals = {
+            Toggle = false,
+            Color = Color3.fromRGB(119,0,255),
+            Material = "ForceField",
+            Confetti = false,
+            Life = 1,
+            Particles = {
+                Enabled = false,
+                Name = "Orbitals", -- "Orbitals" or "Lightning"
+            }
+        },
+        Sound = {
+            Toggle = false,
+            ID = 5447626464, -- String for Path, Number for Roblox ID
+        },
+    },
+    Selection = {
+        ["Check-For-Part"] = "HumanoidRootPart",
+        FOV = {
+            Toggle = false,
+            Color = Color3.fromRGB(119,0,255),
+            Size = 100,
+            Thickness = 2,
+            Filled = false,
+            Transparency = 1,
+            Rainbow = false,
+        },
+        VisibilityCheck = false,
+        DownCheck = false,
+        DistancePriority = false,
+    },
+    Visuals = {
+        Dot = { -- SilentAim Only
+            Toggle = false,
+            Color = Color3.fromRGB(119,0,255),
+            Rainbow = false,
+        },
+        Tracer = {
+            Toggle = false,
+            Color = Color3.fromRGB(119,0,255),
+            Rainbow = false,
+        },
+        Highlight = {
+            Toggle = false,
+            Color = Color3.fromRGB(119,0,255),
+            Rainbow = false,
+        },
+        PredictionLine = { -- SilentAim Only
+            Toggle = false,
+            Color = Color3.fromRGB(119,0,255),
+            Rainbow = false,
+            Width = 0.2,
+            Material = "ForceField",
+        },
+        FakeHitbox = false,
+        TargetInfo = false,
+    },
+    TriggerBot = { 
+        Toggle = false,
+        Delay = 0, -- 1000 in gui = 1 here (1 in gui is 0.001 delay aka 1ms idek if lua goes that low but gl blud)
+        Precision = { -- How close your mouse has to be 
+            X = 1.5,
+            Y = 1.5,
+            Z = 1.5,
+        }
+    },
+    Orbit = {
+        Toggle = false,
+        Mode = "Connect", -- "Disconnect" or "Connect"
+        DistanceLimiter = false, -- true for hood modded
+        DistanceLimit = 40, -- 30-50 for Hood Modded
+        Speed = 8,
+        Size = 8,
+        Height = 0,
+        Velocity = {
+            Toggle = false,
+            X = 0,
+            Y = 0,
+            Z = 0,
+        },
+    },
+    AntiAimViewer = false, -- Uses Silent Aim
+    GunTypeFov={
+        Toggle = false,
+        ["Default"] = 100,
+        ["Shotguns"] = 100,
+        ["Pistols"] = 100,
+        ["SMGs"] = 100,
+        ["ARs"] = 100,
+        ["LMGs"] = 100,
+    },
+    HoodDuels = false,
+}
