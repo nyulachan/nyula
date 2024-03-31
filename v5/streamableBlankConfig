@@ -1,5 +1,5 @@
 _G.Aiming = {
-    Key = "E", -- Capital Letters Only 
+    Key = "World91", -- Capital Letters Only 
     Aiming = "Namecall", -- "Namecall", "Index", "OldNyula" -- OldNyula is an FPS killer
     Mode = "Toggle", -- "Toggle" or "Hold" or "Always"
     ["Face-Target"] = false, -- Faces the person you're locked onto (If you use with macro it'll macro for you)
@@ -15,15 +15,15 @@ _G.Aiming = {
 
         Parts = {"HumanoidRootPart"}, -- "Head", "HumanoidRootPart", "LowerTorso", {"Head","HumanoidRootPart","LowerTorso"}, "All", {"All"}
 
-        Smoothing = "New", -- "New" or "Classic" or "Off" <- Off IS THE MOST BLATANT, Classic Doesn't work on UWP
-        Smoothness = 0.85,
+        Smoothing = "Off", -- "New" or "Classic" or "Off" <- Off IS THE MOST BLATANT, Classic Doesn't work on UWP
+        Smoothness = 0.75,
 
-        Prediction = 0.12654, -- Linked up with auto pred
+        Prediction = 0.128431, -- Linked up with auto pred
         AutoPred = false,
 
         SeperatePrediction = false,
-        HorizontalPrediction = 0.12643, -- Linked up with auto pred
-        VerticalPrediction = 0.06, -- Not linked up with auto pred
+        HorizontalPrediction = 0.128431, -- Linked up with auto pred
+        VerticalPrediction = 0.02, -- Not linked up with auto pred
 
         JumpOffset = false,
         JumpOffsetVal = 0, -- Negative for Down | Positive for Up
@@ -32,7 +32,7 @@ _G.Aiming = {
             On = false,
             LeftRight = 0,
             UpDown = 0,
-            Division = 1, -- keep at 1 or above
+            Division = 10, -- keep at 1 or above
         },
         
         FOV = {
@@ -51,12 +51,12 @@ _G.Aiming = {
         OnlyWhenVisible = false,
         Parts = {"HumanoidRootPart"},
 
-        Prediction = 0.13443, -- Linked up with auto pred
+        Prediction = 0.128431, -- Linked up with auto pred
         AutoPred = false,
         
         SeperatePrediction = false, -- New In V5
-        HorizontalPrediction = 0.12643, -- Linked up with auto pred -- New In V5
-        VerticalPrediction = 0.06, -- Not linked up with auto pred -- New In V5
+        HorizontalPrediction = 0.128431, -- Linked up with auto pred -- New In V5
+        VerticalPrediction = 0.02, -- Not linked up with auto pred -- New In V5
 
         AutoPred = false,
         Hitchance=100,
@@ -68,7 +68,7 @@ _G.Aiming = {
             On = false,
             LeftRight = 0,
             UpDown = 0,
-            Division = 1, -- keep at 1 or above
+            Division = 10, -- keep at 1 or above
         },
 
         FOV = {
