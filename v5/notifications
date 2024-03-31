@@ -1,0 +1,64 @@
+-- made in like 2 mins using roblox studio 
+
+_G.nyula = _G.nyula or {}
+
+if _G.nyula.notify then return end
+local gimmemore = Instance.new("ScreenGui")
+local notifsholder = Instance.new("Frame")
+local UIListLayout = Instance.new("UIListLayout")
+gimmemore.Name = "gimmemore"
+gimmemore.Parent = game.CoreGui
+notifsholder.Parent = gimmemore
+notifsholder.BackgroundColor3 = Color3.new(1, 1, 1)
+notifsholder.BackgroundTransparency = 1
+notifsholder.BorderColor3 = Color3.new(0, 0, 0)
+notifsholder.BorderSizePixel = 0
+notifsholder.Position = UDim2.new(0.5, -150, 0, 150)
+notifsholder.Size = UDim2.new(0, 300, 0, 100)
+UIListLayout.Parent = notifsholder
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Bottom
+UIListLayout.Padding = UDim.new(0, 2)
+local highestnumber = 999999999999999
+function appear(datext,speed)
+    coroutine.wrap(function(datext,speed)
+        repeat 
+            wait() 
+            datext.TextTransparency = datext.TextTransparency - speed
+        until 
+            datext.TextTransparency <= 0
+    end)(datext,speed)
+end
+function disappear(datext,speed)
+    coroutine.wrap(function(datext,speed)
+        repeat 
+            wait() 
+            datext.TextTransparency = datext.TextTransparency + speed
+        until 
+            datext.TextTransparency >= 1
+            datext:Destroy()
+    end)(datext,speed)
+end
+_G.nyula.notify = function(subject,msg,delay)
+    coroutine.wrap(function(subject,msg,delay)
+    local newtext = Instance.new("TextLabel")
+    newtext.Name = tostring(highestnumber)
+    newtext.Parent = notifsholder
+    newtext.BackgroundColor3 = Color3.new(1, 1, 1)
+    newtext.BackgroundTransparency = 1
+    newtext.BorderColor3 = Color3.new(0, 0, 0)
+    newtext.BorderSizePixel = 0
+    newtext.Position = UDim2.new(0.293333322, 0, 0.879999995, 0)
+    newtext.Size = UDim2.new(0, 200, 0, 12)
+    newtext.Font = Enum.Font.GothamMedium
+    newtext.RichText = true
+    newtext.Text = "nyula<font color='#7700ff'>.cc</font>".." > "..subject.." | "..msg
+    newtext.TextColor3 = Color3.new(255, 255, 255)
+    newtext.TextSize = 14
+    newtext.TextTransparency = 1
+    highestnumber = highestnumber-1
+    appear(newtext,0.075)
+    wait(delay)
+    disappear(newtext,0.075)
+    end)(subject,msg,delay)
+end
