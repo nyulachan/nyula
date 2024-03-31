@@ -119,6 +119,7 @@ _G.Aiming = {
             Toggle = false,
             ID = 5447626464, -- String for Path, Number for Roblox ID
         },
+        Notification = true,
     },
     Selection = {
         ["Check-For-Part"] = "HumanoidRootPart",
