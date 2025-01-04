@@ -1,6 +1,6 @@
 --[[
-UPD : 2/26/23 12:53AM EST
-UPD DSC : FIXED MOST OF CONFIG LOADING + ADDED OUTLINE
+UPD : 1/4/24 3:45PM EST
+UPD DSC : AWP.GG Compatability?
 
 modified stormy.solutions ui lib
 find an example by just looking for stormy.solutions online
@@ -959,7 +959,7 @@ end
 									Frame.Visible = not Frame.Visible
 								end
 							end)
-							local Player = game.Players.LocalPlayer
+							local Player = game:GetService("Players").LocalPlayer
 							local Mouse = Player:GetMouse()
 							local InFrame = false
 							Frame.MouseEnter:Connect(function()
@@ -2006,7 +2006,7 @@ end
 						Frame.Size = UDIM2(a,0,1,0)
 						values[tabname][sectorname][tabtext][text] = Element.value
 						local uis = game:GetService("UserInputService")
-						local mouse = game.Players.LocalPlayer:GetMouse()
+						local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 						local val
 						Button.MouseButton1Down:Connect(function()
 							Frame.Size = UDIM2(0, CLAMP(mouse.X - Frame.AbsolutePosition.X, 0, 175), 0, 5)
@@ -3065,7 +3065,7 @@ end
 								Frame.Visible = not Frame.Visible
 							end
 						end)
-						local Player = game.Players.LocalPlayer
+						local Player = game:GetService("Players").LocalPlayer
 						local Mouse = Player:GetMouse()
 						local InFrame = false
 						Frame.MouseEnter:Connect(function()
@@ -4257,7 +4257,7 @@ end
 					Frame.Size = UDIM2(a,0,1,0)
 					values[tabname][sectorname][text] = Element.value
 					local uis = game:GetService("UserInputService")
-					local mouse = game.Players.LocalPlayer:GetMouse()
+					local mouse = game:GetService("Players").LocalPlayer:GetMouse()
 					local val
 					Button.MouseButton1Down:Connect(function()
 						--[[
